@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_url": "https://example.edu/faculty",
+  "fixture": "generic/faculty_directory.html",
+  "records": [
+    {
+      "name": "Jane Doe",
+      "title": "Associate Professor",
+      "department": null,
+      "profile_url": "https://example.edu/people/jane-doe",
+      "lab_url": null,
+      "emails": ["jane.doe@example.edu"],
+      "ambiguous_emails": [],
+      "research_areas": ["Machine Learning"],
+      "external_ids": {}
+    }
+  ]
+}

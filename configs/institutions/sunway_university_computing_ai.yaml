@@ -1,0 +1,90 @@
+schema_version: 1
+config_version: 1
+
+institution:
+  name: Sunway University
+  country: Malaysia
+  region: Asia
+  ror_id: https://ror.org/04mjt7f73
+  homepage_url: https://sunwayuniversity.edu.my
+  official_domains:
+    - sunwayuniversity.edu.my
+    - sunway.edu.my
+  allowed_email_domains:
+    - sunway.edu.my
+    - sunwayuniversity.edu.my
+
+pool_scope:
+  type: multi_unit
+  name: Computing, Artificial Intelligence, Engineering and Technology
+  population: faculty_and_supervisor_candidates
+
+site:
+  template_family: sunway_drupal_staff_v1
+
+crawl:
+  seed_urls:
+    - https://sunwayuniversity.edu.my/staff-profiles
+    - https://sunwayuniversity.edu.my/staff-profiles/school/School%20of%20Computing%20and%20Artificial%20Intelligence
+    - https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles
+    - https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/staff-profiles
+  max_depth: 1
+  max_pages: 40
+  profile_link_limit: 36
+  crawl_delay_seconds: 0.5
+  respect_robots_txt: false
+  allow_serp: false
+  profile_link_text_patterns:
+    - View Profile
+  profile_url_patterns:
+    - /school-of-computing-and-artificial-intelligence/staff-profiles/
+    - /school-of-engineering/staff-profiles/
+    - /faculty-of-engineering-and-technology/staff-profiles/
+  exclude_url_patterns:
+    - /cdn-cgi/
+    - "?"
+
+parsing:
+  preferred_adapters:
+    - jsonld_person
+    - faculty_directory
+    - mailto_profile
+    - generic_html
+
+pi_detection:
+  positive_title_patterns:
+    - Programme Leader of Doctor of Philosophy
+    - Programme Leader of PhD
+    - Principal Investigator
+    - Group Leader
+    - Lab Director
+    - Distinguished Research Professor
+    - Distinguished Professor
+    - Associate Professor
+    - Assistant Professor
+    - Professor
+    - Dean
+    - Deputy Dean
+  negative_title_patterns:
+    - Student
+    - Alumni
+    - Admin
+    - Coordinator
+    - Officer
+    - Assistant Manager
+    - Admissions
+    - Marketing
+    - English Language
+    - Emeritus
+    - Retired
+    - Former
+    - Post-Doctoral
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 5
+  maximum_duplicate_rate: 0.10
+  minimum_profile_url_coverage: 0.70

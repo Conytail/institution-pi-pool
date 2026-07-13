@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "institution_configs": {
+    "columbia_cs.yaml": "generic_faculty_directory_v1",
+    "cornell_cs.yaml": "generic_faculty_directory_v1",
+    "sunway_university_computing_ai.yaml": "sunway_drupal_staff_v1",
+    "university_of_british_columbia_cs.yaml": "generic_faculty_directory_v1",
+    "xian_jiaotong_university_ai.yaml": "xjtu_teacher_directory_v1"
+  },
+  "golden_suites": {
+    "generic_faculty_directory_v1": "generic_faculty_directory_v1.json",
+    "sunway_drupal_staff_v1": "sunway_parser_v1.json",
+    "xjtu_teacher_directory_v1": "xjtu_teacher_directory_v1.json"
+  }
+}

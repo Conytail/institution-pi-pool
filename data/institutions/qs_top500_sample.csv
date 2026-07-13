@@ -1,0 +1,11 @@
+name,country,region,homepage_url,ror_id,qs_rank,qs_year,config_path,source
+University of British Columbia,Canada,North America,https://www.cs.ubc.ca,https://ror.org/03rmrcq20,,,configs/institutions/university_of_british_columbia_cs.yaml,sample_registry
+Cornell University,United States,North America,https://www.cs.cornell.edu,https://ror.org/05bnh6r87,,,configs/institutions/cornell_cs.yaml,sample_registry
+Columbia University,United States,North America,https://www.cs.columbia.edu,https://ror.org/00hj8s172,,,configs/institutions/columbia_cs.yaml,sample_registry
+University of Oxford,United Kingdom,Europe,https://www.ox.ac.uk,https://ror.org/052gg0110,,,,sample_registry
+University of Cambridge,United Kingdom,Europe,https://www.cam.ac.uk,https://ror.org/013meh722,,,,sample_registry
+ETH Zurich,Switzerland,Europe,https://ethz.ch,https://ror.org/05a28rw58,,,,sample_registry
+EPFL,Switzerland,Europe,https://www.epfl.ch,https://ror.org/02s376052,,,,sample_registry
+University of Toronto,Canada,North America,https://www.utoronto.ca,https://ror.org/03dbr7087,,,,sample_registry
+Princeton University,United States,North America,https://www.princeton.edu,https://ror.org/00hx57361,,,,sample_registry
+University of Illinois Urbana-Champaign,United States,North America,https://illinois.edu,https://ror.org/047426m28,,,,sample_registry

@@ -1,0 +1,19 @@
+user_agent: "pi-index-mvp/0.1 (+public academic indexing; set OPENALEX_MAILTO/CROSSREF_MAILTO for contact)"
+timeout_seconds: 20
+max_retries: 2
+backoff_seconds: 1.5
+default_crawl_delay_seconds: 0.5
+respect_robots_txt: true
+common_official_paths:
+  - /people
+  - /people/faculty
+  - /faculty
+  - /staff
+  - /research
+  - /academics
+  - /departments
+  - /directory
+serp_policy:
+  required: false
+  final_evidence_allowed: false
+  use_only_as_discovery_fallback: true

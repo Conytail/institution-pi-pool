@@ -1,0 +1,4 @@
+Prospective PhD applicant interested in machine learning systems, human-AI interaction, robotics, and visual computing.
+Background includes distributed systems, Python, data engineering, and research projects on reliable ML pipelines.
+Target regions: North America and Europe.
+Degree target: PhD in Computer Science.

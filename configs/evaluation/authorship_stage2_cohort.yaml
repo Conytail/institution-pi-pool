@@ -1,0 +1,261 @@
+cohort:
+  id: authorship_stage2_20260712
+  purpose: Cross-institution and cross-domain authorship-weight validation
+  official_pool_only: true
+  target_pi_count: 500
+  minimum_institution_count: 25
+
+institutions:
+  - config_path: configs/institutions/university_of_british_columbia_cs.yaml
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - config_path: configs/institutions/cornell_cs.yaml
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - config_path: configs/institutions/columbia_cs.yaml
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+
+  - slug: stanford_cs
+    name: Stanford University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00f54p054
+    homepage_url: https://www.stanford.edu
+    official_domains: [stanford.edu, cs.stanford.edu]
+    seed_url: https://www.cs.stanford.edu/people/faculty
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - slug: toronto_cs
+    name: University of Toronto
+    country: Canada
+    region: North America
+    ror_id: https://ror.org/03dbr7087
+    homepage_url: https://www.utoronto.ca
+    official_domains: [utoronto.ca, cs.toronto.edu, web.cs.toronto.edu]
+    seed_url: https://web.cs.toronto.edu/people/faculty-directory
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - slug: illinois_cs
+    name: University of Illinois Urbana-Champaign
+    country: United States
+    region: North America
+    ror_id: https://ror.org/047426m28
+    homepage_url: https://illinois.edu
+    official_domains: [illinois.edu, siebelschool.illinois.edu]
+    seed_url: https://siebelschool.illinois.edu/about/people/faculty
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - slug: washington_cs
+    name: University of Washington
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00cvxb145
+    homepage_url: https://www.washington.edu
+    official_domains: [washington.edu, cs.washington.edu]
+    seed_url: https://www.cs.washington.edu/people/faculty
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+  - slug: maryland_cs
+    name: University of Maryland, College Park
+    country: United States
+    region: North America
+    ror_id: https://ror.org/047s2c258
+    homepage_url: https://www.umd.edu
+    official_domains: [umd.edu, cs.umd.edu]
+    seed_url: https://www.cs.umd.edu/people/faculty
+    evaluation_domain: Physical Sciences
+    pool_scope: Computer Science faculty
+
+  - slug: yale_mcdb
+    name: Yale University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/03v76x132
+    homepage_url: https://www.yale.edu
+    official_domains: [yale.edu, mcdb.yale.edu]
+    seed_url: https://mcdb.yale.edu/people/faculty
+    evaluation_domain: Life Sciences
+    pool_scope: Molecular, Cellular and Developmental Biology faculty
+  - slug: duke_biology
+    name: Duke University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00py81415
+    homepage_url: https://www.duke.edu
+    official_domains: [duke.edu, biology.duke.edu]
+    seed_url: https://biology.duke.edu/people/faculty
+    evaluation_domain: Life Sciences
+    pool_scope: Biology faculty
+  - slug: indiana_biology
+    name: Indiana University Bloomington
+    country: United States
+    region: North America
+    ror_id: https://ror.org/02k40bc56
+    homepage_url: https://bloomington.iu.edu
+    official_domains: [iu.edu, indiana.edu, biology.indiana.edu]
+    seed_url: https://biology.indiana.edu/about/faculty/index.html
+    evaluation_domain: Life Sciences
+    pool_scope: Biology faculty
+  - slug: virginia_biology
+    name: University of Virginia
+    country: United States
+    region: North America
+    ror_id: https://ror.org/0153tk833
+    homepage_url: https://www.virginia.edu
+    official_domains: [virginia.edu, bio.as.virginia.edu]
+    seed_url: https://bio.as.virginia.edu/faculty
+    evaluation_domain: Life Sciences
+    pool_scope: Biology faculty
+  - slug: purdue_biology
+    name: Purdue University West Lafayette
+    country: United States
+    region: North America
+    ror_id: https://ror.org/02dqehb95
+    homepage_url: https://www.purdue.edu
+    official_domains: [purdue.edu, bio.purdue.edu]
+    seed_url: https://www.bio.purdue.edu/People/faculty/index.html
+    evaluation_domain: Life Sciences
+    pool_scope: Biological Sciences faculty
+  - slug: ohio_state_eeob
+    name: The Ohio State University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00rs6vg23
+    homepage_url: https://www.osu.edu
+    official_domains: [osu.edu, eeob.osu.edu]
+    seed_url: https://eeob.osu.edu/people
+    evaluation_domain: Life Sciences
+    pool_scope: Evolution, Ecology and Organismal Biology faculty
+
+  - slug: boston_public_health
+    name: Boston University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/05qwgg493
+    homepage_url: https://www.bu.edu
+    official_domains: [bu.edu]
+    seed_url: https://www.bu.edu/sph/about/faculty-staff/
+    evaluation_domain: Health Sciences
+    pool_scope: School of Public Health faculty
+  - slug: drexel_public_health
+    name: Drexel University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/04bdffz58
+    homepage_url: https://drexel.edu
+    official_domains: [drexel.edu]
+    seed_url: https://drexel.edu/dornsife/academics/faculty/
+    evaluation_domain: Health Sciences
+    pool_scope: Dornsife School of Public Health faculty
+  - slug: rochester_public_health
+    name: University of Rochester
+    country: United States
+    region: North America
+    ror_id: https://ror.org/022kthw22
+    homepage_url: https://www.rochester.edu
+    official_domains: [rochester.edu, urmc.rochester.edu]
+    seed_url: https://www.urmc.rochester.edu/public-health-sciences/people/faculty
+    evaluation_domain: Health Sciences
+    pool_scope: Public Health Sciences faculty
+  - slug: simon_fraser_health
+    name: Simon Fraser University
+    country: Canada
+    region: North America
+    ror_id: https://ror.org/0213rcc28
+    homepage_url: https://www.sfu.ca
+    official_domains: [sfu.ca]
+    seed_url: https://www.sfu.ca/fhs/about/people/faculty.html
+    evaluation_domain: Health Sciences
+    pool_scope: Health Sciences faculty
+  - slug: south_carolina_public_health
+    name: University of South Carolina
+    country: United States
+    region: North America
+    ror_id: https://ror.org/02b6qw903
+    homepage_url: https://sc.edu
+    official_domains: [sc.edu]
+    seed_url: https://sc.edu/study/colleges_schools/public_health/faculty-staff/index.php
+    evaluation_domain: Health Sciences
+    pool_scope: Arnold School of Public Health faculty
+  - slug: arizona_public_health
+    name: University of Arizona
+    country: United States
+    region: North America
+    ror_id: https://ror.org/03m2x1q45
+    homepage_url: https://www.arizona.edu
+    official_domains: [arizona.edu, publichealth.arizona.edu]
+    seed_url: https://publichealth.arizona.edu/directory/faculty
+    evaluation_domain: Health Sciences
+    pool_scope: Mel and Enid Zuckerman College of Public Health faculty
+
+  - slug: lse_economics
+    name: London School of Economics and Political Science
+    country: United Kingdom
+    region: Europe
+    ror_id: https://ror.org/0090zs177
+    homepage_url: https://www.lse.ac.uk
+    official_domains: [lse.ac.uk]
+    seed_url: https://www.lse.ac.uk/economics/people/faculty
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: northwestern_economics
+    name: Northwestern University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00m6w7z96
+    homepage_url: https://www.northwestern.edu
+    official_domains: [northwestern.edu, economics.northwestern.edu]
+    seed_url: https://economics.northwestern.edu/people/faculty/
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: georgetown_economics
+    name: Georgetown University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/05vzafd60
+    homepage_url: https://www.georgetown.edu
+    official_domains: [georgetown.edu, econ.georgetown.edu]
+    seed_url: https://econ.georgetown.edu/people/faculty/
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: wisconsin_economics
+    name: University of Wisconsin-Madison
+    country: United States
+    region: North America
+    ror_id: https://ror.org/01y2jtd41
+    homepage_url: https://www.wisc.edu
+    official_domains: [wisc.edu, econ.wisc.edu]
+    seed_url: https://econ.wisc.edu/faculty/
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: penn_economics
+    name: University of Pennsylvania
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00b30xv10
+    homepage_url: https://www.upenn.edu
+    official_domains: [upenn.edu, economics.sas.upenn.edu]
+    seed_url: https://economics.sas.upenn.edu/people/faculty
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: notre_dame_economics
+    name: University of Notre Dame
+    country: United States
+    region: North America
+    ror_id: https://ror.org/00mkhxb43
+    homepage_url: https://www.nd.edu
+    official_domains: [nd.edu, economics.nd.edu]
+    seed_url: https://economics.nd.edu/people/faculty/
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty
+  - slug: emory_economics
+    name: Emory University
+    country: United States
+    region: North America
+    ror_id: https://ror.org/03czfpz43
+    homepage_url: https://www.emory.edu
+    official_domains: [emory.edu, economics.emory.edu]
+    seed_url: https://economics.emory.edu/people/faculty/index.html
+    evaluation_domain: Social Sciences
+    pool_scope: Economics faculty

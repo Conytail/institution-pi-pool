@@ -1,0 +1,63 @@
+schema_version: 1
+config_version: 1
+
+institution:
+  name: University of British Columbia
+  country: Canada
+  region: North America
+  ror_id: https://ror.org/03rmrcq20
+  homepage_url: https://www.cs.ubc.ca
+  official_domains:
+    - cs.ubc.ca
+    - ubc.ca
+  allowed_email_domains:
+    - cs.ubc.ca
+    - ubc.ca
+
+pool_scope:
+  type: department
+  name: Computer Science faculty
+  population: faculty_and_supervisor_candidates
+
+site:
+  template_family: generic_faculty_directory_v1
+
+crawl:
+  seed_urls:
+    - https://www.cs.ubc.ca/people/faculty
+  max_depth: 1
+  max_pages: 6
+  crawl_delay_seconds: 0.5
+
+parsing:
+  preferred_adapters:
+    - jsonld_person
+    - faculty_directory
+    - mailto_profile
+    - generic_html
+
+pi_detection:
+  positive_title_patterns:
+    - Professor
+    - Associate Professor
+    - Assistant Professor
+    - Professor of Teaching
+    - Associate Professor of Teaching
+    - Group Leader
+    - Principal Investigator
+    - Lab Director
+  negative_title_patterns:
+    - Emeritus
+    - Retired
+    - Former
+    - Student
+    - Alumni
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 5
+  maximum_duplicate_rate: 0.10
+  minimum_profile_url_coverage: 0.70

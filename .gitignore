@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.coverage
+.env
+.env.*
+node_modules/
+outputs/
+snapshots/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local applicant inputs may contain personal data. Keep only anonymized fixtures.
+examples/applicant_cv_*.txt
+examples/applicant_proposal_*.txt
+
+# Production pool snapshots are runtime data. Keep only their contract documentation.
+data/pools/*/
+!data/pools/README.md

@@ -1,0 +1,62 @@
+schema_version: 1
+config_version: 1
+
+institution:
+  name: Columbia University
+  country: United States
+  region: North America
+  ror_id: https://ror.org/00hj8s172
+  homepage_url: https://www.cs.columbia.edu
+  official_domains:
+    - cs.columbia.edu
+    - columbia.edu
+  allowed_email_domains:
+    - cs.columbia.edu
+    - columbia.edu
+
+pool_scope:
+  type: department
+  name: Computer Science faculty
+  population: faculty_and_supervisor_candidates
+
+site:
+  template_family: generic_faculty_directory_v1
+
+crawl:
+  seed_urls:
+    - https://www.cs.columbia.edu/people/faculty/
+  max_depth: 1
+  max_pages: 6
+  crawl_delay_seconds: 0.5
+
+parsing:
+  preferred_adapters:
+    - jsonld_person
+    - faculty_directory
+    - mailto_profile
+    - generic_html
+
+pi_detection:
+  positive_title_patterns:
+    - Professor
+    - Associate Professor
+    - Assistant Professor
+    - Lecturer
+    - Senior Lecturer
+    - Principal Investigator
+  negative_title_patterns:
+    - Emeritus
+    - Retired
+    - Former
+    - Student
+    - Alumni
+    - In Memoriam
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 5
+  maximum_duplicate_rate: 0.10
+  minimum_profile_url_coverage: 0.70

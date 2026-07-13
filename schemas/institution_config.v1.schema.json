@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pi-pool.local/schemas/institution_config.v1.schema.json",
+  "title": "Institution Adapter Config v1",
+  "type": "object",
+  "required": [
+    "schema_version", "config_version", "institution", "pool_scope", "site",
+    "crawl", "parsing", "pi_detection", "refresh", "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "config_version": {"type": "integer", "minimum": 1},
+    "institution": {
+      "type": "object",
+      "required": ["name", "official_domains"],
+      "anyOf": [
+        {"required": ["ror_id"], "properties": {"ror_id": {"type": "string", "minLength": 1}}},
+        {"required": ["homepage_url"], "properties": {"homepage_url": {"type": "string", "minLength": 1}}}
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string"}},
+        "country": {"type": ["string", "null"]},
+        "region": {"type": ["string", "null"]},
+        "ror_id": {"type": ["string", "null"]},
+        "homepage_url": {"type": ["string", "null"]},
+        "official_domains": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "allowed_email_domains": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "pool_scope": {
+      "type": "object",
+      "required": ["type", "name"],
+      "properties": {
+        "type": {"enum": ["institution", "faculty", "school", "department", "multi_unit"]},
+        "name": {"type": "string", "minLength": 1},
+        "population": {"type": "string"}
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": ["template_family"],
+      "properties": {"template_family": {"type": "string", "minLength": 1}}
+    },
+    "crawl": {
+      "type": "object",
+      "required": ["seed_urls", "max_depth", "max_pages"],
+      "properties": {
+        "seed_urls": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "max_depth": {"type": "integer", "minimum": 0},
+        "max_pages": {"type": "integer", "minimum": 0}
+      }
+    },
+    "parsing": {
+      "type": "object",
+      "required": ["preferred_adapters"],
+      "properties": {
+        "preferred_adapters": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "pi_detection": {
+      "type": "object",
+      "required": ["positive_title_patterns", "negative_title_patterns"],
+      "properties": {
+        "positive_title_patterns": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "negative_title_patterns": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "refresh": {
+      "type": "object",
+      "required": ["directory_interval_days", "profile_interval_days"],
+      "properties": {
+        "directory_interval_days": {"type": "integer", "minimum": 1},
+        "profile_interval_days": {"type": "integer", "minimum": 1}
+      }
+    },
+    "quality_gate": {
+      "type": "object",
+      "required": ["minimum_people", "maximum_duplicate_rate", "minimum_profile_url_coverage"],
+      "properties": {
+        "minimum_people": {"type": "integer", "minimum": 1},
+        "maximum_duplicate_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_profile_url_coverage": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

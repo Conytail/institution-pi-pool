@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pi-pool.local/schemas/matching_policy.v1.schema.json",
+  "title": "Matching Policy v1",
+  "type": "object",
+  "required": [
+    "schema_version", "policy_id", "policy_version", "implementation_status",
+    "institution_fit", "supervisor_validity", "query", "research_fit",
+    "coarse_recall", "full_match", "score_output", "identifiers"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "policy_id": {"const": "matching_v1"},
+    "policy_version": {"type": "integer", "minimum": 1},
+    "implementation_status": {"enum": ["validated_candidate_not_serving", "serving"]},
+    "institution_fit": {
+      "type": "object",
+      "required": ["mode", "selected_pool_only", "cross_institution_backtrace_override"],
+      "properties": {
+        "mode": {"const": "hard_filter"},
+        "selected_pool_only": {"const": true},
+        "cross_institution_backtrace_override": {"const": false}
+      }
+    },
+    "query": {
+      "type": "object",
+      "required": ["proposal_weight", "cv_weight", "missing_cv"],
+      "properties": {
+        "proposal_weight": {"type": "number", "minimum": 0, "maximum": 1},
+        "cv_weight": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "research_fit": {
+      "type": "object",
+      "required": [
+        "paper_evidence_role", "semantic_fallback_when_paper_score_zero",
+        "zero_only_when_semantic_and_profile_are_zero"
+      ],
+      "properties": {
+        "paper_evidence_role": {"const": "feature_not_filter"},
+        "semantic_fallback_when_paper_score_zero": {"const": true},
+        "zero_only_when_semantic_and_profile_are_zero": {"const": true}
+      }
+    },
+    "supervisor_validity": {"type": "object"},
+    "coarse_recall": {"type": "object"},
+    "full_match": {
+      "type": "object",
+      "required": ["research_score"],
+      "properties": {
+        "research_score": {
+          "type": "object",
+          "required": ["operation", "components"],
+          "properties": {
+            "operation": {"const": "max"},
+            "components": {"const": ["career_score", "paper_top3_score"]}
+          }
+        }
+      }
+    },
+    "score_output": {
+      "type": "object",
+      "required": ["independent_components"],
+      "properties": {
+        "independent_components": {
+          "const": [
+            "institution_fit_score", "research_fit_score", "supervisor_validity_score"
+          ]
+        }
+      }
+    },
+    "identifiers": {"type": "object"}
+  }
+}

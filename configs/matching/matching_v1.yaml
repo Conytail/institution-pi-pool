@@ -1,0 +1,64 @@
+schema_version: 1
+policy_id: matching_v1
+policy_version: 1
+implementation_status: validated_candidate_not_serving
+
+institution_fit:
+  mode: hard_filter
+  selected_pool_only: true
+  cross_institution_backtrace_override: false
+
+supervisor_validity:
+  known_false_action: exclude
+  unknown_action: retain_with_score
+  score_source: official_profile_and_supervision_evidence
+
+query:
+  proposal_weight: 0.80
+  cv_weight: 0.20
+  missing_cv:
+    proposal_weight: 1.00
+    cv_weight: 0.00
+
+research_fit:
+  paper_evidence_role: feature_not_filter
+  semantic_fallback_when_paper_score_zero: true
+  zero_only_when_semantic_and_profile_are_zero: true
+  authorship_weighting: equal
+  citation_weighting: none
+  publication_time_weighting: none
+
+coarse_recall:
+  representation: career_vector_256
+  default_limit: 20
+  maximum_limit: 50
+
+full_match:
+  shortlist_source: coarse_recall
+  shortlist_size: 10
+  publication_representation: publication_vector_256
+  publication_selection:
+    metric: cosine_similarity
+    top_k: 3
+    aggregation: mean
+  research_score:
+    operation: max
+    components:
+      - career_score
+      - paper_top3_score
+  recent_score:
+    enabled: false
+    reason: not_yet_experimentally_validated
+
+score_output:
+  independent_components:
+    - institution_fit_score
+    - research_fit_score
+    - supervisor_validity_score
+  overall_score:
+    hard_zero_when_institution_fails: true
+    formula: research_fit_score * (0.75 + 0.25 * supervisor_validity_score)
+
+identifiers:
+  publication_primary: openalex_work_id
+  publication_alias: doi_optional

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "source_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles",
+  "fixtures": {
+    "dean_professor_cards.html": [
+      {
+        "name": "Lina Ong",
+        "title": "Dean and Professor",
+        "department": null,
+        "profile_url": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/staff-profiles/professor-lina-ong",
+        "emails": ["lina.ong@sunway.edu.my"]
+      },
+      {
+        "name": "Max Tan",
+        "title": "Deputy Dean (Research); Professor",
+        "department": null,
+        "profile_url": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/staff-profiles/professor-max-tan",
+        "emails": ["max.tan@sunway.edu.my"]
+      }
+    ],
+    "lecturer_cards.html": [
+      {
+        "name": "Denise Ng",
+        "title": "Lecturer",
+        "department": "School of Computing and Artificial Intelligence",
+        "profile_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles/lecturer-denise-ng",
+        "emails": ["denise.ng@sunway.edu.my"]
+      },
+      {
+        "name": "Siti Hassan",
+        "title": "Senior Lecturer",
+        "department": "School of Computing and Artificial Intelligence",
+        "profile_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles/senior-lecturer-siti-hassan",
+        "emails": ["siti.hassan@sunway.edu.my"]
+      }
+    ],
+    "non_person_block.html": [],
+    "page_level_email.html": [
+      {
+        "name": "Ari Rahman",
+        "title": "Professor",
+        "department": "School of Computing and Artificial Intelligence",
+        "profile_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles/professor-ari-rahman",
+        "emails": []
+      }
+    ],
+    "person_card.html": [
+      {
+        "name": "Maya Chen",
+        "title": "Associate Professor",
+        "department": "Department of Data Science and Artificial Intelligence",
+        "profile_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles/associate-professor-dr-maya-chen",
+        "emails": ["maya.chen@sunway.edu.my"]
+      }
+    ],
+    "professor_phd_programme_leader.html": [
+      {
+        "name": "Ari Rahman",
+        "title": "Professor; Programme Leader of:; 1. Doctor of Philosophy (Computing)",
+        "department": "School of Computing and Artificial Intelligence",
+        "profile_url": "https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles/professor-ari-rahman",
+        "emails": ["ari.rahman@sunway.edu.my"]
+      }
+    ]
+  }
+}

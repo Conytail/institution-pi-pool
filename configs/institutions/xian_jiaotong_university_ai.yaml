@@ -1,0 +1,78 @@
+schema_version: 1
+config_version: 1
+
+institution:
+  name: Xi'an Jiaotong University
+  aliases:
+    - 西安交通大学
+    - XJTU
+  country: China
+  region: Asia
+  ror_id: https://ror.org/017zhmm22
+  homepage_url: https://www.xjtu.edu.cn
+  official_domains:
+    - xjtu.edu.cn
+  allowed_email_domains:
+    - xjtu.edu.cn
+    - mail.xjtu.edu.cn
+
+pool_scope:
+  type: school
+  name: School of Artificial Intelligence faculty
+  population: faculty_and_supervisor_candidates
+
+site:
+  template_family: xjtu_teacher_directory_v1
+
+crawl:
+  seed_urls:
+    - https://www.xjtu.edu.cn/list_content.jsp?urltype=tree.TreeTempUrl&wbtreeid=1669&wbxjtucollegeid=904&flag=yuanxi
+  max_depth: 1
+  max_pages: 40
+  profile_link_limit: 40
+  crawl_delay_seconds: 2.0
+  timeout_seconds: 45
+  max_retries: 4
+  backoff_seconds: 3.0
+  respect_robots_txt: false
+  allow_serp: false
+  use_homepage_discovery: false
+  profile_url_patterns:
+    - jsnr.jsp?urltype=tree.TreeTempUrl&wbtreeid=1632&wbwbxjtuteacherid=
+  exclude_url_patterns:
+    - "#"
+    - "javascript:"
+    - "mailto:"
+
+parsing:
+  preferred_adapters:
+    - xjtu_teacher_profile
+  default_title: 博士生导师
+  default_department: 人工智能学院
+
+pi_detection:
+  positive_title_patterns:
+    - 博士生导师
+    - 博士研究生导师
+    - 教授
+    - Professor
+    - Associate Professor
+    - Assistant Professor
+    - Principal Investigator
+  negative_title_patterns:
+    - 退休
+    - 离任
+    - Emeritus
+    - Retired
+    - Former
+    - Student
+    - Alumni
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 5
+  maximum_duplicate_rate: 0.10
+  minimum_profile_url_coverage: 0.70
