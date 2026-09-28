@@ -86,5 +86,5 @@ python -m pi_index.eval.profile_granularity_experiment `
 ```
 
 The publication holdout benchmark measures research-direction retrieval. A final claim
-about applicant-to-supervisor recommendation quality still requires human-labelled real
+about applicant-to-researcher recommendation quality still requires human-labelled real
 CV/proposal cases.

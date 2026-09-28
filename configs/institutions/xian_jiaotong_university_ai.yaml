@@ -1,5 +1,5 @@
-schema_version: 1
-config_version: 1
+schema_version: 2
+config_version: 2
 
 institution:
   name: Xi'an Jiaotong University
@@ -19,7 +19,7 @@ institution:
 pool_scope:
   type: school
   name: School of Artificial Intelligence faculty
-  population: faculty_and_supervisor_candidates
+  population: academic_and_research_personnel
 
 site:
   template_family: xjtu_teacher_directory_v1
@@ -45,28 +45,17 @@ crawl:
     - "mailto:"
 
 parsing:
+  extract_publication_fingerprints: true
   preferred_adapters:
     - xjtu_teacher_profile
   default_title: 博士生导师
   default_department: 人工智能学院
 
-pi_detection:
-  positive_title_patterns:
-    - 博士生导师
-    - 博士研究生导师
-    - 教授
-    - Professor
-    - Associate Professor
-    - Assistant Professor
-    - Principal Investigator
-  negative_title_patterns:
-    - 退休
-    - 离任
-    - Emeritus
-    - Retired
-    - Former
-    - Student
-    - Alumni
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
 
 refresh:
   directory_interval_days: 30
@@ -76,3 +65,8 @@ quality_gate:
   minimum_people: 5
   maximum_duplicate_rate: 0.10
   minimum_profile_url_coverage: 0.70
+  minimum_seed_url_coverage: 1.0
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 0.90
+  minimum_profile_parse_coverage: 0.70
+  require_pagination_complete: true

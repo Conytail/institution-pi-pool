@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from ..models import ParsedPerson
 from .generic_html import clean_text
 from .mailto import extract_visible_emails, split_person_and_ambiguous_emails
+from .publications import extract_publication_fingerprints
 
 
 def _iter_nodes(value: Any):
@@ -96,4 +97,6 @@ def parse_jsonld_people(html_text: str, source_url: str) -> list[ParsedPerson]:
                     email_association="person_local" if person_emails else "none",
                 )
             )
+    if len(people) == 1:
+        people[0].publication_fingerprints = extract_publication_fingerprints(html_text, source_url)
     return people

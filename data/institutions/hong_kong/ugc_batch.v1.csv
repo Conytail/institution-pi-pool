@@ -1,0 +1,9 @@
+name,country,region,homepage_url,ror_id,qs_rank,qs_year,config_path,source
+City University of Hong Kong,Hong Kong,Asia,https://www.cityu.edu.hk,https://ror.org/03q8dnn23,,,configs/institutions/cityu_hk.yaml,hong_kong_ugc_registry_v1
+Hong Kong Baptist University,Hong Kong,Asia,https://www.hkbu.edu.hk,https://ror.org/0145fw131,,,configs/institutions/hkbu.yaml,hong_kong_ugc_registry_v1
+Lingnan University,Hong Kong,Asia,https://www.ln.edu.hk,https://ror.org/0563pg902,,,configs/institutions/lingnan_hk.yaml,hong_kong_ugc_registry_v1
+The Chinese University of Hong Kong,Hong Kong,Asia,https://www.cuhk.edu.hk,https://ror.org/00t33hh48,,,configs/institutions/cuhk.yaml,hong_kong_ugc_registry_v1
+The Education University of Hong Kong,Hong Kong,Asia,https://www.eduhk.hk,https://ror.org/000t0f062,,,configs/institutions/eduhk.yaml,hong_kong_ugc_registry_v1
+The Hong Kong Polytechnic University,Hong Kong,Asia,https://www.polyu.edu.hk,https://ror.org/0030zas98,,,configs/institutions/polyu.yaml,hong_kong_ugc_registry_v1
+The Hong Kong University of Science and Technology,Hong Kong,Asia,https://hkust.edu.hk,https://ror.org/00q4vv597,,,configs/institutions/hkust.yaml,hong_kong_ugc_registry_v1
+The University of Hong Kong,Hong Kong,Asia,https://www.hku.hk,https://ror.org/02zhqgq86,,,configs/institutions/hku.yaml,hong_kong_ugc_registry_v1

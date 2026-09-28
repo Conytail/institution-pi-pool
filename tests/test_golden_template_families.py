@@ -54,7 +54,6 @@ def test_generic_faculty_directory_matches_golden():
     people = parse_faculty_directory(
         html,
         golden["source_url"],
-        config["pi_detection"]["positive_title_patterns"],
     )
     assert _records(people) == golden["records"]
 

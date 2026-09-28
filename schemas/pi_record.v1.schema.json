@@ -8,10 +8,9 @@
     "schema_version", "person_id", "display_name", "given_name", "family_name",
     "aliases", "institution_id", "institution_name", "ror_id", "department",
     "title", "profile_url", "lab_url", "emails", "research_areas",
-    "publications_summary", "external_ids", "supervision_signals",
+    "publications_summary", "external_ids",
     "source_evidence_ids", "last_checked_at", "contact_confidence",
-    "pi_supervisor_confidence", "topic_match_confidence",
-    "likely_supervisor_candidate", "current_affiliation_confidence"
+    "topic_match_confidence", "current_affiliation_confidence"
   ],
   "properties": {
     "schema_version": {"const": 1},
@@ -31,13 +30,10 @@
     "research_areas": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "publications_summary": {"type": "object"},
     "external_ids": {"type": "object"},
-    "supervision_signals": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "source_evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "last_checked_at": {"type": "string", "minLength": 1},
     "contact_confidence": {"enum": ["none", "low", "medium", "high", "unknown"]},
-    "pi_supervisor_confidence": {"enum": ["none", "low", "medium", "high", "unknown"]},
     "topic_match_confidence": {"enum": ["none", "low", "medium", "high", "unknown"]},
-    "likely_supervisor_candidate": {"enum": ["true", "false", "unknown"]},
     "current_affiliation_confidence": {"enum": ["none", "low", "medium", "high", "unknown"]}
   }
 }

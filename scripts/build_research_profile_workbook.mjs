@@ -276,7 +276,7 @@ protocol.getRange("A1:D1").format.font = { bold: true, color: COLORS.white, size
 protocol.getRange("A1:D1").format.rowHeight = 34;
 protocol.getRange("A2:D2").merge();
 protocol.getRange("A2").values = [[
-  "Parameter selection measures institution-constrained research retrieval; identity and supervisor eligibility remain separate layers.",
+  "Parameter selection measures institution-constrained research retrieval; pool membership is title-neutral and recommendations require research evidence.",
 ]];
 protocol.getRange("A2:D2").format.font = { italic: true, color: COLORS.muted, size: 10 };
 protocol.getRange("A2:D2").format.wrapText = true;
@@ -488,7 +488,7 @@ summary.getRange("D29").values = [["Candidate pools contain only 9-14 publicatio
 summary.getRange("D30").values = [["The two real packets are not exhaustive institution-pool benchmarks."]];
 summary.getRange("D31").values = [["Final validation needs populated CV/proposal slots and graded PI labels."]];
 summary.getRange("D32").values = [["Repeat this ablation whenever the production encoder changes."]];
-summary.getRange("D33").values = [["Supervisor validity remains an independent score/filter."]];
+summary.getRange("D33").values = [["Recommendations require official research areas or meaningful publication evidence."]];
 summary.getRange("A28:B33").format.borders = { preset: "all", style: "thin", color: COLORS.line };
 summary.getRange("A28:A33").format.font = { bold: true, color: COLORS.ink };
 summary.getRange("D28:G33").format.fill = COLORS.paleGray;

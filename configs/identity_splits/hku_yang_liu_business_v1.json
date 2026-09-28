@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "operation": "reviewed_identity_split",
+  "split_id": "hku-yang-liu-sbms-business-v1",
+  "institution_id": "inst_77b83f05042f0881",
+  "reason": "reviewed_same_name_different_people",
+  "evidence": "Two independent official HKU profiles conflict on school, person-local email, title, research area, and publication domain. The prior merge was caused only by the shared cross-host slug yang-liu.",
+  "stable_person_id": {
+    "normalized_name": "yang liu",
+    "profile_url": "https://www.hkubs.hku.hk/people/yang-liu/"
+  },
+  "retained_identity": {
+    "person_id": "pi_6c68c946bdb06164",
+    "source_urls": [
+      "https://www.sbms.hku.hk/faculty",
+      "https://www.sbms.hku.hk/staff/yang-liu"
+    ],
+    "record": {
+      "display_name": "Yang Liu",
+      "given_name": "Yang",
+      "family_name": "Liu",
+      "aliases": [
+        "LIU Yang"
+      ],
+      "department": "School of Biomedical Sciences",
+      "departments": [
+        "School of Biomedical Sciences"
+      ],
+      "title": "Assistant Professor",
+      "profile_url": "https://www.sbms.hku.hk/staff/yang-liu",
+      "profile_urls": [
+        "https://www.sbms.hku.hk/staff/yang-liu"
+      ],
+      "lab_url": "https://www.sbms.hku.hk/study#study-collaboration",
+      "emails": [
+        "yangliu9@hku.hk"
+      ],
+      "research_areas": [
+        "how epigenetic markers on chromatin are regulated by histone chaperones and chromatin remodelers"
+      ],
+      "external_ids": {
+        "orcid": "0000-0001-7187-9196",
+        "orcid_url": "https://orcid.org/0000-0001-7187-9196"
+      },
+      "field_sources": {
+        "department": "official_profile",
+        "display_name": "official_profile",
+        "emails": "official_profile",
+        "external_ids": "official_profile",
+        "lab_url": "official_profile",
+        "profile_url": "official_profile",
+        "research_areas": "official_profile",
+        "title": "official_profile"
+      },
+      "email_association": "person_local"
+    }
+  },
+  "separated_identity": {
+    "person_id": "pi_ab915b2c31380c0e",
+    "source_urls": [
+      "https://www.hkubs.hku.hk/people/?pg=12&",
+      "https://www.hkubs.hku.hk/people/yang-liu/"
+    ],
+    "record": {
+      "display_name": "Yang LIU",
+      "given_name": "Yang",
+      "family_name": "LIU",
+      "aliases": [],
+      "department": "HKU Business School",
+      "departments": [
+        "HKU Business School"
+      ],
+      "title": "Associate Professor; Co-Director, HKUBS Wealth Management Academy; MWM Programme Director",
+      "profile_url": "https://www.hkubs.hku.hk/people/yang-liu/",
+      "profile_urls": [
+        "https://www.hkubs.hku.hk/people/yang-liu/"
+      ],
+      "lab_url": "https://www.hkubs.hku.hk/corporate",
+      "emails": [
+        "yangliu5@hku.hk"
+      ],
+      "research_areas": [
+        "asset pricing",
+        "international finance",
+        "macro-finance"
+      ],
+      "external_ids": {},
+      "field_sources": {
+        "department": "official_profile",
+        "display_name": "official_profile",
+        "emails": "official_profile",
+        "lab_url": "official_profile",
+        "profile_url": "official_profile",
+        "research_areas": "official_profile",
+        "title": "official_profile"
+      },
+      "email_association": "person_local"
+    }
+  },
+  "expected": {
+    "minimum_moved_observations": 2,
+    "minimum_moved_fingerprints": 1,
+    "cohort_delta": 0
+  }
+}

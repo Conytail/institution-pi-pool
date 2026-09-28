@@ -432,7 +432,7 @@ def _load_sample_pis(
         FROM canonical_pi_records p
         JOIN institutions i ON i.institution_id=p.institution_id
         JOIN contact_verdicts c ON c.person_id=p.person_id
-        WHERE c.likely_supervisor_candidate='true'
+        WHERE COALESCE(p.membership_status, 'active')!='inactive'
           AND (?=1 OR c.current_affiliation_confidence='high')
         ORDER BY p.institution_name, p.person_id
         """,
@@ -1403,7 +1403,7 @@ def run_experiment(args: argparse.Namespace) -> dict[str, Any]:
         "leave_one_institution_out": loso_rows,
         "loso_selection_counts": dict(loso_selection_counts),
         "limitations": [
-            "Self-supervised publication holdout measures profile resolution, not final human supervisor preference.",
+            "Self-supervised publication holdout measures profile resolution, not final human outreach preference.",
             f"The {args.encoder} encoder is frozen for this run; any future dense encoder must repeat the same ablation.",
             "OpenAlex identity links are restricted to exact/near-exact names plus matching official-institution ROR.",
             "This pilot contains 36 publication-linked PIs from three institutions; candidate pools contain 9 to 14 PIs.",

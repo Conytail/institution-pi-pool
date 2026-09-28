@@ -427,7 +427,7 @@ def _recommendation_markdown(manifest: dict[str, Any]) -> str:
             "cache vectors and retain DOI/OpenAlex Work ID only for deduplication, provenance and refresh.",
             "",
             "The benchmark uses globally held-out publications as proposal proxies. It measures research "
-            "retrieval, not final human judgement of supervisor suitability.",
+            "retrieval, not final human judgement of researcher recommendation suitability.",
         ]
     )
     return "\n".join(lines) + "\n"

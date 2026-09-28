@@ -1,0 +1,224 @@
+schema_version: 2
+config_version: 2
+
+institution:
+  name: City University of Hong Kong
+  country: Hong Kong
+  region: Asia
+  ror_id: https://ror.org/03q8dnn23
+  homepage_url: https://www.cityu.edu.hk
+  official_domains: [cityu.edu.hk]
+  allowed_email_domains: [cityu.edu.hk]
+
+pool_scope:
+  type: multi_unit
+  name: Whole institution
+  population: academic_and_research_personnel
+  units:
+    - name: Department of Biomedical Engineering
+      seed_urls: [https://www.cityu.edu.hk/bme/staff-acad.htm]
+    - name: Department of Biomedical Sciences
+      seed_urls: [https://www.cityu.edu.hk/bms/people/faculty.htm]
+    - name: Department of Neuroscience
+      seed_urls: [https://www.cityu.edu.hk/neuro/people/faculty.htm]
+    - name: Department of Accountancy
+      seed_urls: [https://www.cb.cityu.edu.hk/ac/people/academic/]
+    - name: Department of Decision Analytics and Operations
+      seed_urls: [https://www.cb.cityu.edu.hk/dao/about-us/faculty-and-staff/academic-staff/regular-faculty]
+    - name: Department of Economics and Finance
+      seed_urls:
+        - https://www.cb.cityu.edu.hk/ef/people/academic/economics/
+        - https://www.cb.cityu.edu.hk/ef/people/academic/finance/
+    - name: Department of Information Systems
+      seed_urls: [https://www.cb.cityu.edu.hk/is/people/academic-staff]
+    - name: Department of Management
+      seed_urls:
+        - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=1&fulltext=
+        - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=2&fulltext=
+        - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=3&fulltext=
+    - name: Department of Marketing
+      seed_urls: [https://www.cb.cityu.edu.hk/mkt/about/people/]
+    - name: Department of Biostatistics
+      seed_urls: [https://www.cityu.edu.hk/bios/people/profile/staffs.htm]
+    - name: Department of Computer Science
+      seed_urls:
+        - https://www.cs.cityu.edu.hk/people/academic-staff
+        - https://www.cs.cityu.edu.hk/people/research-professors
+    - name: Department of Data Science
+      seed_urls:
+        - https://www.ds.cityu.edu.hk/en/people/academic-staff
+        - https://www.ds.cityu.edu.hk/en/people/research-professors/research-assistant-professors
+    - name: Department of Architecture and Civil Engineering
+      seed_urls: [https://www.cityu.edu.hk/en/ace/people/academic-staff]
+    - name: Department of Electrical Engineering
+      seed_urls: [https://www.ee.cityu.edu.hk/en/people/academic_staff/faculty]
+    - name: Department of Mechanical Engineering
+      seed_urls: [https://www.cityu.edu.hk/en/mne/people/academic-staff]
+    - name: Department of Materials Science and Engineering
+      seed_urls: [https://www.cityu.edu.hk/en/mse/people/faculty]
+    - name: Department of Systems Engineering
+      seed_urls: [https://www.cityu.edu.hk/sye/stafflist.htm]
+    - name: Department of Chinese and History
+      seed_urls: [https://www.cah.cityu.edu.hk/en/people/academic-staff]
+    - name: Department of Media and Communication
+      seed_urls: [https://www.cityu.edu.hk/com/PeopleGrid.aspx]
+    - name: Department of English
+      seed_urls:
+        - https://www.en.cityu.edu.hk/en/our-people/faculty-and-teaching-staff
+        - https://www.en.cityu.edu.hk/en/our-people/adjunct-visiting-professors
+    - name: Chan Feng Men-ling Chan Shuk-lin Language Centre
+      seed_urls: [https://www.cityu.edu.hk/lc/staff_directory_teaching.html]
+    - name: Department of Linguistics and Translation
+      seed_urls: [https://lt.cityu.edu.hk/people/academic-staff]
+    - name: Department of Public and International Affairs
+      seed_urls: ["https://www.cityu.edu.hk/pia/people.aspx?r=Academic_Staff"]
+    - name: Department of Social and Behavioural Sciences
+      seed_urls: [https://ssweb.cityu.edu.hk/people/staff-profile/academic-staff]
+    - name: Department of Chemistry
+      seed_urls: [https://www.cityu.edu.hk/en/chem/people/academic-staff]
+    - name: Department of Mathematics
+      seed_urls: [https://www.cityu.edu.hk/en/ma/about-us/ma-academic-faculty]
+    - name: Department of Physics
+      seed_urls: [https://www.cityu.edu.hk/en/phy/faculty]
+    - name: Department of Infectious Diseases and Public Health
+      seed_urls: [https://www.cityu.edu.hk/ph/about-us/our-teams]
+    - name: Department of Veterinary Clinical Sciences
+      seed_urls: [https://www.cityu.edu.hk/vcs/en/aboutus/ourpeople/faculty-list.htm]
+    - name: School of Creative Media
+      seed_urls: [https://www.scm.cityu.edu.hk/en/people/faculty]
+    - name: School of Energy and Environment
+      seed_urls: [https://www.cityu.edu.hk/en/see/people/academic-staff]
+      match_urls: [https://www.cityu.edu.hk/en/see/academic-staff]
+    - name: School of Law
+      seed_urls: [https://www.cityu.edu.hk/en/slw/about-the-school/our-people]
+
+site:
+  template_family: cityu_federated_academic_directories_v1
+
+crawl:
+  seed_urls:
+    - https://www.cityu.edu.hk/bme/staff-acad.htm
+    - https://www.cityu.edu.hk/bms/people/faculty.htm
+    - https://www.cityu.edu.hk/neuro/people/faculty.htm
+    - https://www.cb.cityu.edu.hk/ac/people/academic/
+    - https://www.cb.cityu.edu.hk/dao/about-us/faculty-and-staff/academic-staff/regular-faculty
+    - https://www.cb.cityu.edu.hk/ef/people/academic/economics/
+    - https://www.cb.cityu.edu.hk/ef/people/academic/finance/
+    - https://www.cb.cityu.edu.hk/is/people/academic-staff
+    - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=1&fulltext=
+    - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=2&fulltext=
+    - https://www.cb.cityu.edu.hk/mgt/api/v1/mgt/getmgtpeoplelist?page=3&fulltext=
+    - https://www.cb.cityu.edu.hk/mkt/about/people/
+    - https://www.cityu.edu.hk/bios/people/profile/staffs.htm
+    - https://www.cs.cityu.edu.hk/people/academic-staff
+    - https://www.cs.cityu.edu.hk/people/research-professors
+    - https://www.ds.cityu.edu.hk/en/people/academic-staff
+    - https://www.ds.cityu.edu.hk/en/people/research-professors/research-assistant-professors
+    - https://www.cityu.edu.hk/en/ace/people/academic-staff
+    - https://www.ee.cityu.edu.hk/en/people/academic_staff/faculty
+    - https://www.cityu.edu.hk/en/mne/people/academic-staff
+    - https://www.cityu.edu.hk/en/mse/people/faculty
+    - https://www.cityu.edu.hk/sye/stafflist.htm
+    - https://www.cah.cityu.edu.hk/en/people/academic-staff
+    - https://www.cityu.edu.hk/com/PeopleGrid.aspx
+    - https://www.en.cityu.edu.hk/en/our-people/faculty-and-teaching-staff
+    - https://www.en.cityu.edu.hk/en/our-people/adjunct-visiting-professors
+    - https://www.cityu.edu.hk/lc/staff_directory_teaching.html
+    - https://lt.cityu.edu.hk/people/academic-staff
+    - https://www.cityu.edu.hk/pia/people.aspx?r=Academic_Staff
+    - https://ssweb.cityu.edu.hk/people/staff-profile/academic-staff
+    - https://www.cityu.edu.hk/en/chem/people/academic-staff
+    - https://www.cityu.edu.hk/en/ma/about-us/ma-academic-faculty
+    - https://www.cityu.edu.hk/en/phy/faculty
+    - https://www.cityu.edu.hk/ph/about-us/our-teams
+    - https://www.cityu.edu.hk/vcs/en/aboutus/ourpeople/faculty-list.htm
+    - https://www.scm.cityu.edu.hk/en/people/faculty
+    - https://www.cityu.edu.hk/en/see/people/academic-staff
+    - https://www.cityu.edu.hk/en/slw/about-the-school/our-people
+  max_depth: 1
+  max_pages: 1400
+  profile_link_limit: 1200
+  profile_links_from_parsed_people_only: true
+  # These legacy personal-page families currently return Incapsula challenge
+  # documents to the declared crawler. Their official department directories
+  # remain the person-local source for names, appointments, email and research.
+  exclude_url_patterns:
+    - cityu.edu.hk/bms/profile/
+    - cityu.edu.hk/bme/staff-distinguished.htm
+    - cityu.edu.hk/neuro/profile/
+    - cityu.edu.hk/neuro/jufanghe.htm
+    - cityu.edu.hk/stfprofile/
+    # These legacy families returned only an Incapsula challenge to the
+    # declared crawler in the audited run.  Their official directory rows are
+    # already person-local and contain the appointment/contact evidence.
+    - cityu.edu.hk/com/Profile.aspx
+    - cityu.edu.hk/com/Page.aspx
+    - cityu.edu.hk/lc/profiles/
+    - cityu.edu.hk/vcs/staff/
+    # Management detail URLs are identical client-rendered shells; the three
+    # official JSON API seeds are the substantive person/research source.
+    - cb.cityu.edu.hk/mgt/about-us/faculty-staff/detail
+    # Stale/non-person links observed in official directory cards.  Keep them
+    # out of profile coverage rather than replaying a known 403/404 document.
+    - scholars.cityu.edu.hk/en/persons/chunyzhi
+    - scholars.cityu.edu.hk/en/persons/fenglfan
+    - scholars.cityu.edu.hk/en/persons/junfan
+    - scholars.cityu.edu.hk/en/persons/154f5f2b-cf56-44b9-ba74-68177bf79b6c
+    - scholars.cityu.edu.hk/en/persons/mengyin-jiang(
+    - scholars.cityu.edu.hk/en/persons/chuk-ling-julian-lai(
+    - scholars.cityu.edu.hk/person/markwong
+    - cityu.edu.hk/scholar
+    # Exact legacy placeholders verified from their archived response bodies:
+    # the three EE URLs are 312-byte redirect stubs and the DS URL is a
+    # 1.4-kilobyte client-navigation shell.  Neighbouring substantive EE
+    # tilde homepages remain crawlable and are covered by a queue regression.
+    - ee.cityu.edu.hk/~hangwong/
+    - ee.cityu.edu.hk/~rosachan/
+    - ee.cityu.edu.hk/~schan
+    - ds.cityu.edu.hk/en/people/academic-staff/professor-jonathan-zhu
+  crawl_delay_seconds: 1.0
+  use_homepage_discovery: false
+  allow_serp: false
+  respect_robots_txt: true
+
+parsing:
+  extract_publication_fingerprints: true
+  preferred_adapters: [cityu_federated_directory]
+  # Some official profile links resolve to multi-person faculty cards (for
+  # example the English Department adjunct page).  Keep the federated parser
+  # in the profile chain so those cards remain separate people.
+  profile_adapters: [elsevier_pure_person, cityu_multi_person_profile, cityu_person_profile, generic_html]
+  profile_overrides:
+    "HOU, Junhui David": https://www.cityu.edu.hk/stfprofile/csjhhou.htm
+    Guangdong BAI: https://scholars.cityu.edu.hk/en/persons/guangbai/
+    Peilin CHEN: https://scholars.cityu.edu.hk/en/persons/plchen3/
+    Yawei ZHANG: https://scholars.cityu.edu.hk/en/persons/yzhan72/
+    CHEN Youhua: https://scholars.cityu.edu.hk/en/persons/youhchen/
+    Chaojie LI: https://scholars.cityu.edu.hk/en/persons/chaojili/
+    Yuechuan TAO: https://scholars.cityu.edu.hk/en/persons/yuechtao/
+    CHEN Hesheng: https://scholars.cityu.edu.hk/en/persons/heshchen/
+    Jingshan LI: https://scholars.cityu.edu.hk/en/persons/jingshli/
+    Qi QIN: https://scholars.cityu.edu.hk/en/persons/qiqin32/
+    Wei Ting WANG: https://scholars.cityu.edu.hk/en/persons/wtwang/
+    Dan PRIEL: https://scholars.cityu.edu.hk/en/persons/dspriel/
+
+capture: &capture
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
+
+refresh: &refresh
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 500
+  maximum_duplicate_rate: 0.05
+  minimum_profile_url_coverage: 0.75
+  minimum_seed_url_coverage: 1.0
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 0.95
+  minimum_profile_parse_coverage: 0.95
+  require_profile_follow: true
+  require_pagination_complete: true

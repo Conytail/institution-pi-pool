@@ -13,35 +13,11 @@ from ..storage import PIIndexStorage
 from .research_profile_experiment import utc_now_iso
 
 
-POSITIVE_TITLES = [
-    "Distinguished Professor",
-    "Research Professor",
-    "Associate Professor",
-    "Assistant Professor",
-    "Professor",
-    "Principal Investigator",
-    "Group Leader",
-    "Reader",
-    "Senior Lecturer",
-    "Lecturer",
-]
-
-NEGATIVE_TITLES = [
-    "Emeritus",
-    "Retired",
-    "Former",
-    "Student",
-    "Postdoctoral",
-    "Alumni",
-    "In Memoriam",
-]
-
-
 def generated_institution_config(entry: dict[str, Any]) -> dict[str, Any]:
     domains = list(dict.fromkeys(entry["official_domains"]))
     return {
-        "schema_version": 1,
-        "config_version": 1,
+        "schema_version": 2,
+        "config_version": 2,
         "institution": {
             "name": entry["name"],
             "country": entry.get("country"),
@@ -54,7 +30,8 @@ def generated_institution_config(entry: dict[str, Any]) -> dict[str, Any]:
         "pool_scope": {
             "type": "department",
             "name": entry["pool_scope"],
-            "population": "faculty_and_supervisor_candidates",
+            "population": "academic_and_research_personnel",
+            "units": [{"name": entry["pool_scope"], "seed_urls": [entry["seed_url"]]}],
         },
         "site": {"template_family": "generic_faculty_directory_v1"},
         "crawl": {
@@ -66,6 +43,7 @@ def generated_institution_config(entry: dict[str, Any]) -> dict[str, Any]:
             "allow_serp": False,
         },
         "parsing": {
+            "extract_publication_fingerprints": True,
             "preferred_adapters": [
                 "jsonld_person",
                 "faculty_directory",
@@ -73,18 +51,25 @@ def generated_institution_config(entry: dict[str, Any]) -> dict[str, Any]:
                 "generic_html",
             ]
         },
-        "pi_detection": {
-            "positive_title_patterns": POSITIVE_TITLES,
-            "negative_title_patterns": NEGATIVE_TITLES,
-        },
         "refresh": {
             "directory_interval_days": 30,
             "profile_interval_days": 90,
+        },
+        "capture": {
+            "archive_enabled": True,
+            "compression": "gzip",
+            "conditional_requests": True,
+            "missing_runs_before_inactive": 2,
         },
         "quality_gate": {
             "minimum_people": 1,
             "maximum_duplicate_rate": 0.1,
             "minimum_profile_url_coverage": 0.5,
+            "minimum_seed_url_coverage": 1.0,
+            "minimum_unit_coverage": 1.0,
+            "minimum_profile_fetch_coverage": 0.9,
+            "minimum_profile_parse_coverage": 0.0,
+            "require_pagination_complete": True,
         },
         "evaluation": {
             "domain": entry["evaluation_domain"],
@@ -113,11 +98,11 @@ def _pool_rows(storage: PIIndexStorage, metadata_by_ror: dict[str, dict[str, Any
         SELECT i.name, i.ror_id, i.institution_id,
                COUNT(p.person_id) AS extracted_pi_count,
                SUM(CASE WHEN p.title IS NOT NULL AND p.title != '' THEN 1 ELSE 0 END) AS titled_pi_count,
-               SUM(CASE WHEN p.likely_supervisor_candidate='true' THEN 1 ELSE 0 END) AS supervisor_candidate_count,
                SUM(CASE WHEN p.profile_url IS NOT NULL AND p.profile_url != '' THEN 1 ELSE 0 END) AS profile_url_count,
                SUM(CASE WHEN p.emails_json != '[]' THEN 1 ELSE 0 END) AS email_count
         FROM institutions i
         LEFT JOIN canonical_pi_records p ON p.institution_id=i.institution_id
+            AND COALESCE(p.membership_status, 'active')!='inactive'
         GROUP BY i.institution_id, i.name, i.ror_id
         ORDER BY i.name
         """
@@ -206,7 +191,7 @@ def collect_stage2_pool(args: argparse.Namespace) -> dict[str, Any]:
         if pool_rows:
             writer.writeheader()
             writer.writerows(pool_rows)
-    successful = [row for row in pool_rows if int(row["supervisor_candidate_count"] or 0) > 0]
+    successful = [row for row in pool_rows if int(row["extracted_pi_count"] or 0) > 0]
     result = {
         "generated_at": utc_now_iso(),
         "cohort_id": (manifest.get("cohort") or {}).get("id"),
@@ -215,12 +200,10 @@ def collect_stage2_pool(args: argparse.Namespace) -> dict[str, Any]:
         "configured_institution_count": len(manifest["institutions"]),
         "successful_institution_count": len(successful),
         "extracted_pi_count": sum(int(row["extracted_pi_count"] or 0) for row in pool_rows),
-        "supervisor_candidate_count": sum(
-            int(row["supervisor_candidate_count"] or 0) for row in pool_rows
-        ),
+        "pool_member_count": sum(int(row["extracted_pi_count"] or 0) for row in pool_rows),
         "domain_counts": {
             domain: sum(
-                int(row["supervisor_candidate_count"] or 0)
+                int(row["extracted_pi_count"] or 0)
                 for row in pool_rows
                 if row["evaluation_domain"] == domain
             )

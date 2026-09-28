@@ -1,0 +1,57 @@
+schema_version: 2
+config_version: 2
+
+institution:
+  name: Lingnan University
+  country: Hong Kong
+  region: Asia
+  ror_id: https://ror.org/0563pg902
+  homepage_url: https://www.ln.edu.hk
+  official_domains: [ln.edu.hk]
+  allowed_email_domains: [ln.edu.hk]
+
+pool_scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+
+site:
+  template_family: elsevier_pure_person_sitemap_v1
+
+crawl:
+  seed_urls: [https://scholars.ln.edu.hk/sitemap/persons.xml]
+  sitemap_urls: [https://scholars.ln.edu.hk/sitemap/persons.xml]
+  sitemap_base_url: https://scholars.ln.edu.hk
+  sitemap_url_patterns: [/en/persons/]
+  sitemap_max_files: 1
+  max_depth: 0
+  max_pages: 1000
+  crawl_delay_seconds: 5
+  use_homepage_discovery: false
+  allow_serp: false
+  respect_robots_txt: true
+
+parsing:
+  extract_publication_fingerprints: true
+  preferred_adapters: [elsevier_pure_person]
+
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 100
+  maximum_duplicate_rate: 0.05
+  minimum_profile_url_coverage: 0.98
+  minimum_seed_url_coverage: 1.0
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 0.95
+  minimum_profile_parse_coverage: 0.95
+  require_profile_follow: true
+  require_pagination_complete: true

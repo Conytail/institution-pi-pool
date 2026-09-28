@@ -1,0 +1,101 @@
+schema_version: 1
+
+# These directory cards expose a mailto link but no person-specific HTTP(S)
+# profile. The email remains in the canonical email field; mailto values must
+# not be retained as profile URLs.
+corrections:
+  - correction_id: polyu_andy_sun_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_ffcb5a1b6ac366bd
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/ise/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_danni_shi_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_8819e5a516374770
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_dongmei_mo_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_19edcb7f7da9bde2
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_frank_gast_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_dd9675ce7da11500
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_huimin_xu_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_36ede5a07c971ede
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_jesse_tse_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_7e8f0875a88e35a7
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_joanna_chen_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_0e3710c0ece6c741
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_mary_ye_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_a4acb0daaafaabfb
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_geeta_vaswani_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_001877753ea0580b
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_vicente_gonzalez_vallejo_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_ba81ea580e3615b5
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_xuejun_ye_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_7836357e8528ed69
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"
+
+  - correction_id: polyu_yanlin_li_clear_mailto_profile_20260714
+    institution_id: inst_01a348619b6cfad4
+    person_id: pi_edc56051d881f619
+    fields: {profile_url: null, profile_urls: []}
+    official_evidence_url: https://www.polyu.edu.hk/engl/people/academic-staff/
+    reason: The official directory provides an email link, not a person profile URL.
+    verified_at: "2026-07-14T23:50:00+08:00"

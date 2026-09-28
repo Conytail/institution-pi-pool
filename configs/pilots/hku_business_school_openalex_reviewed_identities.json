@@ -1,0 +1,2542 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_openalex_identity_manifest",
+  "reviewed_at": "2026-07-15T10:31:44Z",
+  "reviewed_by": "codex_hkubs_openalex_review_20260715",
+  "links": [
+    {
+      "person_id": "pi_0001d4aecc9a640b",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Naijia GUO",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 2 of 29 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5053014078",
+      "confirmed_openalex_author_ids": [
+        "A5053014078"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Health Professions"
+        ],
+        "always_include_work_ids": [
+          "W4386212204",
+          "W4399476159",
+          "W4403727727",
+          "W4408107566",
+          "W4414150910"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_044e993d20b7c4d0",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Dragon Yongjun TANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5050354792",
+      "confirmed_openalex_author_ids": [
+        "A5050354792"
+      ]
+    },
+    {
+      "person_id": "pi_0a23ce24d1a13751",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Matthias FAHN",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5072822072",
+      "confirmed_openalex_author_ids": [
+        "A5072822072"
+      ]
+    },
+    {
+      "person_id": "pi_0ad76055967e0c98",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tingjun LIU",
+      "reason": "Singleton audit classification official_evidence_only_required: The 102-Work Author merges corporate-finance Works with medicine, molecular biology, materials, dentistry, and engineering, and one target-author slot is raw-named Quangang Chen. A broad field gate would still admit unrelated business/economics records.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2972628621",
+          "expected_title": "Rent Extraction with Securities Plus Cash"
+        },
+        {
+          "openalex_work_id": "W3198176631",
+          "expected_title": "Strategic Nondisclosure in Takeovers"
+        },
+        {
+          "openalex_work_id": "W4410940456",
+          "expected_title": "Auctioning Control and Cash-Flow Rights Separately"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_0c47fd78b5b78c62",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Ye LUO",
+      "reason": "Singleton audit classification official_evidence_only_required: The accepted Author is primarily an Argonne/quantum-materials and exascale-computing profile; the official econometrics Works form only a small subset and some Mathematics/Decision Science records are also unrelated.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2242034775",
+          "expected_title": "The Sorted Effects Method: Discovering Heterogeneous Effects Beyond Their Averages"
+        },
+        {
+          "openalex_work_id": "W2614556625",
+          "expected_title": "Core Determining Class and Inequality Selection"
+        },
+        {
+          "openalex_work_id": "W2782512133",
+          "expected_title": "Estimation and Inference of Treatment Effects with L2-Boosting in High-Dimensional Settings"
+        },
+        {
+          "openalex_work_id": "W2891467507",
+          "expected_title": "An Imputation-regularized Optimization Algorithm for High Dimensional Missing Data Problems and Beyond"
+        },
+        {
+          "openalex_work_id": "W2944396194",
+          "expected_title": "Errors in the Dependent Variable of Quantile Regression Models"
+        },
+        {
+          "openalex_work_id": "W3206877543",
+          "expected_title": "Shape-Enforcing Operators for Generic Point and Interval Estimators of Functions"
+        },
+        {
+          "openalex_work_id": "W2607714261",
+          "expected_title": "L2-Boosting for Economic Applications",
+          "expected_openalex_title": "<i>L</i><sub>2</sub>-Boosting for Economic Applications"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_0df71bcc98284aa9",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Peicong HU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5102885064",
+      "confirmed_openalex_author_ids": [
+        "A5102885064"
+      ]
+    },
+    {
+      "person_id": "pi_0e3b81e63cb2d142",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Qiyuan LI",
+      "reason": "Singleton audit classification official_evidence_only_required: The 156-Work Author is dominated by Engineering, Energy, Materials Science, and Environmental Science. Even the Economics/Social Sciences fields contain unrelated records; only independently verified official Works are safe.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W3124249951",
+          "expected_title": "Permutation‐based Tests for Discontinuities in Event Studies"
+        },
+        {
+          "openalex_work_id": "W4387993186",
+          "expected_title": "Optimal Nonparametric Range-Based Volatility Estimation"
+        },
+        {
+          "openalex_work_id": "W4364366532",
+          "expected_title": "Seemingly Unrelated Regression Estimation for VAR Models with Explosive Roots"
+        },
+        {
+          "openalex_work_id": "W4405094287",
+          "expected_title": "Optimal Candlestick-Based Spot Volatility Estimation: New Tricks and Feasible Inference Procedures"
+        },
+        {
+          "openalex_work_id": "W4416414214",
+          "expected_title": "Testing for Jumps in a Discretely Observed Price Process with Endogenous Sampling Times"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_19a36b2cb1e4d866",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Qingxu YANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5100580172",
+      "confirmed_openalex_author_ids": [
+        "A5100580172"
+      ]
+    },
+    {
+      "person_id": "pi_1a3ba3e422f7c71c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yi TANG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5101919093'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101919093",
+      "confirmed_openalex_author_ids": [
+        "A5101919093"
+      ]
+    },
+    {
+      "person_id": "pi_1c55a8a6a465df31",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Carl HEESE",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5062760233",
+      "confirmed_openalex_author_ids": [
+        "A5062760233"
+      ]
+    },
+    {
+      "person_id": "pi_1eddc2e26ef417dd",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Kai Wai HUI",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5052474272",
+      "confirmed_openalex_author_ids": [
+        "A5052474272"
+      ]
+    },
+    {
+      "person_id": "pi_20a98d5682f2ea64",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Hongsong ZHANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101925860",
+      "confirmed_openalex_author_ids": [
+        "A5101925860"
+      ]
+    },
+    {
+      "person_id": "pi_239b57d44de2c4a0",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Michael C.L. CHAU",
+      "reason": "Singleton audit classification field_allowlist_required: The 222-Work Author has a large coherent information-systems core, but also 1970s chemistry/materials records and recent renal/clinical records plus incompatible target-author names. Do not ingest the complete profile.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5088908386",
+      "confirmed_openalex_author_ids": [
+        "A5088908386"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Computer Science",
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Psychology",
+          "Decision Sciences",
+          "Economics, Econometrics and Finance"
+        ],
+        "always_include_work_ids": [
+          "W4205599975",
+          "W4371785006",
+          "W4414313304"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_2a0429f880011014",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jian ZHANG",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2980969207",
+          "expected_title": "Air Pollution, Behavioral Bias, and the Disposition Effect in China"
+        },
+        {
+          "openalex_work_id": "W4388108648",
+          "expected_title": "Dirty Air and Green Investments: The Impact of Pollution Information on Portfolio Allocations"
+        },
+        {
+          "openalex_work_id": "W4391957190",
+          "expected_title": "Liberalizing Home-Based Business"
+        },
+        {
+          "openalex_work_id": "W2811017897",
+          "expected_title": "Disguised Corruption: Evidence from Consumer Credit in China"
+        },
+        {
+          "openalex_work_id": "W2793856001",
+          "expected_title": "Gender Difference and Intra-Household Economic Power in Mortgage Signing Order"
+        },
+        {
+          "openalex_work_id": "W3123076947",
+          "expected_title": "Gender Gap in Personal Bankruptcy Risks: Empirical Evidence from Singapore"
+        },
+        {
+          "openalex_work_id": "W3091937209",
+          "expected_title": "Good Days, Bad Days: Stock Market Fluctuation and Taxi Tipping Decisions"
+        },
+        {
+          "openalex_work_id": "W2615932930",
+          "expected_title": "Housing Property Rights, Collateral, and Entrepreneurship: Evidence from China"
+        },
+        {
+          "openalex_work_id": "W3035795437",
+          "expected_title": "Interest Rate Pass-Through and Consumption Response: The Deposit Channel"
+        },
+        {
+          "openalex_work_id": "W3108156014",
+          "expected_title": "Investing in Low-Trust Countries: On the Role of Social Trust in the Global Mutual Fund Industry"
+        },
+        {
+          "openalex_work_id": "W4409727779",
+          "expected_title": "Tax Policy Transmission and Household Expenditures"
+        },
+        {
+          "openalex_work_id": "W4414595748",
+          "expected_title": "Do Households React to Monetary Policy?"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_2d195299293076e5",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Dunhong JIN",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5046073528', 'A5102425288'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5046073528",
+      "confirmed_openalex_author_ids": [
+        "A5046073528",
+        "A5102425288"
+      ]
+    },
+    {
+      "person_id": "pi_2d2bdab1733cf1b1",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jingcun CAO",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5058386372",
+      "confirmed_openalex_author_ids": [
+        "A5058386372"
+      ]
+    },
+    {
+      "person_id": "pi_33ec131f10d32a43",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tse-Chun LIN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 7 of 192 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5079835322",
+      "confirmed_openalex_author_ids": [
+        "A5079835322"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Psychology",
+          "Decision Sciences",
+          "Computer Science",
+          "Neuroscience",
+          "Health Professions"
+        ],
+        "always_include_work_ids": [
+          "W3168523685",
+          "W4289836493",
+          "W4391361335",
+          "W4406774517",
+          "W4408946339"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_34935c748a1b2639",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Roni MICHAELY",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5021139306",
+      "confirmed_openalex_author_ids": [
+        "A5021139306"
+      ]
+    },
+    {
+      "person_id": "pi_3603b5d4dee6f69d",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Mingzhu TAI",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5000478371', 'A5109480317'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5000478371",
+      "confirmed_openalex_author_ids": [
+        "A5000478371",
+        "A5109480317"
+      ]
+    },
+    {
+      "person_id": "pi_363a60160aabd44e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Hui LI",
+      "reason": "Singleton audit classification official_evidence_only_required: The 105-Work common-name Author mixes many unrelated business, economics, health, materials, and environmental scholars. Field labels do not isolate the HKU digital-platform researcher.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W4281669385",
+          "expected_title": "The Consequences of Rating Inflation on Platforms: Evidence from a Quasi-Experiment"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_37393eff1a355aa0",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jinzhao DU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5056549007",
+      "confirmed_openalex_author_ids": [
+        "A5056549007"
+      ]
+    },
+    {
+      "person_id": "pi_397f4974eaedca43",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Peeyush TAORI",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5089611184",
+      "confirmed_openalex_author_ids": [
+        "A5089611184"
+      ]
+    },
+    {
+      "person_id": "pi_3a530c7336a7ae3c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chun HUI",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 1 of 97 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5002319979",
+      "confirmed_openalex_author_ids": [
+        "A5002319979"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Psychology",
+          "Social Sciences",
+          "Decision Sciences",
+          "Computer Science",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W4293051896",
+          "W4413119002"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_3be5da1f140e404e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Derek K. W. CHAN",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5084552398",
+      "confirmed_openalex_author_ids": [
+        "A5084552398"
+      ]
+    },
+    {
+      "person_id": "pi_3be890113098a0f7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yanhui WU",
+      "reason": "Singleton audit classification official_evidence_only_required: The 93-Work Author contains unrelated petroleum, engineering, medical, computer-science, and business/economics clusters across incompatible affiliations. A field gate alone cannot distinguish the HKU platform/media economist.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2033427388",
+          "expected_title": "Organizational Structure and Product Choice in Knowledge Intensive Firms"
+        },
+        {
+          "openalex_work_id": "W2097307531",
+          "expected_title": "Knowledge, Communication and Organizational Capabilities"
+        },
+        {
+          "openalex_work_id": "W2180122022",
+          "expected_title": "Authority, Incentives and Performance: Evidence from a Chinese Newspaper"
+        },
+        {
+          "openalex_work_id": "W2184599925",
+          "expected_title": "Incentive Contracts and the Allocation of Talent"
+        },
+        {
+          "openalex_work_id": "W2581925873",
+          "expected_title": "Why Does China Allow Freer Social Media? Protests versus Surveillance and Propaganda"
+        },
+        {
+          "openalex_work_id": "W2889153773",
+          "expected_title": "Media Bias in China"
+        },
+        {
+          "openalex_work_id": "W3011695483",
+          "expected_title": "Intentional Control of Type I Error Over Unconscious Data Distortion: A Neyman-Pearson Approach to Text Classification"
+        },
+        {
+          "openalex_work_id": "W4316097106",
+          "expected_title": "Street-level responsiveness of city governments in China, Germany, and the United States"
+        },
+        {
+          "openalex_work_id": "W4404527453",
+          "expected_title": "Social Media and Collective Action in China"
+        },
+        {
+          "openalex_work_id": "W4214862375",
+          "expected_title": "Competition, Contracts, and Creativity: Evidence from Novel Writing in a Platform Market"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_3cb0e9743cc08978",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Thomas W.H. NG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 42 of 132 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5043084808",
+      "confirmed_openalex_author_ids": [
+        "A5043084808"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Psychology",
+          "Economics, Econometrics and Finance",
+          "Health Professions",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W3014055210",
+          "W4407101769"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_3e6ff582d6fbdd39",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tianyi LI",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 3 of 13 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5007551772",
+      "confirmed_openalex_author_ids": [
+        "A5007551772"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Psychology",
+          "Social Sciences",
+          "Neuroscience",
+          "Medicine"
+        ],
+        "always_include_work_ids": [
+          "W1611316193",
+          "W2037711847",
+          "W2510181200",
+          "W2925073179",
+          "W3183207489",
+          "W4313293287",
+          "W4381848875"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_41883cbec83e0a37",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Pingyang GAO",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5082379330'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5082379330",
+      "confirmed_openalex_author_ids": [
+        "A5082379330"
+      ]
+    },
+    {
+      "person_id": "pi_436d9d7fefb59f86",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Derrald STICE",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5047064008",
+      "confirmed_openalex_author_ids": [
+        "A5047064008"
+      ]
+    },
+    {
+      "person_id": "pi_438a240662779eda",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xinyao QIU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5073624769",
+      "confirmed_openalex_author_ids": [
+        "A5073624769"
+      ]
+    },
+    {
+      "person_id": "pi_44907897a27d0f76",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xin TONG",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5071157779'], KF=['A5045011514']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5071157779",
+      "confirmed_openalex_author_ids": [
+        "A5071157779",
+        "A5045011514"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Mathematics",
+          "Computer Science",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W3011695483",
+          "W2786818861"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_488684782a761e3a",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xing HU",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5036471879'], KF=[]. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5036471879",
+      "confirmed_openalex_author_ids": [
+        "A5036471879"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Computer Science"
+        ],
+        "always_include_work_ids": [
+          "W4360850295"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_4b1475a389e6c555",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Will Peichun WANG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5030200371'], KF=[]. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5030200371",
+      "confirmed_openalex_author_ids": [
+        "A5030200371"
+      ]
+    },
+    {
+      "person_id": "pi_4ebeb74ec147be78",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Lionel Zhepeng LI",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5026341901'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5026341901",
+      "confirmed_openalex_author_ids": [
+        "A5026341901"
+      ]
+    },
+    {
+      "person_id": "pi_5207bdaaa9fd894d",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Junhong CHU",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 26 of 93 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5002741885",
+      "confirmed_openalex_author_ids": [
+        "A5002741885"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Decision Sciences",
+          "Economics, Econometrics and Finance",
+          "Environmental Science",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W3153315582",
+          "W4281656846",
+          "W4318716914",
+          "W4391470983",
+          "W4392359971",
+          "W7131129309",
+          "W7133354822"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_52873cbb673a0310",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Wataru MIYAMOTO",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5032788799'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5032788799",
+      "confirmed_openalex_author_ids": [
+        "A5032788799"
+      ]
+    },
+    {
+      "person_id": "pi_52eaa4fa4f76927d",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xi LI",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 17 of 75 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101806851",
+      "confirmed_openalex_author_ids": [
+        "A5101806851"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Computer Science",
+          "Decision Sciences",
+          "Psychology"
+        ],
+        "always_include_work_ids": [
+          "W4401083900",
+          "W4401384173",
+          "W4410560685"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_53109ae5935b51cc",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yan PAN",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=[]. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W7130602836",
+          "expected_title": "High-Investment Human Resource Practices and Firm Performance in the Context of National Education Systems and Labor Markets: A Cross-National Meta-Analysis",
+          "expected_openalex_title": "High-investment human resource practices and firm performance in the context of national education systems and labor markets: A cross-national meta-analysis"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_5456a92908d85448",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Ivy Chu DANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 2 of 10 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5025992972",
+      "confirmed_openalex_author_ids": [
+        "A5025992972"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Social Sciences",
+          "Psychology"
+        ],
+        "always_include_work_ids": [
+          "W2937096464",
+          "W4392747679",
+          "W4413313850"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Chu Dang"
+      ]
+    },
+    {
+      "person_id": "pi_55213d853fe4d701",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tuan Quang PHAN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 24 of 90 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5010655577",
+      "confirmed_openalex_author_ids": [
+        "A5010655577"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Computer Science",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Engineering",
+          "Arts and Humanities",
+          "Health Professions"
+        ],
+        "always_include_work_ids": [
+          "W2121594732",
+          "W2406656474",
+          "W2547348045",
+          "W2910510922",
+          "W2935769673",
+          "W2990175177",
+          "W3124194180",
+          "W4220758812",
+          "W4226516759"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_55d72dd2824ecaef",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Michael He JIA",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5102857161'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5102857161",
+      "confirmed_openalex_author_ids": [
+        "A5102857161"
+      ]
+    },
+    {
+      "person_id": "pi_5b05d261c7fb287c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Alan P. KWAN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 10 of 64 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5102967541",
+      "confirmed_openalex_author_ids": [
+        "A5102967541"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Computer Science",
+          "Decision Sciences",
+          "Mathematics"
+        ],
+        "always_include_work_ids": [
+          "W2911488429",
+          "W3021755432",
+          "W3107539359",
+          "W4226245196",
+          "W4379652936",
+          "W4390539122",
+          "W4390903399",
+          "W4391797402",
+          "W4402864056"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_5b1cb5c5182b3b92",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Lingrui ZHOU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5075913986",
+      "confirmed_openalex_author_ids": [
+        "A5075913986"
+      ]
+    },
+    {
+      "person_id": "pi_5e9c71f0fdc2ad7d",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Juan PANTANO",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5089870702",
+      "confirmed_openalex_author_ids": [
+        "A5089870702"
+      ]
+    },
+    {
+      "person_id": "pi_60ac118315cfcdff",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xu LI",
+      "reason": "Singleton audit classification official_evidence_only_required: The 62-Work common-name Author is evenly mixed across economics/business, computer science, medicine, environmental science, and engineering; only official evidence can disambiguate safely.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W4310251937",
+          "expected_title": "Ambiguity Aversion and Beating Benchmarks: Does it Create a Pattern?"
+        },
+        {
+          "openalex_work_id": "W4394742845",
+          "expected_title": "Heterogeneous Overreaction in Expectation Formation: Evidence and Theory"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_6186e2c2c4259dd9",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yulin FANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 19 of 182 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5085213531",
+      "confirmed_openalex_author_ids": [
+        "A5085213531"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Decision Sciences",
+          "Computer Science",
+          "Psychology",
+          "Health Professions",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W4399480078",
+          "W4402917449",
+          "W4405570390"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_626a5123f71e3742",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Soojin OH",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 1 of 14 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5051493123",
+      "confirmed_openalex_author_ids": [
+        "A5051493123"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Psychology",
+          "Business, Management and Accounting",
+          "Computer Science"
+        ],
+        "always_include_work_ids": [
+          "W4308374955",
+          "W7128738454"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_68efdd79ce411f23",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Haonan ZHOU",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5101764495', 'A5128717981'], KF=['A5101915660']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101764495",
+      "confirmed_openalex_author_ids": [
+        "A5101764495",
+        "A5128717981",
+        "A5101915660"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting"
+        ],
+        "always_include_work_ids": []
+      }
+    },
+    {
+      "person_id": "pi_6949ea069cf7245f",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Maxime COUVERT",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5071326696'], KF=[]. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5071326696",
+      "confirmed_openalex_author_ids": [
+        "A5071326696"
+      ]
+    },
+    {
+      "person_id": "pi_69fe83ce907f6902",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jiantao HUANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5076347101",
+      "confirmed_openalex_author_ids": [
+        "A5076347101"
+      ]
+    },
+    {
+      "person_id": "pi_6f3513e0677457d7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Steven Alan BARNETT",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=[], KF=['A5035588637']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5035588637",
+      "confirmed_openalex_author_ids": [
+        "A5035588637"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Business, Management and Accounting"
+        ],
+        "always_include_work_ids": []
+      }
+    },
+    {
+      "person_id": "pi_730063e76581e2da",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Helen Hailin ZHAO",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 9 of 36 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5103187263",
+      "confirmed_openalex_author_ids": [
+        "A5103187263"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Psychology",
+          "Social Sciences",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Neuroscience",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W1995147553",
+          "W2108508303",
+          "W2509204756",
+          "W2560825968",
+          "W2935837732",
+          "W3082380774",
+          "W3201670330",
+          "W4391027398"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_73901d642f9c382c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Shan HUANG",
+      "reason": "Singleton audit classification official_evidence_only_required: The 110-Work common-name Author merges marketing experiments with unrelated power engineering, finance, dentistry, medicine, and computing. Several allowed business-like fields are themselves polluted.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W3139124507",
+          "expected_title": "Emotions in Online Content Diffusion"
+        },
+        {
+          "openalex_work_id": "W4405285790",
+          "expected_title": "Do More Likes Lead to More Clicks? Evidence from a Field Experiment on Social Advertising"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_7a7c5ed3add41847",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yan XIONG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5051130477'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5051130477",
+      "confirmed_openalex_author_ids": [
+        "A5051130477"
+      ]
+    },
+    {
+      "person_id": "pi_7bd3aa97594164c5",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Bo YANG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5130609337'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5130609337",
+      "confirmed_openalex_author_ids": [
+        "A5130609337"
+      ]
+    },
+    {
+      "person_id": "pi_7ce725604d6427d4",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Theresa Anna KWON",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5061618637'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5061618637",
+      "confirmed_openalex_author_ids": [
+        "A5061618637"
+      ]
+    },
+    {
+      "person_id": "pi_7da9db62d55e2544",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Fabrice LUMINEAU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5084190316",
+      "confirmed_openalex_author_ids": [
+        "A5084190316"
+      ]
+    },
+    {
+      "person_id": "pi_7dee3ab7d976e048",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Uta SCHÖNBERG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5032383469",
+      "confirmed_openalex_author_ids": [
+        "A5032383469"
+      ]
+    },
+    {
+      "person_id": "pi_7fef52e593f5b6de",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yan XU",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5016896792', 'A5109135963'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5016896792",
+      "confirmed_openalex_author_ids": [
+        "A5016896792",
+        "A5109135963"
+      ]
+    },
+    {
+      "person_id": "pi_8024400a3ea2782e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Haishi LI",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5078468275",
+      "confirmed_openalex_author_ids": [
+        "A5078468275"
+      ]
+    },
+    {
+      "person_id": "pi_80c9756085128940",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Sara KIM",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 42 of 70 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5026431239",
+      "confirmed_openalex_author_ids": [
+        "A5026431239"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Psychology",
+          "Decision Sciences",
+          "Neuroscience"
+        ],
+        "always_include_work_ids": [
+          "W4416563681"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_826b20f640e11ef4",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jing LI",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5021469343', 'A5100337106'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5100337106",
+      "confirmed_openalex_author_ids": [
+        "A5100337106",
+        "A5021469343"
+      ]
+    },
+    {
+      "person_id": "pi_861088c2fe7bf30c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Fangzhou LU",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5000962435', 'A5103051154'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5000962435",
+      "confirmed_openalex_author_ids": [
+        "A5000962435",
+        "A5103051154"
+      ]
+    },
+    {
+      "person_id": "pi_886288f271519de0",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Huiyin OUYANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5037843656",
+      "confirmed_openalex_author_ids": [
+        "A5037843656"
+      ]
+    },
+    {
+      "person_id": "pi_8e34a73a41db5821",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Shengjun MAO",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5103165619",
+      "confirmed_openalex_author_ids": [
+        "A5103165619"
+      ]
+    },
+    {
+      "person_id": "pi_8e8928360f864595",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yipu DENG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5012132314",
+      "confirmed_openalex_author_ids": [
+        "A5012132314"
+      ]
+    },
+    {
+      "person_id": "pi_937b15a6e1436cab",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Liao WANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5001871382",
+      "confirmed_openalex_author_ids": [
+        "A5001871382"
+      ]
+    },
+    {
+      "person_id": "pi_961bee2b1d38220e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xuewen LIU",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5008352598', 'A5128824942'], KF=['A5100301149', 'A5109764970']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5008352598",
+      "confirmed_openalex_author_ids": [
+        "A5008352598",
+        "A5128824942",
+        "A5100301149",
+        "A5109764970"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4319599281",
+          "W7135018447"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_9cfef1e22ba8f9ac",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jeffrey NG",
+      "reason": "Singleton audit classification field_allowlist_required: The 200-Work Author contains a coherent accounting/finance cluster but also 20 Medicine, 9 Molecular Biology, 21 Computer Science, and other unrelated Works. Restrict to accounting/finance-oriented fields and require affiliation/coauthor continuity in addition to name validation.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5017222712",
+      "confirmed_openalex_author_ids": [
+        "A5017222712"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4312001300",
+          "W4315645623",
+          "W4320729530",
+          "W4387106482",
+          "W4402234369",
+          "W4405854649",
+          "W4407182684",
+          "W4414562371"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_a06f8f1556d38968",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xiang FANG",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=['A5110917872']. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2550513998",
+          "expected_title": "Volatility, Intermediaries, and Exchange Rates"
+        },
+        {
+          "openalex_work_id": "W4285165024",
+          "expected_title": "Getting to the Core: Inflation Risks Within and Across Asset Classes"
+        },
+        {
+          "openalex_work_id": "W4285209182",
+          "expected_title": "Who Holds Sovereign Debt and Why It Matters"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_a21466932ad41696",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Wei ZHANG",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2121463232",
+          "expected_title": "Contracts for Changing Times: Sourcing with Raw Material Price Volatility and Information Asymmetry"
+        },
+        {
+          "openalex_work_id": "W3200381836",
+          "expected_title": "Coping with Spatial Mismatch: Subsidy Design for Electric Vehicle and Charging Markets"
+        },
+        {
+          "openalex_work_id": "W3201670330",
+          "expected_title": "Fast or Slow: How Temporal Work Design Shapes Experienced Passage of Time and Job Performance"
+        },
+        {
+          "openalex_work_id": "W2464718657",
+          "expected_title": "Higher Prices for Larger Quantities? Nonmonotonic Price-Quantity Relations in B2B Markets"
+        },
+        {
+          "openalex_work_id": "W3191526230",
+          "expected_title": "Investment Strategies for Sourcing a New Technology in the Presence of a Mature Technology"
+        },
+        {
+          "openalex_work_id": "W3123388904",
+          "expected_title": "Managing Limited Retail Space for Basic Products: Space Sharing vs. Space Dedication"
+        },
+        {
+          "openalex_work_id": "W3169714165",
+          "expected_title": "Timing the Price Agreement in High-Tech Component Procurement"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_a2ef96afb85cbf2f",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Zhanrui CAI",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5069961927",
+      "confirmed_openalex_author_ids": [
+        "A5069961927"
+      ]
+    },
+    {
+      "person_id": "pi_a47092928d8c2be4",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Andy S. BACK",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 14 of 16 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5079930802",
+      "confirmed_openalex_author_ids": [
+        "A5079930802"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Health Professions"
+        ],
+        "always_include_work_ids": [
+          "W7129025385"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_a7e190dfc82372fa",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jie GONG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 14 of 31 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5010754317",
+      "confirmed_openalex_author_ids": [
+        "A5010754317"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Economics, Econometrics and Finance",
+          "Psychology",
+          "Neuroscience",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W1493356417",
+          "W2528495455",
+          "W2593759742",
+          "W4313908982",
+          "W4366411973"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_a818c167878a9c48",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yulei LUO",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 5 of 106 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5012450580",
+      "confirmed_openalex_author_ids": [
+        "A5012450580"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Computer Science",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W1569209168",
+          "W1579969345",
+          "W1606369963",
+          "W1888651055",
+          "W1937175523",
+          "W2052456750",
+          "W2107497372",
+          "W2107779609",
+          "W2108275173",
+          "W2114913421",
+          "W2124250872",
+          "W2126235660",
+          "W2140924306",
+          "W2143720213",
+          "W2167113520",
+          "W2395623620",
+          "W3017368555",
+          "W3023951161",
+          "W3121492505",
+          "W3123030912",
+          "W3123305999",
+          "W3125043283",
+          "W3126782868",
+          "W3128167365",
+          "W3211948801",
+          "W3217092311",
+          "W4403272132"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_ab915b2c31380c0e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yang LIU",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W4399970449",
+          "expected_title": "Dynamic ESG Equilibrium"
+        },
+        {
+          "openalex_work_id": "W4285165024",
+          "expected_title": "Getting to the Core: Inflation Risks Within and Across Asset Classes"
+        },
+        {
+          "openalex_work_id": "W4317933862",
+          "expected_title": "Government Debt and Risk Premia"
+        },
+        {
+          "openalex_work_id": "W3177432426",
+          "expected_title": "Government Policy Approval and Exchange Rate",
+          "expected_openalex_title": "Government policy approval and exchange rates"
+        },
+        {
+          "openalex_work_id": "W4414266988",
+          "expected_title": "Volatility (Dis)Connect in International Markets"
+        },
+        {
+          "openalex_work_id": "W4210399059",
+          "expected_title": "Volatility Risk Pass-Through"
+        },
+        {
+          "openalex_work_id": "W3134119437",
+          "expected_title": "Volatility, Intermediaries, and Exchange Rate",
+          "expected_openalex_title": "Volatility, intermediaries, and exchange rates"
+        },
+        {
+          "openalex_work_id": "W4406073117",
+          "expected_title": "Currency Risk Under Capital Controls"
+        },
+        {
+          "openalex_work_id": "W4210509393",
+          "expected_title": "Political Announcement Return",
+          "expected_openalex_title": "Government Policy Announcement Return"
+        }
+      ],
+      "reason": "Reviewed Business-school Yang LIU decision after splitting the prior same-name biomedical merge; no safe whole OpenAlex Author profile is confirmed, so only nine reviewed official Works are authoritative."
+    },
+    {
+      "person_id": "pi_ac9500ddf972f0f7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Balazs SZENTES",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 4 of 61 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5015662394",
+      "confirmed_openalex_author_ids": [
+        "A5015662394"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Decision Sciences",
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Psychology",
+          "Computer Science"
+        ],
+        "always_include_work_ids": [
+          "W1965222161",
+          "W1975601871",
+          "W2120720535",
+          "W2155712237",
+          "W2173055794",
+          "W2728909410",
+          "W3088173592",
+          "W4225712810",
+          "W4236794818",
+          "W4388191512",
+          "W4392848381",
+          "W4414878902"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_aefd20afa14e7c8e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Mengzhou (Austin) ZHUANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 0 of 16 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5023010662",
+      "confirmed_openalex_author_ids": [
+        "A5023010662"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W2791817315",
+          "W3202011673",
+          "W4294485496",
+          "W4384007555",
+          "W4407397840",
+          "W4416877361"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_b07ee3e42cd76888",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chao DING",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 0 of 15 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101842518",
+      "confirmed_openalex_author_ids": [
+        "A5101842518"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4283585950"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_b1603303aab58ad7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chen ZHAO",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 1 of 20 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101642724",
+      "confirmed_openalex_author_ids": [
+        "A5101642724"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Social Sciences",
+          "Computer Science",
+          "Decision Sciences",
+          "Economics, Econometrics and Finance",
+          "Mathematics"
+        ],
+        "always_include_work_ids": [
+          "W4210633047",
+          "W4320480184",
+          "W4399457818",
+          "W4402047214",
+          "W4411078773"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_b1f2bd1c27007afc",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Kevin Zheng ZHOU",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5110749191'], KF=[]. Retry transient probes independently with cached successes, then retain A5110749191 subject to the standard per-Work gate.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5110749191",
+      "confirmed_openalex_author_ids": [
+        "A5110749191"
+      ]
+    },
+    {
+      "person_id": "pi_b43cfb3aebb60cd2",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Thomas SCHMID",
+      "reason": "Singleton audit classification official_evidence_only_required: The 249-Work Author combines the HKU corporate-finance scholar with large Rush University medical and European engineering/chemistry clusters. Whole-profile ingestion is unsafe, and same-name business records cannot be separated reliably by field alone.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W1967739706",
+          "expected_title": "Control Considerations, Creditor Monitoring, and the Capital Structure of Family Firms"
+        },
+        {
+          "openalex_work_id": "W3125301972",
+          "expected_title": "Employee Representation and Financial Leverage"
+        },
+        {
+          "openalex_work_id": "W2799490596",
+          "expected_title": "Product Price Risk and Liquidity Management: Evidence from the Electricity Industry"
+        },
+        {
+          "openalex_work_id": "W3121475073",
+          "expected_title": "Production Flexibility, Product Markets, and Capital Structure Decisions"
+        },
+        {
+          "openalex_work_id": "W3125161887",
+          "expected_title": "Is Skin in the Game a Game Changer? Evidence from Mandatory Changes of D&O Insurance Policies",
+          "expected_openalex_title": "Is skin in the game a game changer? Evidence from mandatory changes of D&amp;O insurance policies"
+        },
+        {
+          "openalex_work_id": "W3216341042",
+          "expected_title": "Female Directors and Firm Value: New Evidence from Directors’ Deaths"
+        },
+        {
+          "openalex_work_id": "W4402891259",
+          "expected_title": "Employee Representation and the Manager-to-Worker Pay Ratio"
+        },
+        {
+          "openalex_work_id": "W4404392361",
+          "expected_title": "Employee Board Representation and Capital Investment"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_b71a25c35d4d6d25",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jiang BIAN",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5059252978'], KF=[]. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5059252978",
+      "confirmed_openalex_author_ids": [
+        "A5059252978"
+      ]
+    },
+    {
+      "person_id": "pi_b846063adaf81c58",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Travis CHOW",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 2 of 35 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5102722762",
+      "confirmed_openalex_author_ids": [
+        "A5102722762"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Medicine"
+        ],
+        "always_include_work_ids": [
+          "W3135611994",
+          "W4296168447",
+          "W4385275953"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_bc63fbf6d544b746",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Weichen WANG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5080111161'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5080111161",
+      "confirmed_openalex_author_ids": [
+        "A5080111161"
+      ]
+    },
+    {
+      "person_id": "pi_bdfa3fa28326487f",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Vincent Peng ZHANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5055663833",
+      "confirmed_openalex_author_ids": [
+        "A5055663833"
+      ]
+    },
+    {
+      "person_id": "pi_be8e3412e295d7fa",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yanbo Wang",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 3 of 49 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5100452578",
+      "confirmed_openalex_author_ids": [
+        "A5100452578"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Computer Science",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W3213641282",
+          "W4400513158"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_bfabd66c9783a4f4",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jayson Shi JIA",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5110723471",
+      "confirmed_openalex_author_ids": [
+        "A5110723471"
+      ]
+    },
+    {
+      "person_id": "pi_c4db6d2580057d6c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Anson Yile JIANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 5 of 20 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof. The final live safety review restricts this merged profile to an exact, individually reviewed Work allowlist.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5023271756",
+      "confirmed_openalex_author_ids": [
+        "A5023271756"
+      ],
+      "work_policy": {
+        "mode": "exact_work_allowlist",
+        "work_ids": [
+          "W3113253771",
+          "W4389227124",
+          "W4403475006",
+          "W4410192247"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Yile Jiang"
+      ]
+    },
+    {
+      "person_id": "pi_c54a5e231a62dc8b",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Echo Wen WAN",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5018693253",
+      "confirmed_openalex_author_ids": [
+        "A5018693253"
+      ]
+    },
+    {
+      "person_id": "pi_c5d1e5f0b64b45d5",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Hong ZOU",
+      "reason": "Corrected Hong ZOU review: retain only the coherent finance/insurance profile A5002252532. Exclude A5113756416 (biology) and A5106276864 (astronomy); A5022896232 is not admitted as a profile and its possible official Work is not part of this full-profile decision.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5002252532",
+      "confirmed_openalex_author_ids": [
+        "A5002252532"
+      ]
+    },
+    {
+      "person_id": "pi_c615b87f29d2b6b4",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Ruishen ZHANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 3 of 16 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5022908954",
+      "confirmed_openalex_author_ids": [
+        "A5022908954"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance"
+        ],
+        "always_include_work_ids": [
+          "W3082719306",
+          "W3193963313",
+          "W4253267298",
+          "W4376287019"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_c62864c419adc738",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xiaodong ZHU",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 43 of 113 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5100717169",
+      "confirmed_openalex_author_ids": [
+        "A5100717169"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W1968615539",
+          "W2015053921",
+          "W2045967878",
+          "W2056394665",
+          "W2076979485",
+          "W2235693265",
+          "W2804413491",
+          "W3009879212",
+          "W3042398398",
+          "W3131954885",
+          "W4388208994",
+          "W4414150910",
+          "W753088695"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_c805ba47a857edb7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chang SUN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 16 of 39 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5028332202",
+      "confirmed_openalex_author_ids": [
+        "A5028332202"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W2999088873",
+          "W3049207191",
+          "W4385728350",
+          "W4386573859",
+          "W4389107930"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_ca8efbfa306cd731",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Wen ZHOU",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 5 of 50 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5067962303",
+      "confirmed_openalex_author_ids": [
+        "A5067962303"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W1970095202",
+          "W1974492669",
+          "W1994862772",
+          "W1999868418",
+          "W2093175766",
+          "W2110502688",
+          "W2119665507",
+          "W2932478817",
+          "W2965228450",
+          "W2971352299",
+          "W3208985085",
+          "W4380609125",
+          "W4386167746"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_ccb01582ce5021af",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Shiyang HUANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 57 of 124 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5087143132",
+      "confirmed_openalex_author_ids": [
+        "A5087143132"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W2525903089",
+          "W2551622572",
+          "W2789844520",
+          "W2970534839",
+          "W3115593875",
+          "W3122115568",
+          "W3122657663",
+          "W3139713508",
+          "W3168523685",
+          "W3168549115",
+          "W3212794219",
+          "W3214467335",
+          "W4232677954",
+          "W4317209872",
+          "W4324150593",
+          "W4376109839",
+          "W4403762766",
+          "W4404713041"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_cef5f6414ce6b0cb",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Michael B. WONG",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=['A5004440024']. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2965166727",
+          "expected_title": "Ideological Bias and Trust in Information Sources"
+        },
+        {
+          "openalex_work_id": "W4408107566",
+          "expected_title": "Domestic Outsourcing and Employment Security"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_cfcc68c4fe9e715e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Feng TIAN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 1 of 14 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5000831123",
+      "confirmed_openalex_author_ids": [
+        "A5000831123"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Decision Sciences",
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting",
+          "Computer Science",
+          "Health Professions"
+        ],
+        "always_include_work_ids": [
+          "W2759907720",
+          "W3124206947",
+          "W3151127286",
+          "W4382245880",
+          "W4404060246",
+          "W4414593532",
+          "W4417246457"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_d29e0e699937b31e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Zhenhui Jack JIANG",
+      "reason": "Singleton audit classification field_allowlist_required: The information-systems corpus is mixed with a large plant/soil/agriculture cluster and unrelated clinical/materials records. Retain only IS-relevant fields, with official Works overriding field labels. The final live safety review restricts this merged profile to an exact, individually reviewed Work allowlist.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5041679286",
+      "confirmed_openalex_author_ids": [
+        "A5041679286"
+      ],
+      "work_policy": {
+        "mode": "exact_work_allowlist",
+        "work_ids": [
+          "W1497112516",
+          "W1605448959",
+          "W2073428267",
+          "W2082877471",
+          "W2114430050",
+          "W2346506637",
+          "W2559970365",
+          "W2611012316",
+          "W2964309803",
+          "W2964744639",
+          "W3124679280",
+          "W4296230421",
+          "W4313367648",
+          "W4362456338",
+          "W4387530451",
+          "W4389195255",
+          "W4404513897",
+          "W4406212158",
+          "W4414437244",
+          "W2199542973",
+          "W2017469186",
+          "W2092845900",
+          "W2166820194",
+          "W2118226919",
+          "W1972785869",
+          "W2422283038",
+          "W2157503882"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Zhenhui Jiang"
+      ]
+    },
+    {
+      "person_id": "pi_d2b51acd5f3ed816",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chen LIN",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5104046691'], KF=['A5091637974']. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5091637974",
+      "confirmed_openalex_author_ids": [
+        "A5091637974",
+        "A5104046691"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W2809064555",
+          "W3119823757",
+          "W3122694534",
+          "W3135273256",
+          "W3187221035",
+          "W2899269546"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_d5aecbc553724f69",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Hailiang CHEN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 11 of 92 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101892477",
+      "confirmed_openalex_author_ids": [
+        "A5101892477"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Social Sciences",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Computer Science",
+          "Mathematics",
+          "Arts and Humanities"
+        ],
+        "always_include_work_ids": [
+          "W3200660888",
+          "W4381052382",
+          "W4413928880"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_d60f303526575ca2",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jing OUYANG",
+      "reason": "Singleton audit classification official_evidence_only_required: Twelve of 13 linked Works are chemistry/materials records; only one local exact official statistics title is supported. Use official evidence rather than the Author profile.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W7138880869",
+          "expected_title": "Statistical Inference for Covariate-adjusted and Interpretable Generalized Latent Factor Model with Application to Testing Fairness"
+        },
+        {
+          "openalex_work_id": "W4388797309",
+          "expected_title": "A note on improving variational estimation for multidimensional item response theory"
+        },
+        {
+          "openalex_work_id": "W4385621981",
+          "expected_title": "DIF Statistical Inference without Knowing Anchoring Items"
+        },
+        {
+          "openalex_work_id": "W4295105933",
+          "expected_title": "High-dimensional Inference for Generalized Linear Models with Hidden Confounding"
+        },
+        {
+          "openalex_work_id": "W3145717908",
+          "expected_title": "Identifiability of latent class models with covariates"
+        },
+        {
+          "openalex_work_id": "W3149310895",
+          "expected_title": "Learning latent and hierarchical structures in cognitive diagnosis models"
+        },
+        {
+          "openalex_work_id": "W4317664627",
+          "expected_title": "Statistical inference for noisy incomplete binary matrix"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_d8182007f619fd4d",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Bennett Chi Kin YIM",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5049049316",
+      "confirmed_openalex_author_ids": [
+        "A5049049316"
+      ]
+    },
+    {
+      "person_id": "pi_d904b94b4ffd6a9a",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tak Zhongqiang HUANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work. The final live safety review excludes two unrelated Computer Science records from the otherwise coherent profile.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5018991809",
+      "confirmed_openalex_author_ids": [
+        "A5018991809"
+      ],
+      "authorship_name_aliases": [
+        "Zhongqiang Huang"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Psychology",
+          "Business, Management and Accounting",
+          "Energy",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4385691042",
+          "W4225278817",
+          "W4306756417",
+          "W4210679017",
+          "W2906967410",
+          "W2771264452",
+          "W2746527007",
+          "W2272362060",
+          "W2465356868",
+          "W2022460787"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_dd724d951bff1941",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Shipeng YAN",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5079280224'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5079280224",
+      "confirmed_openalex_author_ids": [
+        "A5079280224"
+      ]
+    },
+    {
+      "person_id": "pi_de11d5c978e3415c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Haipeng SHEN",
+      "reason": "Singleton audit classification field_allowlist_required: The statistics corpus is mixed with unrelated power-system and marine-engineering clusters. Retain statistical/applied-data fields only and require target-name plus affiliation/coauthor continuity.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5031018293",
+      "confirmed_openalex_author_ids": [
+        "A5031018293"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Computer Science",
+          "Mathematics",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Social Sciences",
+          "Neuroscience",
+          "Biochemistry, Genetics and Molecular Biology",
+          "Medicine"
+        ],
+        "always_include_work_ids": [
+          "W3210222522"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_e1e20c91a9aae76c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Shuqing LUO",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 5 of 33 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5008976768",
+      "confirmed_openalex_author_ids": [
+        "A5008976768"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Social Sciences",
+          "Economics, Econometrics and Finance"
+        ],
+        "always_include_work_ids": [
+          "W4210546133",
+          "W4282942051",
+          "W4296131316"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_e298ccec64940082",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Weiming ZHU",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5006144594",
+      "confirmed_openalex_author_ids": [
+        "A5006144594"
+      ]
+    },
+    {
+      "person_id": "pi_e3ddd1fad91add68",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Bingjing LI",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5028072468'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5028072468",
+      "confirmed_openalex_author_ids": [
+        "A5028072468"
+      ]
+    },
+    {
+      "person_id": "pi_e4becddc41f6fb0f",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Minje PARK",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5114230270'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5114230270",
+      "confirmed_openalex_author_ids": [
+        "A5114230270"
+      ]
+    },
+    {
+      "person_id": "pi_e5c261a90e524118",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Z. Max Shen",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5012457625'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5012457625",
+      "confirmed_openalex_author_ids": [
+        "A5012457625"
+      ]
+    },
+    {
+      "person_id": "pi_e73351eb30ea28d8",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jin LI",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5086387070'], KF=['A5100364761']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5086387070",
+      "confirmed_openalex_author_ids": [
+        "A5086387070",
+        "A5100364761"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences",
+          "Social Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4384831717",
+          "W2921668542"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_e7cf984812cdfba7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jiaheng YU",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=[], KF=['A5010794817', 'A5101285353', 'A5100433378']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5010794817",
+      "confirmed_openalex_author_ids": [
+        "A5010794817",
+        "A5101285353",
+        "A5100433378"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Business, Management and Accounting"
+        ],
+        "always_include_work_ids": [
+          "W3099758060",
+          "W3107845966",
+          "W4386690907"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_e90178dfb42c2cc7",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Xinghao Qiao",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5023890731",
+      "confirmed_openalex_author_ids": [
+        "A5023890731"
+      ]
+    },
+    {
+      "person_id": "pi_e981e1a6786e940f",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Zhiwu CHEN",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 6 of 104 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101688572",
+      "confirmed_openalex_author_ids": [
+        "A5101688572"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Business, Management and Accounting",
+          "Agricultural and Biological Sciences"
+        ],
+        "always_include_work_ids": []
+      }
+    },
+    {
+      "person_id": "pi_e9eedc3f79c62ee8",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Li JIN",
+      "reason": "Singleton audit classification official_evidence_only_required: The accepted Author is overwhelmingly a hard-science amalgam: 202 Materials Science and 70 Engineering Works among 300 locally linked Works, while the official HKU Business evidence is only a tiny management cluster. Field filtering is not safe enough for this common name.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W3100355663",
+          "expected_title": "Learning to Game the System"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_ef0afbe7b7f3b5da",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Guochang ZHANG",
+      "reason": "Singleton audit classification field_allowlist_required: The accounting corpus is mixed with marine engineering, speech coding, cancer biology, atmospheric science, and chemistry. Business/economics fields are the only viable broad gate.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5073038439",
+      "confirmed_openalex_author_ids": [
+        "A5073038439"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4378376303",
+          "W4404392361"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_f334c3e7392ba5bb",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Kian Siong TEY",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5088034201",
+      "confirmed_openalex_author_ids": [
+        "A5088034201"
+      ]
+    },
+    {
+      "person_id": "pi_f41b16319905d8c5",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Chicheng MA",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=[], KF=['A5012634792']. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5012634792",
+      "confirmed_openalex_author_ids": [
+        "A5012634792"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Economics, Econometrics and Finance",
+          "Social Sciences",
+          "Arts and Humanities",
+          "Business, Management and Accounting"
+        ],
+        "always_include_work_ids": [
+          "W4393990404",
+          "W4402557177"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_f52042b7d1f8737c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Heng CHEN",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5129903119'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5129903119",
+      "confirmed_openalex_author_ids": [
+        "A5129903119"
+      ]
+    },
+    {
+      "person_id": "pi_fdc9d79ba655ee14",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Wing SUEN",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5036837835",
+      "confirmed_openalex_author_ids": [
+        "A5036837835"
+      ]
+    },
+    {
+      "person_id": "pi_fde90c8de011b1f6",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Sisi ZHANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5102012203",
+      "confirmed_openalex_author_ids": [
+        "A5102012203"
+      ]
+    },
+    {
+      "person_id": "pi_feb1ba7a80f65158",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yang YOU",
+      "reason": "Split/manual audit reviewed policy field_allowlist; K=['A5068553204'], KF=['A5100658700', 'A5102869500']. Apply this reviewed decision through an identity manifest, then build links/vectors only after the per-Work gate passes.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5068553204",
+      "confirmed_openalex_author_ids": [
+        "A5068553204",
+        "A5100658700",
+        "A5102869500"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Economics, Econometrics and Finance",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4283367077"
+        ]
+      }
+    },
+    {
+      "person_id": "pi_ff8f4b10e4666f0b",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Dan YANG",
+      "reason": "Split/manual audit reviewed policy full_profile; K=['A5101712377'], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5101712377",
+      "confirmed_openalex_author_ids": [
+        "A5101712377"
+      ]
+    }
+  ]
+}

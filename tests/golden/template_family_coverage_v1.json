@@ -1,14 +1,27 @@
 {
   "schema_version": 1,
   "institution_configs": {
+    "cityu_hk.yaml": "cityu_federated_academic_directories_v1",
     "columbia_cs.yaml": "generic_faculty_directory_v1",
     "cornell_cs.yaml": "generic_faculty_directory_v1",
+    "cuhk.yaml": "elsevier_pure_person_sitemap_v1",
+    "eduhk.yaml": "elsevier_pure_person_sitemap_v1",
+    "hkbu.yaml": "elsevier_pure_person_sitemap_v1",
+    "hku.yaml": "hku_federated_academic_directories_v1",
+    "hkust.yaml": "hkust_central_faculty_directory_v1",
+    "lingnan_hk.yaml": "elsevier_pure_person_sitemap_v1",
+    "polyu.yaml": "polyu_sitecore_academic_directory_v1",
     "sunway_university_computing_ai.yaml": "sunway_drupal_staff_v1",
     "university_of_british_columbia_cs.yaml": "generic_faculty_directory_v1",
     "xian_jiaotong_university_ai.yaml": "xjtu_teacher_directory_v1"
   },
   "golden_suites": {
+    "cityu_federated_academic_directories_v1": "hong_kong_template_families_v1.json",
+    "elsevier_pure_person_sitemap_v1": "hong_kong_template_families_v1.json",
     "generic_faculty_directory_v1": "generic_faculty_directory_v1.json",
+    "hku_federated_academic_directories_v1": "hong_kong_template_families_v1.json",
+    "hkust_central_faculty_directory_v1": "hong_kong_template_families_v1.json",
+    "polyu_sitecore_academic_directory_v1": "hong_kong_template_families_v1.json",
     "sunway_drupal_staff_v1": "sunway_parser_v1.json",
     "xjtu_teacher_directory_v1": "xjtu_teacher_directory_v1.json"
   }

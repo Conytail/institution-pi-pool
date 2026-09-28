@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .applicant_parser import load_applicant_text
-from .candidate_retrieval import retrieve_candidates
+from .candidate_retrieval import has_research_evidence, retrieve_candidates
 from .candidate_retrieval import record_text
 from .explanation import explain_match
 from .reranker import score_breakdown
@@ -33,14 +33,25 @@ def match_applicant(
 ) -> list[dict]:
     query = research_intent_text(load_applicant_text(applicant_path))
     records = [record for record in storage.iter_pi_records() if _matches_institution(record, institution)]
+    publication_text = storage.publication_text_by_person(record.person_id for record in records)
+    # Research recommendation is evidence-driven.  Appointment title, contact
+    # availability and nominal staff category are deliberately not eligibility
+    # gates; people without any official research evidence remain in the pool for
+    # later enrichment and manual review, but are not recommended to applicants.
+    records = [
+        record
+        for record in records
+        if has_research_evidence(record, publication_text.get(record.person_id))
+    ]
     verdicts = storage.get_contact_verdict_records()
     ranked = []
-    for record, base_score, overlap in retrieve_candidates(query, records):
+    for record, base_score, overlap in retrieve_candidates(query, records, publication_text):
         verdict_record = verdicts.get(record.person_id)
-        if verdict_record and verdict_record.likely_supervisor_candidate == "false":
-            continue
         verdict = verdict_record.verdict if verdict_record else "unverified"
-        profile_score = semantic_similarity(query, record_text(record))
+        profile_score = semantic_similarity(
+            query,
+            record_text(record, publication_text.get(record.person_id)),
+        )
         scores = score_breakdown(profile_score * 5.0, record, verdict_record, institution_fit_score=1.0)
         ranked.append(
             {
@@ -64,13 +75,11 @@ def match_applicant(
             institution_name=item["institution_name"],
             match_score=item["match_score"],
             topic_score=item["topic_score"],
-            supervision_score=item["supervision_score"],
             contact_score=item["contact_score"],
             institution_score=item["institution_score"],
             total_score=item["total_score"],
             institution_fit_score=item["institution_fit_score"],
             research_fit_score=item["research_fit_score"],
-            supervisor_validity_score=item["supervisor_validity_score"],
             topic_overlap=item["topic_overlap"],
             contact_verdict=item["contact_verdict"],
             explanation=item["explanation"],

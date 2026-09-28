@@ -1,0 +1,104 @@
+schema_version: 1
+manifest_version: 1
+institution_id: hku
+checked_at: "2026-07-14"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: The University of Hong Kong
+  ror_id: https://ror.org/02zhqgq86
+  homepage_url: https://www.hku.hk
+  official_domains: [hku.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use validated official faculty and school directories as the person backbone; include cross-faculty schools with deduplication and use RPg units for coverage checks.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://www.hku.hk/faculties/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official faculty, school, department and centre index.
+  - source_id: scholar_hub
+    role: research_profile
+    url: https://hub.hku.hk/advanced-search?location=crisrp
+    official: true
+    access_state: browser_only
+    observed_http_status: 403
+    note: HKU Scholars Hub staff search; browser retrieval succeeds while the generic automated probe meets an anti-bot page.
+  - source_id: scholars_hub_architecture
+    role: people_and_research_directory
+    url: https://hub.hku.hk/simple-search?location=crisrp&filter_field_1=faculty&filter_type_1=authority&filter_value_1=ou00005
+    official: true
+    access_state: archived_official_snapshot
+    observed_http_status: 403
+    note: Faculty authority filter returned 109 profiles over three archived official pages; on 2026-07-14 both the generic client and browser were refused by the current edge layer, so existing records must be carried forward without pretending that details were refreshed.
+  - source_id: cds_academic_staff
+    role: people_directory
+    url: https://www.cds.hku.hk/about/academic-staff/
+    official: true
+    access_state: archived_official_snapshot
+    observed_http_status: 0
+    note: The current generic crawler is disallowed by the site's robots policy; retain the last archived official directory snapshot and do not bypass the policy.
+  - source_id: federated_people_directories
+    role: people_directory
+    url: https://arts.hku.hk/about-us/find-an-expert/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Representative reachable directory in the federated faculty-and-school source set captured by the HKU Adapter Config v2.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://gradsch.hku.hk/prospective_students/research_areas
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Graduate School lists faculties, departments and interdisciplinary areas admitting research postgraduates.
+
+academic_units:
+  - {unit_id: faculty_architecture, name: Faculty of Architecture, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_arts, name: Faculty of Arts, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_business_economics, name: Faculty of Business and Economics, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_dentistry, name: Faculty of Dentistry, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_education, name: Faculty of Education, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_engineering, name: Faculty of Engineering, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_law, name: Faculty of Law, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: li_ka_shing_faculty_medicine, name: Li Ka Shing Faculty of Medicine, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_science, name: Faculty of Science, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_social_sciences, name: Faculty of Social Sciences, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: school_biomedical_engineering, name: School of Biomedical Engineering, unit_type: cross_faculty_school, scope_status: include_with_deduplication, evidence_source_id: research_degrees}
+  - {unit_id: school_computing_data_science, name: School of Computing and Data Science, unit_type: cross_faculty_school, scope_status: include_with_deduplication, evidence_source_id: research_degrees}
+  - {unit_id: school_future_media, name: School of Future Media, unit_type: cross_faculty_school, scope_status: include_with_deduplication, evidence_source_id: research_degrees}
+  - {unit_id: school_innovation, name: School of Innovation, unit_type: cross_faculty_school, scope_status: include_with_deduplication, evidence_source_id: research_degrees}
+
+coverage:
+  unit_inventory_granularity: top_level_and_cross_faculty_academic_units
+  top_level_unit_count: 14
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: ready
+
+adapter_assessment:
+  coverage_strategy: Federated official faculty and school directories form the backbone; the official Scholars Hub faculty filter covers Architecture where the faculty subdomain blocks generic crawlers, and every top-level and RPg-admitting cross-faculty unit remains measurable.
+  template_hypotheses:
+    - {source_id: federated_people_directories, template_family: hku_federated_academic_directories_v1, confidence: high}
+  known_constraints:
+    - The Architecture faculty subdomain disallows generic crawlers; the official Scholars Hub faculty filter is used instead.
+    - Scholars Hub currently refuses both the generic automated HTTP client and the available browser session; its last archived official snapshot is protected from false removal.
+    - The CDS directory currently disallows the generic crawler; its last archived official snapshot is protected from false removal rather than fetched through a bypass.
+    - Faculty and school directories use multiple HTML, Wix, Sitecore and JSON response templates.
+    - Cross-faculty schools create duplicate affiliations and require canonical person deduplication.
+    - Clinical and honorary appointments remain included; contact and appointment status are reported independently.
+  next_step: Run the Adapter Config v2 and validate people count, source coverage, deduplication and profile URL coverage gates.

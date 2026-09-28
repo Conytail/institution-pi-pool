@@ -14,12 +14,11 @@ FIELDS = ("name", "title", "department", "profile_url", "emails")
 
 def test_sunway_parser_matches_golden_fixture():
     golden = json.loads(GOLDEN.read_text(encoding="utf-8"))
-    config = load_institution_config(CONFIG)
-    title_patterns = config["pi_detection"]["positive_title_patterns"]
+    load_institution_config(CONFIG)
 
     for fixture_name, expected in golden["fixtures"].items():
         html = (FIXTURES / fixture_name).read_text(encoding="utf-8")
-        people = parse_faculty_directory(html, golden["source_url"], title_patterns)
+        people = parse_faculty_directory(html, golden["source_url"])
         actual = [
             {field: getattr(person, field) for field in FIELDS}
             for person in sorted(people, key=lambda item: item.name)

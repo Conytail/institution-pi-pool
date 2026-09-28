@@ -7,7 +7,7 @@ number of university adapters.
 
 - Config-driven official-site crawling and parser selection.
 - Institution-constrained PI records and evidence storage in SQLite.
-- Independent institution, research-fit and supervisor-validity score fields.
+- Independent institution-fit, research-fit and contact-evidence fields.
 - Paper backtrace as a research-fit feature rather than an institution override.
 - Adapter Config v1 validation at the ingestion boundary.
 - Canonical PI Record v1 with an explicit schema version.
@@ -29,7 +29,13 @@ The frozen candidate policy is `configs/matching/matching_v1.yaml` and deliberat
 - Persistent `career_sum`, `career_vector_256`, yearly buckets and PI-to-Work tables.
 - Scheduled incremental OpenAlex publication synchronization.
 - Public API or MCP server.
-- Human-labelled applicant-to-supervisor validation.
+- Human-labelled applicant-to-researcher recommendation validation.
+
+This section describes the frozen v0.1 tag. The current expansion work now persists
+confirmed PI-to-Work relationships and runs scheduled full/delta OpenAlex maintenance as
+specified in `incremental_capture_v1.md`. Current code also persists global paper vectors
+and PI career vectors through a leased local sparse-vector worker; serving-time matcher
+integration remains outside the frozen v0.1 baseline.
 
 ## Change Control
 

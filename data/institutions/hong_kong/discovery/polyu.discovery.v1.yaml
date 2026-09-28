@@ -1,0 +1,75 @@
+schema_version: 1
+manifest_version: 1
+institution_id: polyu
+checked_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: The Hong Kong Polytechnic University
+  ror_id: https://ror.org/0030zas98
+  homepage_url: https://www.polyu.edu.hk
+  official_domains: [polyu.edu.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use the research portal as the person backbone; use academic-unit and programme directories to close coverage gaps and deduplicate appointments.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://www.polyu.edu.hk/en/education/faculties-schools-departments/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official faculties, schools and departments page.
+  - source_id: research_profiles
+    role: research_profile
+    url: https://research.polyu.edu.hk/en/persons/
+    official: true
+    access_state: browser_only
+    observed_http_status: 403
+    note: Institution-wide Elsevier Pure profile index; automated HTTP probe met an anti-bot page.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://www.polyu.edu.hk/en/gs/prospective-students/how-to-apply/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Graduate School directs applicants to research programmes and potential supervisors.
+
+academic_units:
+  - {unit_id: faculty_business, name: Faculty of Business, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_computer_mathematical_sciences, name: Faculty of Computer and Mathematical Sciences, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_construction_environment, name: Faculty of Construction and Environment, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_engineering, name: Faculty of Engineering, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_health_social_sciences, name: Faculty of Health and Social Sciences, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_humanities, name: Faculty of Humanities, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_science, name: Faculty of Science, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: school_design, name: School of Design, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: school_fashion_textiles, name: School of Fashion and Textiles, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: school_hotel_tourism_management, name: School of Hotel and Tourism Management, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+
+coverage:
+  unit_inventory_granularity: top_level_and_cross_faculty_academic_units
+  top_level_unit_count: 10
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: conditional
+
+adapter_assessment:
+  coverage_strategy: Research portal as the whole-university backbone, with academic-unit and programme-directory coverage checks.
+  template_hypotheses:
+    - {source_id: research_profiles, template_family: elsevier_pure_portal, confidence: high}
+  known_constraints:
+    - The research portal is browser-only from the current automated HTTP client.
+    - Joint and cross-department appointments require canonical person deduplication.
+  next_step: Test a compliant Pure access strategy and create an Adapter Config v2 with all ten units as measurable coverage targets.

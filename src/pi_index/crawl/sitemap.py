@@ -41,33 +41,45 @@ def discover_sitemap_urls(
     fetcher: Fetcher,
     limit: int = 100,
     patterns: list[str] | None = None,
+    sitemap_urls: list[str] | None = None,
+    max_sitemaps: int = 10,
     logger: logging.Logger | None = None,
 ) -> list[str]:
     logger = logger or logging.getLogger(__name__)
     patterns = patterns or DEFAULT_PROFILE_PATTERNS
-    sitemap_urls = [urljoin(homepage_url.rstrip("/") + "/", "sitemap.xml")]
-    robots_url = urljoin(homepage_url.rstrip("/") + "/", "robots.txt")
-    robots = fetcher.fetch(robots_url)
-    if robots.status_code and 200 <= robots.status_code < 300:
-        for line in robots.text.splitlines():
-            if line.lower().startswith("sitemap:"):
-                sitemap_urls.append(line.split(":", 1)[1].strip())
+    initial_sitemaps = list(sitemap_urls or [])
+    if not initial_sitemaps:
+        initial_sitemaps.append(urljoin(homepage_url.rstrip("/") + "/", "sitemap.xml"))
+        robots_url = urljoin(homepage_url.rstrip("/") + "/", "robots.txt")
+        robots = fetcher.fetch(
+            robots_url,
+            source_type="robots_txt",
+            crawl_method="sitemap_discovery:robots",
+        )
+        if robots.not_modified or (robots.status_code is not None and 200 <= robots.status_code < 300):
+            for line in robots.text.splitlines():
+                if line.lower().startswith("sitemap:"):
+                    initial_sitemaps.append(line.split(":", 1)[1].strip())
 
     discovered: list[str] = []
     seen_sitemaps: set[str] = set()
-    queue = sitemap_urls[:]
+    queue = initial_sitemaps[:]
     while queue and len(discovered) < limit:
         sitemap_url = queue.pop(0)
         if sitemap_url in seen_sitemaps:
             continue
         seen_sitemaps.add(sitemap_url)
-        result = fetcher.fetch(sitemap_url)
+        result = fetcher.fetch(
+            sitemap_url,
+            source_type="official_sitemap",
+            crawl_method="sitemap_discovery:sitemap",
+        )
         if result.error or not result.text:
             logger.debug("Sitemap fetch skipped %s: %s", sitemap_url, result.error)
             continue
         locs = _extract_locs(result.text)
         for loc in locs:
-            if loc.endswith(".xml") and len(seen_sitemaps) < 10:
+            if ".xml" in urlparse(loc).path.lower() and len(seen_sitemaps) < max_sitemaps:
                 queue.append(loc)
                 continue
             if not _same_domain(loc, homepage_url):

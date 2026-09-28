@@ -1,0 +1,77 @@
+schema_version: 1
+manifest_version: 1
+institution_id: eduhk
+checked_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: The Education University of Hong Kong
+  ror_id: https://ror.org/000t0f062
+  homepage_url: https://www.eduhk.hk
+  official_domains: [eduhk.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use the research repository as the person backbone; use faculty and academy pages to detect missing staff and deduplicate cross-appointments.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://www.eduhk.hk/en/faculties-and-graduate-school
+    official: true
+    access_state: transport_error
+    observed_http_status: null
+    note: Official structure page was browser-indexed, but the current generic HTTP client observed a TLS EOF.
+  - source_id: research_profiles
+    role: research_profile
+    url: https://repository.eduhk.hk/en/persons/index/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Institution-wide researcher index with affiliations, roles and research outputs.
+  - source_id: academic_structure_extended
+    role: organizational_scope
+    url: https://www.eduhk.hk/re/student_handbook/en/Academic-Structure-And-Programmes.html
+    official: true
+    access_state: transport_error
+    observed_http_status: null
+    note: Official academic structure covering the faculties, Graduate School and two academies; curl/browser access succeeds but the current Python HTTP client cannot negotiate its legacy TLS configuration.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://www.eduhk.hk/acadprog/postgrad/index.html
+    official: true
+    access_state: transport_error
+    observed_http_status: null
+    note: Official programme page confirms PhD and MPhil; the current generic HTTP client observed a TLS EOF.
+
+academic_units:
+  - {unit_id: faculty_education_human_development, name: Faculty of Education and Human Development, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_humanities, name: Faculty of Humanities, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_liberal_arts_social_sciences, name: Faculty of Liberal Arts and Social Sciences, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: academy_applied_policy_education_futures, name: Academy for Applied Policy Studies and Education Futures, unit_type: academy, scope_status: include, evidence_source_id: academic_structure_extended}
+  - {unit_id: academy_educational_development_innovation, name: Academy for Educational Development and Innovation, unit_type: academy, scope_status: include, evidence_source_id: academic_structure_extended}
+
+coverage:
+  unit_inventory_granularity: top_level_and_cross_faculty_academic_units
+  top_level_unit_count: 5
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: conditional
+
+adapter_assessment:
+  coverage_strategy: Reachable central research repository as backbone, validated against faculties and academies.
+  template_hypotheses:
+    - {source_id: research_profiles, template_family: elsevier_pure_portal, confidence: high}
+  known_constraints:
+    - Some main-site URLs require a transport workaround for TLS compatibility before production crawling.
+    - The repository includes postdoctoral and teaching-focused roles; retain them and base recommendation eligibility on explicit research evidence rather than title.
+  next_step: Resolve the main-site TLS transport issue, then create an Adapter Config v2 around the reachable research repository.

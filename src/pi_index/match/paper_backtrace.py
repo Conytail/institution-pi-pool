@@ -14,8 +14,7 @@ from ..sources.crossref import CrossrefClient
 from ..sources.openalex import OpenAlexClient
 from ..storage import PIIndexStorage
 from .applicant_parser import load_applicant_text
-from .candidate_retrieval import record_text
-from .reranker import CONFIDENCE_SCORE
+from .candidate_retrieval import has_research_evidence, record_text
 from .semantic import paper_relevance_score, research_intent_text, semantic_similarity, semantic_vector, shared_terms
 
 
@@ -164,7 +163,6 @@ class PaperBacktraceResult:
     institution_fit_score: float = 1.0
     semantic_fallback_score: float = 0.0
     research_fit_score: float = 0.0
-    supervisor_validity_score: float = 0.0
     overall_score: float = 0.0
     final_research_fit_score: float = 0.0
     reason_for_match: str = ""
@@ -510,16 +508,18 @@ def align_papers_to_pi_records(
 
 def profile_topic_score(proposal_text: str, record: CanonicalPIRecord) -> float:
     parts = [
-        record.title or "",
         record.department or "",
         " ".join(record.research_areas),
-        " ".join(record.supervision_signals),
     ]
     return semantic_similarity(proposal_text, " ".join(parts))
 
 
-def semantic_fallback_score(proposal_text: str, record: CanonicalPIRecord) -> float:
-    return semantic_similarity(proposal_text, record_text(record))
+def semantic_fallback_score(
+    proposal_text: str,
+    record: CanonicalPIRecord,
+    official_publication_text: list[str] | str | None = None,
+) -> float:
+    return semantic_similarity(proposal_text, record_text(record, official_publication_text))
 
 
 def paper_backtrace_score(papers: list[Paper], evidences: list[AuthorMatchEvidence]) -> float:
@@ -535,20 +535,10 @@ def research_fit_score(paper_score: float, semantic_score: float, profile_score:
     return round(min(1.0, max(paper_score, semantic_score, profile_score)), 4)
 
 
-def supervisor_validity_score(verdict: PIContactVerdict | None) -> float:
-    if verdict and verdict.likely_supervisor_candidate == "false":
-        return 0.0
-    confidence = verdict.pi_supervisor_confidence if verdict else "unknown"
-    score = CONFIDENCE_SCORE.get(confidence, 0.3)
-    if verdict and verdict.likely_supervisor_candidate == "unknown":
-        score = min(score, 0.6)
-    return round(score, 4)
-
-
-def overall_fit_score(institution_score: float, research_score: float, supervisor_score: float) -> float:
+def overall_fit_score(institution_score: float, research_score: float) -> float:
     if institution_score <= 0:
         return 0.0
-    return round(research_score * (0.75 + 0.25 * supervisor_score), 4)
+    return round(research_score, 4)
 
 
 def topic_clusters(proposal_text: str, papers: list[Paper]) -> list[str]:
@@ -559,12 +549,10 @@ def topic_clusters(proposal_text: str, papers: list[Paper]) -> list[str]:
 def final_score(
     backtrace_score: float,
     profile_score: float,
-    verdict: PIContactVerdict | None,
     semantic_score: float | None = None,
 ) -> float:
     research_score = research_fit_score(backtrace_score, profile_score if semantic_score is None else semantic_score, profile_score)
-    supervisor_score = supervisor_validity_score(verdict)
-    return overall_fit_score(1.0, research_score, supervisor_score)
+    return overall_fit_score(1.0, research_score)
 
 
 def recommended_action(result: PaperBacktraceResult) -> str:
@@ -575,8 +563,6 @@ def recommended_action(result: PaperBacktraceResult) -> str:
         return "Do not promote; no paper, semantic, or profile research-fit evidence."
     if not verdict or verdict.contact_confidence not in {"high", "medium"}:
         return "Review contact/current affiliation before outreach."
-    if verdict.likely_supervisor_candidate != "true":
-        return "Review supervision eligibility before outreach."
     if result.research_fit_score >= 0.45:
         return "Prioritize for manual research-fit review and possible outreach."
     if result.paper_backtrace_score > 0:
@@ -610,8 +596,6 @@ def _risk_flags(record: CanonicalPIRecord, verdict: PIContactVerdict | None, res
     else:
         if verdict.contact_confidence not in {"high", "medium"}:
             flags.append("low_contact_confidence")
-        if verdict.likely_supervisor_candidate != "true":
-            flags.append("supervisor_review_required")
         if verdict.current_affiliation_confidence == "low":
             flags.append("current_affiliation_risk")
     if not result.matched_papers:
@@ -639,6 +623,12 @@ def run_paper_backtrace_match(
     if target_pi_name:
         target_norm = normalize_person_name(target_pi_name)
         records = [record for record in records if target_norm in normalize_person_name(record.display_name)]
+    publication_text = storage.publication_text_by_person(record.person_id for record in records)
+    records = [
+        record
+        for record in records
+        if has_research_evidence(record, publication_text.get(record.person_id))
+    ]
     if not records:
         write_paper_backtrace_csv([], out_path)
         return []
@@ -656,11 +646,17 @@ def run_paper_backtrace_match(
         verdict = verdicts.get(record.person_id)
         backtrace = paper_backtrace_score(matched_papers, evidences)
         profile_score = profile_topic_score(proposal_text, record)
-        semantic_score = max(semantic_fallback_score(proposal_text, record), profile_score)
+        semantic_score = max(
+            semantic_fallback_score(
+                proposal_text,
+                record,
+                publication_text.get(record.person_id),
+            ),
+            profile_score,
+        )
         institution_score = institution_fit_score(record, institution)
         research_score = research_fit_score(backtrace, semantic_score, profile_score)
-        supervisor_score = supervisor_validity_score(verdict)
-        overall_score = overall_fit_score(institution_score, research_score, supervisor_score)
+        overall_score = overall_fit_score(institution_score, research_score)
         result = PaperBacktraceResult(
             record=record,
             verdict=verdict,
@@ -672,7 +668,6 @@ def run_paper_backtrace_match(
             institution_fit_score=institution_score,
             semantic_fallback_score=semantic_score,
             research_fit_score=research_score,
-            supervisor_validity_score=supervisor_score,
             overall_score=overall_score,
             final_research_fit_score=research_score,
         )
@@ -683,7 +678,7 @@ def run_paper_backtrace_match(
 
     results = sorted(
         results,
-        key=lambda item: (item.overall_score, item.research_fit_score, item.supervisor_validity_score),
+        key=lambda item: (item.overall_score, item.research_fit_score),
         reverse=True,
     )[:top_k]
     write_paper_backtrace_csv(results, out_path)
@@ -718,10 +713,8 @@ def write_paper_backtrace_csv(results: list[PaperBacktraceResult], out_path: str
         "email",
         "profile_url",
         "contact_confidence",
-        "supervisor_confidence",
         "institution_fit_score",
         "research_fit_score",
-        "supervisor_validity_score",
         "overall_score",
         "paper_backtrace_score",
         "semantic_fallback_score",
@@ -748,10 +741,8 @@ def write_paper_backtrace_csv(results: list[PaperBacktraceResult], out_path: str
                     "email": _email(result.record),
                     "profile_url": result.record.profile_url or "",
                     "contact_confidence": verdict.contact_confidence if verdict else "none",
-                    "supervisor_confidence": verdict.pi_supervisor_confidence if verdict else "unknown",
                     "institution_fit_score": result.institution_fit_score,
                     "research_fit_score": result.research_fit_score,
-                    "supervisor_validity_score": result.supervisor_validity_score,
                     "overall_score": result.overall_score,
                     "paper_backtrace_score": result.paper_backtrace_score,
                     "semantic_fallback_score": result.semantic_fallback_score,

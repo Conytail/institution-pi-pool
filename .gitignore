@@ -12,6 +12,7 @@ build/
 node_modules/
 outputs/
 snapshots/
+data/raw_sources/
 *.db
 *.db-shm
 *.db-wal

@@ -1,0 +1,56 @@
+schema_version: 2
+config_version: 2
+
+institution:
+  name: The Hong Kong University of Science and Technology
+  country: Hong Kong
+  region: Asia
+  ror_id: https://ror.org/00q4vv597
+  homepage_url: https://hkust.edu.hk
+  official_domains: [hkust.edu.hk, ust.hk]
+  allowed_email_domains: [ust.hk, hkust.edu.hk]
+
+pool_scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+
+site:
+  template_family: hkust_central_faculty_directory_v1
+
+crawl:
+  seed_urls: [https://facultyprofiles.hkust.edu.hk/facultylisting.php]
+  max_depth: 1
+  max_pages: 2000
+  profile_link_limit: 2000
+  profile_links_from_parsed_people_only: true
+  crawl_delay_seconds: 0.5
+  use_homepage_discovery: false
+  allow_serp: false
+  respect_robots_txt: true
+
+parsing:
+  extract_publication_fingerprints: true
+  preferred_adapters: [hkust_faculty_directory]
+  profile_adapters: [hkust_faculty_directory]
+
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 700
+  maximum_duplicate_rate: 0.03
+  minimum_profile_url_coverage: 0.98
+  minimum_seed_url_coverage: 1.0
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 1.0
+  minimum_profile_parse_coverage: 1.0
+  require_profile_follow: true
+  require_pagination_complete: true

@@ -14,8 +14,11 @@ def test_generated_stage2_config_is_official_seed_only():
         "pool_scope": "Biology faculty",
     }
     config = generated_institution_config(entry)
-    assert config["schema_version"] == 1
+    assert config["schema_version"] == 2
     assert config["site"]["template_family"] == "generic_faculty_directory_v1"
+    assert config["pool_scope"]["population"] == "academic_and_research_personnel"
+    assert config["capture"]["conditional_requests"] is True
+    assert config["quality_gate"]["minimum_unit_coverage"] == 1.0
     assert config["crawl"]["seed_urls"] == [entry["seed_url"]]
     assert config["crawl"]["use_homepage_discovery"] is False
     assert config["crawl"]["allow_serp"] is False

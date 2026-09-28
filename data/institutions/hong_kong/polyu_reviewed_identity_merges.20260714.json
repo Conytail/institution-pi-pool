@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_identity_merge_manifest",
+  "safe_merge_pairs": [
+    {
+      "display_name": "K.K. LEE",
+      "recommended_keep_person_id": "pi_d9cc8653fe510ea1",
+      "merge_person_id": "pi_41bf59e7564e81f9",
+      "evidence": "The two active records share the exact official PolyU AF personal staff URL and Lecturer title; the only name difference is the Mr honorific, while the keeper supplies the Faculty of Business department and person-local email."
+    }
+  ]
+}

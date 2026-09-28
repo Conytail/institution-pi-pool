@@ -8,11 +8,6 @@ institution_fit:
   selected_pool_only: true
   cross_institution_backtrace_override: false
 
-supervisor_validity:
-  known_false_action: exclude
-  unknown_action: retain_with_score
-  score_source: official_profile_and_supervision_evidence
-
 query:
   proposal_weight: 0.80
   cv_weight: 0.20
@@ -54,10 +49,9 @@ score_output:
   independent_components:
     - institution_fit_score
     - research_fit_score
-    - supervisor_validity_score
   overall_score:
     hard_zero_when_institution_fails: true
-    formula: research_fit_score * (0.75 + 0.25 * supervisor_validity_score)
+    formula: research_fit_score
 
 identifiers:
   publication_primary: openalex_work_id

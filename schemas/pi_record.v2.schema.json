@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pi-pool.local/schemas/pi_record.v2.schema.json",
+  "title": "Canonical PI Record v2",
+  "type": "object",
+  "required": [
+    "schema_version", "person_id", "display_name", "institution_id",
+    "institution_name", "membership_status", "missing_streak", "last_seen_run_id"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "person_id": {"type": "string", "pattern": "^pi_[0-9a-f]{16}$"},
+    "display_name": {"type": "string", "minLength": 1},
+    "institution_id": {"type": "string", "minLength": 1},
+    "institution_name": {"type": "string", "minLength": 1},
+    "first_seen_at": {"type": ["string", "null"]},
+    "last_seen_at": {"type": ["string", "null"]},
+    "last_seen_run_id": {"type": ["string", "null"]},
+    "membership_status": {"enum": ["active", "missing", "inactive"]},
+    "missing_streak": {"type": "integer", "minimum": 0},
+    "pool_scope": {"type": ["string", "null"]},
+    "publications_summary": {"type": "object"},
+    "source_evidence_ids": {"type": "array", "items": {"type": "string"}}
+  }
+}

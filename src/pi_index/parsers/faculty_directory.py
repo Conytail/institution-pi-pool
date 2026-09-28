@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup, Tag
 from ..models import ParsedPerson
 from .generic_html import clean_text, external_ids_from_links, extract_title, likely_name, normalize_name_candidate
 from .mailto import extract_emails_from_html, split_person_and_ambiguous_emails
+from .publications import extract_publication_fingerprints
 
 
 PERSON_CONTAINER_SELECTORS = [
@@ -23,6 +24,7 @@ PERSON_CONTAINER_SELECTORS = [
 
 NESTED_PERSON_CONTAINER_SELECTORS = [
     ".hpfboxcon",
+    ".views-row",
     ".faculty-row",
     ".person",
     ".profile",
@@ -76,7 +78,7 @@ def _extract_profile_url(tag: Tag, source_url: str, name: str | None = None) -> 
     for link in tag.find_all("a", href=True):
         href = link.get("href") or ""
         text = clean_text(link.get_text(" ", strip=True))
-        if href.startswith("mailto:") or href.startswith("#"):
+        if href.lower().startswith(("mailto:", "tel:", "javascript:")) or href.startswith("#"):
             continue
         if not href or "/cdn-cgi/l/email-protection" in href:
             continue
@@ -109,7 +111,7 @@ def _is_school_or_department_line(line: str) -> bool:
     return any(term in lower for term in ["department", "school", "faculty", "institute"])
 
 
-def _extract_title_from_container(tag: Tag, text: str, positive_title_patterns: list[str]) -> str | None:
+def _extract_title_from_container(tag: Tag, text: str, appointment_title_patterns: list[str]) -> str | None:
     role_lines: list[str] = []
     collect_programme_detail = False
     for line in _safe_lines(tag)[:60]:
@@ -119,7 +121,7 @@ def _extract_title_from_container(tag: Tag, text: str, positive_title_patterns: 
         if likely_name(line) or _is_school_or_department_line(line):
             collect_programme_detail = False
             continue
-        has_role = ROLE_LINE_RE.search(line) or any(pattern.lower() in lower for pattern in positive_title_patterns)
+        has_role = ROLE_LINE_RE.search(line) or any(pattern.lower() in lower for pattern in appointment_title_patterns)
         if has_role:
             role_lines.append(line)
             collect_programme_detail = "programme leader" in lower or "program leader" in lower
@@ -136,17 +138,17 @@ def _extract_title_from_container(tag: Tag, text: str, positive_title_patterns: 
             deduped.append(line)
     if deduped:
         return "; ".join(deduped[:8])
-    return extract_title(text, positive_title_patterns)
+    return extract_title(text, appointment_title_patterns)
 
 
 def _person_from_container(
     tag: Tag,
     source_url: str,
     method: str,
-    positive_title_patterns: list[str],
+    appointment_title_patterns: list[str],
 ) -> ParsedPerson | None:
     text = clean_text(tag.get_text(" ", strip=True))
-    if len(text) < 20:
+    if len(text) < 5:
         return None
     all_emails = extract_emails_from_html(str(tag))
     if len(all_emails) > 3:
@@ -155,9 +157,9 @@ def _person_from_container(
     name = _extract_name(tag)
     if not name:
         return None
-    title = _extract_title_from_container(tag, text, positive_title_patterns)
+    title = _extract_title_from_container(tag, text, appointment_title_patterns)
     profile_url = _extract_profile_url(tag, source_url, name)
-    if not title and not emails:
+    if not title and not emails and not profile_url:
         return None
     if not emails and not profile_url and not _has_explicit_person_container_class(tag):
         return None
@@ -175,6 +177,7 @@ def _person_from_container(
         ambiguous_emails=ambiguous_emails,
         research_areas=_extract_research_areas(tag),
         external_ids=external_ids_from_links(BeautifulSoup(str(tag), "html.parser"), source_url),
+        publication_fingerprints=extract_publication_fingerprints(str(tag), source_url),
         source_url=source_url,
         source_type="official_directory",
         extraction_method=method,
@@ -183,16 +186,13 @@ def _person_from_container(
     )
 
 
-def _parse_table_rows(soup: BeautifulSoup, source_url: str, positive_title_patterns: list[str]) -> list[ParsedPerson]:
+def _parse_table_rows(soup: BeautifulSoup, source_url: str, appointment_title_patterns: list[str]) -> list[ParsedPerson]:
     people: list[ParsedPerson] = []
     for row in soup.select("tr"):
         cells = row.find_all(["td", "th"])
         if len(cells) < 2:
             continue
-        text = clean_text(row.get_text(" ", strip=True))
-        if "@" not in text and not any(pattern.lower() in text.lower() for pattern in positive_title_patterns):
-            continue
-        person = _person_from_container(row, source_url, "faculty_directory_table", positive_title_patterns)
+        person = _person_from_container(row, source_url, "faculty_directory_table", appointment_title_patterns)
         if person:
             people.append(person)
     return people
@@ -229,7 +229,7 @@ def _containers_from_mailto(soup: BeautifulSoup) -> list[Tag]:
 
 def _containers_from_role_text(
     soup: BeautifulSoup,
-    positive_title_patterns: list[str],
+    appointment_title_patterns: list[str],
 ) -> list[Tag]:
     """Find the smallest repeated card around an explicit academic role.
 
@@ -238,7 +238,7 @@ def _containers_from_role_text(
     role keeps this fallback structural and institution-agnostic.
     """
 
-    patterns = [pattern.lower() for pattern in positive_title_patterns if pattern]
+    patterns = [pattern.lower() for pattern in appointment_title_patterns if pattern]
     containers: list[Tag] = []
     seen: set[int] = set()
     for text_node in soup.find_all(string=True):
@@ -307,9 +307,9 @@ def _has_explicit_person_container_class(tag: Tag) -> bool:
 def parse_faculty_directory(
     html_text: str,
     source_url: str,
-    positive_title_patterns: list[str] | None = None,
+    appointment_title_patterns: list[str] | None = None,
 ) -> list[ParsedPerson]:
-    positive_title_patterns = positive_title_patterns or [
+    appointment_title_patterns = appointment_title_patterns or [
         "Professor",
         "Associate Professor",
         "Assistant Professor",
@@ -322,13 +322,13 @@ def parse_faculty_directory(
         tag.decompose()
 
     candidates: list[ParsedPerson] = []
-    candidates.extend(_parse_table_rows(soup, source_url, positive_title_patterns))
+    candidates.extend(_parse_table_rows(soup, source_url, appointment_title_patterns))
 
     containers: list[Tag] = []
     for selector in PERSON_CONTAINER_SELECTORS:
         containers.extend(soup.select(selector))
     containers.extend(_containers_from_mailto(soup))
-    role_containers = _containers_from_role_text(soup, positive_title_patterns)
+    role_containers = _containers_from_role_text(soup, appointment_title_patterns)
     role_container_ids = {id(tag) for tag in role_containers}
     containers.extend(role_containers)
 
@@ -339,7 +339,7 @@ def parse_faculty_directory(
         seen_container_ids.add(id(tag))
         if id(tag) not in role_container_ids and _has_more_specific_person_container(tag):
             continue
-        person = _person_from_container(tag, source_url, "faculty_directory_card", positive_title_patterns)
+        person = _person_from_container(tag, source_url, "faculty_directory_card", appointment_title_patterns)
         if person and _same_site_or_external_profile(person.profile_url, source_url):
             candidates.append(person)
 

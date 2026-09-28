@@ -1,5 +1,4 @@
 from pi_index.parsers.xjtu import parse_xjtu_teacher_profile
-from pi_index.verify.supervisor_signal import supervisor_confidence
 
 
 def test_xjtu_teacher_profile_extracts_research_and_contact_fields():
@@ -34,11 +33,3 @@ def test_xjtu_teacher_profile_extracts_research_and_contact_fields():
     assert person.emails == ["ding.ning@xjtu.edu.cn"]
     assert person.lab_url == "https://gr.xjtu.edu.cn/zh/web/ding.ning"
     assert person.research_areas == ["大模型", "人机交互", "自然语言处理", "语音处理"]
-
-
-def test_chinese_doctoral_supervisor_signal_is_high_confidence():
-    confidence, likely_supervisor, reasons = supervisor_confidence("博士生导师", "research_areas_present", [])
-
-    assert confidence == "high"
-    assert likely_supervisor == "true"
-    assert reasons == ["explicit doctoral supervisor evidence"]

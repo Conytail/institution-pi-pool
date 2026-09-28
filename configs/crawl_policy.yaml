@@ -1,4 +1,4 @@
-user_agent: "pi-index-mvp/0.1 (+public academic indexing; set OPENALEX_MAILTO/CROSSREF_MAILTO for contact)"
+user_agent: "pi-index-mvp/0.1 (+public academic indexing; operator contact configured separately)"
 timeout_seconds: 20
 max_retries: 2
 backoff_seconds: 1.5

@@ -1,0 +1,114 @@
+schema_version: 1
+manifest_version: 1
+institution_id: cityu_hk
+checked_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: City University of Hong Kong
+  ror_id: https://ror.org/03q8dnn23
+  homepage_url: https://www.cityu.edu.hk
+  official_domains: [cityu.edu.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use the central people directory as the person backbone; add research-unit-only staff only when absent, and deduplicate cross-appointments.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://www.cityu.edu.hk/en/academic/colleges-schools-and-departments
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official institution-wide colleges, schools and departments page.
+  - source_id: academic_people
+    role: people_directory
+    url: https://www.cityu.edu.hk/en/directories/people/academic
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Institution-wide academic staff directory with profiles and pagination.
+  - source_id: bios_people_api
+    role: people_directory
+    url: https://www.cityu.edu.hk/bios/people/profile/staffs.htm
+    official: true
+    access_state: browser_only
+    observed_http_status: 200
+    note: Compact official Biostatistics staff JSON; direct automated HTTP is Incapsula-protected, so the current replay cache uses a provenance-marked reader capture.
+  - source_id: research_profiles
+    role: research_profile
+    url: https://scholars.cityu.edu.hk/en/persons/
+    official: true
+    access_state: browser_only
+    observed_http_status: 403
+    note: Elsevier Pure research profiles; automated HTTP probe met an anti-bot page.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://www.cityu.edu.hk/en/pg/research-degree-programmes/research-areas
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Institution research-degree areas and programme-level supervision context.
+
+academic_units:
+  - {unit_id: bme, name: Department of Biomedical Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: bms, name: Department of Biomedical Sciences, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: neuro, name: Department of Neuroscience, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ac, name: Department of Accountancy, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: dao, name: Department of Decision Analytics and Operations, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ef, name: Department of Economics and Finance, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: is, name: Department of Information Systems, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: mgt, name: Department of Management, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: mkt, name: Department of Marketing, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: bios, name: Department of Biostatistics, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: cs, name: Department of Computer Science, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ds, name: Department of Data Science, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ace, name: Department of Architecture and Civil Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ee, name: Department of Electrical Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: mne, name: Department of Mechanical Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: mse, name: Department of Materials Science and Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: sye, name: Department of Systems Engineering, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: cah, name: Department of Chinese and History, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: com, name: Department of Media and Communication, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: en, name: Department of English, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: lc, name: Chan Feng Men-ling Chan Shuk-lin Language Centre, unit_type: centre, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: lt, name: Department of Linguistics and Translation, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: pia, name: Department of Public and International Affairs, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ss, name: Department of Social and Behavioural Sciences, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: chem, name: Department of Chemistry, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ma, name: Department of Mathematics, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: phy, name: Department of Physics, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: ph, name: Department of Infectious Diseases and Public Health, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: vcs, name: Department of Veterinary Clinical Sciences, unit_type: department, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: scm, name: School of Creative Media, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: see, name: School of Energy and Environment, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: slw, name: School of Law, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+
+coverage:
+  unit_inventory_granularity: department_school_and_academic_centre
+  top_level_unit_count: 32
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: ready
+
+adapter_assessment:
+  coverage_strategy: Federated official department directories and unit APIs as the repeatable backbone; central directory is cross-coverage evidence and the research portal is enrichment only.
+  template_hypotheses:
+    - {source_id: academic_people, template_family: central_paginated_academic_directory, confidence: high}
+    - {source_id: academic_structure, template_family: federated_department_people_directories, confidence: high}
+    - {source_id: research_profiles, template_family: elsevier_pure_portal, confidence: high}
+  known_constraints:
+    - The central directory and four legacy department pages may trigger Incapsula from the automated HTTP client.
+    - The Biostatistics staff JSON is complete and compact, but currently requires a provenance-marked reader capture for offline replay.
+    - Department pages use several recurring templates and require person-card boundary plus current-membership validation; titles are not eligibility filters.
+  next_step: Run the federated Adapter, repair transient captures, and validate all 32 units against academic_structure.

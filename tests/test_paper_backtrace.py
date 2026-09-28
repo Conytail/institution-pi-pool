@@ -8,7 +8,7 @@ from pi_index.match.paper_backtrace import (
     research_fit_score,
     run_paper_backtrace_match,
 )
-from pi_index.models import CanonicalPIRecord, PIContactVerdict
+from pi_index.models import CanonicalPIRecord, OfficialPublicationFingerprint, PIContactVerdict
 from pi_index.storage import PIIndexStorage
 
 
@@ -37,13 +37,12 @@ def record(
         research_areas=["machine learning"] if research_areas is None else research_areas,
         publications_summary={},
         external_ids={},
-        supervision_signals=["title:Associate Professor"],
         source_evidence_ids=[],
         last_checked_at="2026-01-01T00:00:00+00:00",
     )
 
 
-def verdict(contact="high", supervisor="high", affiliation="high"):
+def verdict(contact="high", affiliation="high"):
     return PIContactVerdict(
         person_id="pi_1",
         verdict="high_confidence_contactable",
@@ -51,8 +50,6 @@ def verdict(contact="high", supervisor="high", affiliation="high"):
         recommended_action="",
         last_live_checked_at="2026-01-01T00:00:00+00:00",
         contact_confidence=contact,
-        pi_supervisor_confidence=supervisor,
-        likely_supervisor_candidate="true" if supervisor == "high" else "unknown",
         current_affiliation_confidence=affiliation,
     )
 
@@ -98,10 +95,8 @@ def test_name_similarity_handles_initials():
     assert name_similarity("Professor M A Hannan", "M A Hannan") >= 0.9
 
 
-def test_final_score_uses_contact_supervisor_affiliation_confidence():
-    strong = final_score(0.8, 0.5, verdict())
-    weak = final_score(0.8, 0.5, verdict(contact="none", supervisor="medium", affiliation="low"))
-    assert strong > weak
+def test_final_score_is_research_fit_only():
+    assert final_score(0.8, 0.5) == 0.8
 
 
 def test_run_backtrace_scores_selected_institution_without_requiring_paper_match(tmp_path, monkeypatch):
@@ -139,7 +134,7 @@ def test_broad_paper_backtrace_is_retained_as_a_weak_feature(tmp_path, monkeypat
     applicant = tmp_path / "applicant.txt"
     applicant.write_text("causal graph discovery for clinical treatment response", encoding="utf-8")
     storage = PIIndexStorage(tmp_path / "pi_index.db")
-    storage.upsert_pi_record(record(research_areas=[]))
+    storage.upsert_pi_record(record(research_areas=["machine learning"]))
     storage.upsert_contact_verdict(verdict())
     broad = Paper(
         title="Deep learning for cloud load balancing",
@@ -174,8 +169,67 @@ def test_broad_paper_backtrace_is_retained_as_a_weak_feature(tmp_path, monkeypat
     assert results[0].paper_backtrace_score > 0
 
 
-def test_supervisor_validity_cannot_compensate_for_zero_research_fit():
-    assert overall_fit_score(1.0, 0.0, 1.0) == 0.0
+def test_paper_backtrace_excludes_evidenceless_administrative_staff(tmp_path, monkeypatch):
+    applicant = tmp_path / "applicant.txt"
+    applicant.write_text("causal graph discovery", encoding="utf-8")
+    storage = PIIndexStorage(tmp_path / "pi_index.db")
+    administrator = record(
+        name="Alex Administrator",
+        person_id="pi_admin",
+        research_areas=[],
+    )
+    administrator.title = "Professor and Programme Director"
+    administrator.department = "Causal Graph Discovery Programme"
+    storage.upsert_pi_record(administrator)
+    monkeypatch.setattr("pi_index.match.paper_backtrace.retrieve_papers", lambda *args, **kwargs: [])
+
+    results = run_paper_backtrace_match(
+        applicant,
+        storage,
+        tmp_path / "matches.csv",
+        institution="Target University",
+    )
+
+    assert results == []
+
+
+def test_paper_backtrace_admits_publication_only_researcher(tmp_path, monkeypatch):
+    applicant = tmp_path / "applicant.txt"
+    applicant.write_text("causal representation learning single-cell biology", encoding="utf-8")
+    storage = PIIndexStorage(tmp_path / "pi_index.db")
+    researcher = record(person_id="pi_publication_only", research_areas=[])
+    storage.upsert_pi_record(researcher)
+    now = "2026-07-14T00:00:00+00:00"
+    storage.upsert_publication_fingerprint(
+        OfficialPublicationFingerprint(
+            fingerprint_id="fp_publication_only",
+            person_id=researcher.person_id,
+            institution_id=researcher.institution_id,
+            title="Causal Representation Learning for Single-Cell Biology",
+            citation_text="Causal Representation Learning for Single-Cell Biology. Bioinformatics, 2025.",
+            source_url=researcher.profile_url,
+            run_id="run-1",
+            first_seen_at=now,
+            last_seen_at=now,
+            last_seen_run_id="run-1",
+            publication_year=2025,
+        )
+    )
+    monkeypatch.setattr("pi_index.match.paper_backtrace.retrieve_papers", lambda *args, **kwargs: [])
+
+    results = run_paper_backtrace_match(
+        applicant,
+        storage,
+        tmp_path / "matches.csv",
+        institution="Target University",
+    )
+
+    assert [result.record.person_id for result in results] == [researcher.person_id]
+    assert results[0].semantic_fallback_score > 0
+
+
+def test_institution_membership_cannot_compensate_for_zero_research_fit():
+    assert overall_fit_score(1.0, 0.0) == 0.0
 
 
 def test_research_fit_uses_max_of_paper_semantic_and_profile_scores():

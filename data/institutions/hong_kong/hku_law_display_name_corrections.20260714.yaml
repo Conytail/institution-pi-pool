@@ -1,0 +1,191 @@
+schema_version: 1
+
+# Exact HKU Law name cleanups identified by the post-merge identity audit.
+# Every correction is located by its unique official profile URL. The latest
+# hku_federated_profile observation at each URL extracts the clean person name;
+# historical directory parsing had allowed appointment text to remain in the
+# canonical display name. Aliases are cleared because the corrected display
+# name makes the clean-name alias redundant.
+corrections:
+  - correction_id: hku_law_simon_young_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-simon-young/
+    fields:
+      display_name: Simon Young
+      given_name: Simon
+      family_name: Young
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-simon-young/
+    reason: >-
+      The official profile heading identifies Simon Young. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_alec_stone_sweet_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-alec-stone-sweet/
+    fields:
+      display_name: Alec Stone Sweet
+      given_name: Alec Stone
+      family_name: Sweet
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-alec-stone-sweet/
+    reason: >-
+      The official profile heading identifies Alec Stone Sweet. A historical
+      Law directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_lusina_ho_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-lusina-ho/
+    fields:
+      display_name: Lusina Ho
+      given_name: Lusina
+      family_name: Ho
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-lusina-ho/
+    reason: >-
+      The official profile heading identifies Lusina Ho. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_scott_veitch_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-scott-veitch/
+    fields:
+      display_name: Scott Veitch
+      given_name: Scott
+      family_name: Veitch
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-scott-veitch/
+    reason: >-
+      The official profile heading identifies Scott Veitch. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_yun_zhao_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-zhao-yun/
+    fields:
+      display_name: Yun Zhao
+      given_name: Yun
+      family_name: Zhao
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-zhao-yun/
+    reason: >-
+      The official profile heading identifies Yun Zhao. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; case-only clean-name aliases are redundant after
+      repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_albert_hung_yee_chen_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-albert-chen-hung-yee/
+    fields:
+      display_name: Albert Hung-yee Chen
+      given_name: Albert Hung-yee
+      family_name: Chen
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-albert-chen-hung-yee/
+    reason: >-
+      The official profile heading identifies Albert Hung-yee Chen. A
+      historical Law directory parse appended "Emeritus Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_hualing_fu_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-fu-hualing/
+    fields:
+      display_name: Hualing Fu
+      given_name: Hualing
+      family_name: Fu
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-fu-hualing/
+    reason: >-
+      The official profile heading identifies Hualing Fu. A historical Law
+      directory parse wrapped the name with "Faculty of Law", "Professor" and
+      "Dean" navigation or appointment text; the clean-name alias is redundant
+      after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_benjamin_chen_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/benjamin-m-chen/
+    fields:
+      display_name: Benjamin Chen
+      given_name: Benjamin
+      family_name: Chen
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/benjamin-m-chen/
+    reason: >-
+      The official profile heading identifies Benjamin Chen. A historical Law
+      directory parse appended "Associate Professor" to the canonical display
+      name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_douglas_arner_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-douglas-w-arner/
+    fields:
+      display_name: Douglas Arner
+      given_name: Douglas
+      family_name: Arner
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-douglas-w-arner/
+    reason: >-
+      The official profile heading identifies Douglas Arner. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_john_lowry_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-john-lowry/
+    fields:
+      display_name: John Lowry
+      given_name: John
+      family_name: Lowry
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-john-lowry/
+    reason: >-
+      The official profile heading identifies John Lowry. A historical Law
+      directory parse appended the appointment word "Professor" to the
+      canonical display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_daniel_bell_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-daniel-bell/
+    fields:
+      display_name: Daniel Bell
+      given_name: Daniel
+      family_name: Bell
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-daniel-bell/
+    reason: >-
+      The official profile heading identifies Daniel Bell. A historical Law
+      directory parse appended "Professor (by courtesy)" to the canonical
+      display name; the clean-name alias is redundant after repair.
+    verified_at: "2026-07-14T20:43:09+08:00"
+
+  - correction_id: hku_law_xin_he_display_name_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.law.hku.hk/academic_staff/professor-xin-he/
+    fields:
+      display_name: Xin He
+      given_name: Xin
+      family_name: He
+      aliases: []
+    official_evidence_url: https://www.law.hku.hk/academic_staff/professor-xin-he/
+    reason: >-
+      The official profile heading identifies Xin He. A historical Law
+      directory parse appended both "Professor" and the named-chair appointment
+      to the canonical display name; the clean-name alias is redundant after
+      repair.
+    verified_at: "2026-07-14T20:43:09+08:00"

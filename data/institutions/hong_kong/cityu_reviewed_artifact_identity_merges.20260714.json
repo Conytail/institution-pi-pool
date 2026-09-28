@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_identity_merge_manifest",
+  "safe_merge_pairs": [
+    {
+      "display_name": "Chi Wan (Albert) Sung / legacy homepage quotation artifact",
+      "recommended_keep_person_id": "pi_228ab5ae118dbd0d",
+      "merge_person_id": "pi_059932d8e5f216d9",
+      "evidence": "Both records use the exact official EE homepage https://www.ee.cityu.edu.hk/~cwsung/ and the same Associate Professor appointment. The duplicate display name is a quotation parsed from page chrome."
+    },
+    {
+      "display_name": "CLARKE David R / Link to profile artifact",
+      "recommended_keep_person_id": "pi_70d3448a32a690a4",
+      "merge_person_id": "pi_c2bfbfed197b2b10",
+      "evidence": "The same archived official Physics card contains CLARKE David R, Honorary Professor, the Harvard profile link, clarke@seas.harvard.edu, and expertise; Link to profile is only the card anchor text."
+    },
+    {
+      "display_name": "CLARKE David R / CLARKE David R.",
+      "recommended_keep_person_id": "pi_70d3448a32a690a4",
+      "merge_person_id": "pi_6089583c0f6d1820",
+      "evidence": "The current structured Physics card and the older directory row have the same name, Honorary Professor appointment, Department of Physics, and official card provenance; the punctuated current record additionally carries the person-local Harvard profile, email, and expertise."
+    },
+    {
+      "display_name": "LAM Hei Yuet Sabrina / malformed mailt profile identity",
+      "recommended_keep_person_id": "pi_7707e1f6a63c9a29",
+      "merge_person_id": "pi_a8f4c5534ad64e82",
+      "evidence": "Both records come from the same official CityU PH personnel card and have the exact same name and department. The older ID was created only because the card's malformed mailt:sabrilam6@cityu.edu.hk link was incorrectly treated as a profile URL; the current record correctly stores it as email evidence."
+    }
+  ]
+}

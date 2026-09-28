@@ -1,0 +1,15 @@
+schema_version: 1
+
+corrections:
+  - correction_id: hkbu_rashmi_supriya_drop_placeholder_family_dash_20260714
+    institution_id: inst_59e009ae2c54baab
+    person_id: pi_701db1f848b85a3e
+    fields:
+      display_name: Rashmi-Supriya
+      given_name: Rashmi-Supriya
+      family_name: null
+    official_evidence_url: https://scholars.hkbu.edu.hk/en/persons/RASHMISUPRIYA/
+    reason: >-
+      The Pure profile uses a dash as the missing family-name placeholder. It
+      is not part of this mononymous researcher's name.
+    verified_at: "2026-07-15T00:02:00+08:00"

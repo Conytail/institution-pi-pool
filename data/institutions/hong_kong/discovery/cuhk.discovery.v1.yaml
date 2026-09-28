@@ -1,0 +1,81 @@
+schema_version: 1
+manifest_version: 1
+institution_id: cuhk
+checked_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: The Chinese University of Hong Kong
+  ror_id: https://ror.org/00t33hh48
+  homepage_url: https://www.cuhk.edu.hk
+  official_domains: [cuhk.edu.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use CUHK IRIS as the person backbone; use faculties and graduate divisions to measure coverage and deduplicate cross-unit affiliations.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://www.cuhk.edu.hk/english/faculties/faculty-graduate-school.html
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official faculties and interdisciplinary school listing.
+  - source_id: research_portal
+    role: research_profile
+    url: https://research.cuhk.edu.hk/
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: CUHK IRIS public root exposes scholar and research-unit coverage counts.
+  - source_id: research_people
+    role: people_directory
+    url: https://research.cuhk.edu.hk/en/persons/
+    official: true
+    access_state: browser_only
+    observed_http_status: 403
+    note: Scholar index linked from IRIS; direct automated probe met an anti-bot page.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://www.gs.cuhk.edu.hk/admissions/research-postgraduate
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Graduate School research-postgraduate entry point across eight faculties.
+
+academic_units:
+  - {unit_id: faculty_arts, name: Faculty of Arts, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_business_administration, name: Faculty of Business Administration, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_education, name: Faculty of Education, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_engineering, name: Faculty of Engineering, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_law, name: Faculty of Law, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_medicine, name: Faculty of Medicine, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_science, name: Faculty of Science, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: faculty_social_science, name: Faculty of Social Science, unit_type: faculty, scope_status: include, evidence_source_id: academic_structure}
+  - {unit_id: zhizhen_interdisciplinary_mathematical_sciences, name: Zhizhen School of Interdisciplinary Mathematical Sciences, unit_type: school, scope_status: include, evidence_source_id: academic_structure}
+
+coverage:
+  unit_inventory_granularity: top_level_and_cross_faculty_academic_units
+  top_level_unit_count: 9
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: conditional
+
+adapter_assessment:
+  coverage_strategy: CUHK IRIS as the whole-university backbone, checked against faculties and research graduate divisions.
+  template_hypotheses:
+    - {source_id: research_portal, template_family: elsevier_pure_portal, confidence: high}
+  known_constraints:
+    - The IRIS root is reachable but its scholar index is browser-only from the current automated HTTP client.
+    - Colleges are residential structures and must not be treated as independent PI populations.
+  next_step: Establish compliant scholar-index access and create an Adapter Config v2 with faculty and graduate-division coverage gates.

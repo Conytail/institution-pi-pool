@@ -4,7 +4,7 @@
 
 Select the smallest PI Research Profile representation that preserves retrieval quality for applicant-like CV and proposal queries.
 
-The experiment optimizes representation resolution, not institution membership, identity resolution, or supervisor eligibility. Those remain separate gates.
+The experiment optimizes representation resolution, not institution membership, identity resolution, contactability, or minimum research-evidence sufficiency. Those remain separate concerns.
 
 ## Evaluation Lines
 
@@ -21,7 +21,7 @@ The experiment optimizes representation resolution, not institution membership, 
    - Obtain graded relevance labels from at least two reviewers.
    - Resolve disagreements before opening the final test results.
 
-The publication benchmark is objective and scalable, but it does not replace human labels for final supervisor suitability.
+The publication benchmark is objective and scalable, but it does not replace human labels for final applicant-to-researcher relevance.
 
 ## Leakage Controls
 
@@ -42,7 +42,7 @@ The publication benchmark is objective and scalable, but it does not replace hum
 | Representative works per cluster | 1, 3, 5 |
 | Publication rerank | none; representative works; all work vectors |
 
-CV/proposal weighting and institution/supervisor logic are frozen so the experiment isolates Research Profile storage resolution.
+CV/proposal weighting and institution-pool logic are frozen so the experiment isolates Research Profile storage resolution.
 
 ## Metrics
 

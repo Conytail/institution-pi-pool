@@ -1,0 +1,29 @@
+schema_version: 1
+
+corrections:
+  - correction_id: cityu_songhua_hu_email_after_identity_merge_20260714
+    institution_id: inst_45ee6faccaff8380
+    person_id: pi_d9fc322abbf86816
+    fields:
+      emails:
+        - songhuhu@cityu.edu.hk
+    official_evidence_url: https://scholars.cityu.edu.hk/en/persons/songhuhu/
+    reason: >-
+      The exact-profile identity merge correctly joined HU Songhua and Songhua
+      HU, but the legacy merge path let an empty person-local email list erase
+      the current official Scholars email. The merge implementation now
+      prevents that loss; this correction restores the already-merged record.
+    verified_at: "2026-07-14T21:40:00+08:00"
+
+  - correction_id: cityu_vijay_bhatia_title_from_person_card_20260714
+    institution_id: inst_45ee6faccaff8380
+    person_id: pi_95742b25caa779b7
+    fields:
+      title: Adjunct Professor
+    official_evidence_url: https://www.en.cityu.edu.hk/en/our-people/adjunct-visiting-professors
+    reason: >-
+      The current official person-scoped card labels Vijay Bhatia as Adjunct
+      Professor. A historical generic parse of the aggregate page had retained
+      Part-time Lecturer from neighbouring page text before the card-boundary
+      parser was introduced.
+    verified_at: "2026-07-14T23:34:00+08:00"

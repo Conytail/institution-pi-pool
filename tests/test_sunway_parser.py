@@ -2,7 +2,6 @@ from pathlib import Path
 
 from pi_index.parsers.faculty_directory import parse_faculty_directory
 from pi_index.parsers.mailto import extract_emails_from_html
-from pi_index.verify.supervisor_signal import supervisor_confidence
 
 
 FIXTURES = Path(__file__).parent / "fixtures" / "sunway"
@@ -44,45 +43,24 @@ def test_sunway_cloudflare_email_decoding():
     assert extract_emails_from_html(fixture("person_card.html")) == ["maya.chen@sunway.edu.my"]
 
 
-def test_sunway_professor_programme_leader_of_phd_is_verified_supervisor_signal():
+def test_sunway_professor_programme_leader_of_phd_title_is_extracted():
     people = parse_fixture("professor_phd_programme_leader.html")
     assert len(people) == 1
     assert "Doctor of Philosophy" in people[0].title
-    pi_confidence, likely_supervisor, reasons = supervisor_confidence(people[0].title, "", [])
-    assert pi_confidence == "high"
-    assert likely_supervisor == "true"
-    assert "PhD programme leadership" in reasons[0]
 
 
-def test_sunway_senior_lecturer_and_lecturer_route_to_review_queue():
+def test_sunway_senior_lecturer_and_lecturer_are_parsed_as_people():
     people = parse_fixture("lecturer_cards.html")
     by_name = {person.name: person for person in people}
     assert sorted(by_name) == ["Denise Ng", "Siti Hassan"]
-    for person in by_name.values():
-        pi_confidence, likely_supervisor, reasons = supervisor_confidence(person.title, "", [])
-        assert pi_confidence == "medium"
-        assert likely_supervisor == "unknown"
-        assert "review-queue role indicator" in reasons[0]
+    assert {person.title for person in people} == {"Lecturer", "Senior Lecturer"}
     assert by_name["Denise Ng"].emails == ["denise.ng@sunway.edu.my"]
 
 
-def test_sunway_dean_or_deputy_dean_with_professor_title_is_verified_signal():
+def test_sunway_dean_or_deputy_dean_with_professor_title_is_parsed():
     people = parse_fixture("dean_professor_cards.html")
     assert len(people) == 2
-    for person in people:
-        pi_confidence, likely_supervisor, _reasons = supervisor_confidence(person.title, "", [])
-        assert pi_confidence == "high"
-        assert likely_supervisor == "true"
-
-
-def test_sunway_alumni_office_portfolio_does_not_override_dean_professor_title():
-    pi_confidence, likely_supervisor, _reasons = supervisor_confidence(
-        "Deputy Dean (Employability & Alumni); Professor",
-        "",
-        ["Alumni"],
-    )
-    assert pi_confidence == "high"
-    assert likely_supervisor == "true"
+    assert all("Professor" in person.title for person in people)
 
 
 def test_sunway_non_person_blocks_are_filtered():

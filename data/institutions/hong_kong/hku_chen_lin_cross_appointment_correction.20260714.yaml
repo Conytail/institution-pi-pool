@@ -1,0 +1,22 @@
+schema_version: 1
+
+# The reviewed identity merge combines the HKU Business School profile with
+# the Faculty of Law courtesy appointment. The canonical title must retain the
+# independently evidenced Law role instead of silently dropping it when the
+# duplicate person ID is consolidated.
+corrections:
+  - correction_id: hku_chen_lin_cross_appointment_title_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_d2b51acd5f3ed816
+    fields:
+      title: >-
+        Stelux Professor in Finance; Director, Centre for Financial Innovation
+        and Development; Co-Director, HKU Web3 Institute; Chair of Finance (by
+        courtesy)
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: >-
+      The reviewed identity merge established that the Law directory's Chen
+      Lin is the same person as the HKU Business School finance professor. The
+      Law card explicitly lists Chair of Finance (by courtesy), so that
+      parallel appointment is retained alongside the primary HKUBS roles.
+    verified_at: "2026-07-14T20:52:00+08:00"

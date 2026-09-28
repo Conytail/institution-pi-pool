@@ -8,7 +8,7 @@ from typing import Any
 
 
 def utc_now_iso() -> str:
-    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return datetime.now(timezone.utc).isoformat(timespec="microseconds")
 
 
 def stable_id(prefix: str, *parts: object) -> str:
@@ -61,6 +61,18 @@ class RawSourceRecord(ModelMixin):
     parser_used: str | None = None
     crawl_method: str = "configured_seed"
     error_reason: str | None = None
+    run_id: str | None = None
+    final_url: str | None = None
+    content_type: str | None = None
+    encoding: str | None = None
+    etag: str | None = None
+    last_modified: str | None = None
+    archive_key: str | None = None
+    body_sha256: str | None = None
+    uncompressed_bytes: int = 0
+    compressed_bytes: int = 0
+    network_bytes: int = 0
+    not_modified: bool = False
 
 
 @dataclass
@@ -77,6 +89,7 @@ class PersonEvidence(ModelMixin):
     confidence: float
     evidence_text: str
     content_hash: str
+    run_id: str | None = None
 
 
 @dataclass
@@ -97,15 +110,22 @@ class CanonicalPIRecord(ModelMixin):
     research_areas: list[str]
     publications_summary: dict[str, Any]
     external_ids: dict[str, Any]
-    supervision_signals: list[str]
     source_evidence_ids: list[str]
     last_checked_at: str
     contact_confidence: str = "none"
-    pi_supervisor_confidence: str = "unknown"
     topic_match_confidence: str = "unknown"
-    likely_supervisor_candidate: str = "unknown"
     current_affiliation_confidence: str = "unknown"
-    schema_version: int = 1
+    first_seen_at: str | None = None
+    last_seen_at: str | None = None
+    last_seen_run_id: str | None = None
+    membership_status: str = "active"
+    missing_streak: int = 0
+    pool_scope: str | None = None
+    schema_version: int = 2
+    departments: list[str] = field(default_factory=list)
+    profile_urls: list[str] = field(default_factory=list)
+    field_sources: dict[str, str] = field(default_factory=dict)
+    email_association: str = "none"
 
 
 @dataclass
@@ -120,6 +140,7 @@ class EmailEvidence(ModelMixin):
     verdict: str
     person_id: str | None = None
     association: str = "person_local"
+    run_id: str | None = None
 
 
 @dataclass
@@ -130,10 +151,27 @@ class PIContactVerdict(ModelMixin):
     recommended_action: str
     last_live_checked_at: str
     contact_confidence: str = "none"
-    pi_supervisor_confidence: str = "unknown"
     topic_match_confidence: str = "unknown"
-    likely_supervisor_candidate: str = "unknown"
     current_affiliation_confidence: str = "unknown"
+    run_id: str | None = None
+
+
+@dataclass
+class OfficialPublicationFingerprint(ModelMixin):
+    fingerprint_id: str
+    person_id: str
+    institution_id: str
+    title: str
+    citation_text: str
+    source_url: str
+    run_id: str
+    first_seen_at: str
+    last_seen_at: str
+    last_seen_run_id: str
+    publication_year: int | None = None
+    doi: str | None = None
+    publication_url: str | None = None
+    confidence: float = 0.7
 
 
 @dataclass
@@ -151,6 +189,7 @@ class ParsedPerson(ModelMixin):
     ambiguous_emails: list[str] = field(default_factory=list)
     research_areas: list[str] = field(default_factory=list)
     external_ids: dict[str, Any] = field(default_factory=dict)
+    publication_fingerprints: list[dict[str, Any]] = field(default_factory=list)
     confidence: float = 0.7
     email_association: str = "person_local"
 

@@ -1,0 +1,103 @@
+schema_version: 1
+registry_version: 1
+registry_id: hong_kong_ugc_full_institution_v1
+created_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+region:
+  code: HK
+  name: Hong Kong
+
+selection:
+  policy: all_ugc_funded_universities
+  authority_url: https://www.ugc.edu.hk/eng/ugc/site/fund_inst.html
+  included_count: 8
+  sector_complete: true
+  region_complete: false
+  remaining_scope: Non-UGC degree-awarding institutions require a separate research-degree eligibility audit.
+
+pool_scope:
+  type: institution
+  population: academic_and_research_personnel
+  membership_policy: Include official academic and research staff without inferring eligibility from title; preserve contact and appointment uncertainty separately.
+
+institutions:
+  - institution_id: cityu_hk
+    official_name: City University of Hong Kong
+    aliases: [CityUHK, CityU]
+    ror_id: https://ror.org/03q8dnn23
+    homepage_url: https://www.cityu.edu.hk
+    official_domains: [cityu.edu.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/cityu_hk.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: hkbu
+    official_name: Hong Kong Baptist University
+    aliases: [HKBU]
+    ror_id: https://ror.org/0145fw131
+    homepage_url: https://www.hkbu.edu.hk
+    official_domains: [hkbu.edu.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/hkbu.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: lingnan_hk
+    official_name: Lingnan University
+    aliases: [LU, Lingnan]
+    ror_id: https://ror.org/0563pg902
+    homepage_url: https://www.ln.edu.hk
+    official_domains: [ln.edu.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/lingnan_hk.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: cuhk
+    official_name: The Chinese University of Hong Kong
+    aliases: [CUHK, Chinese University of Hong Kong]
+    ror_id: https://ror.org/00t33hh48
+    homepage_url: https://www.cuhk.edu.hk
+    official_domains: [cuhk.edu.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/cuhk.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: eduhk
+    official_name: The Education University of Hong Kong
+    aliases: [EdUHK, Education University of Hong Kong]
+    ror_id: https://ror.org/000t0f062
+    homepage_url: https://www.eduhk.hk
+    official_domains: [eduhk.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/eduhk.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: polyu
+    official_name: The Hong Kong Polytechnic University
+    aliases: [PolyU, Hong Kong Polytechnic University]
+    ror_id: https://ror.org/0030zas98
+    homepage_url: https://www.polyu.edu.hk
+    official_domains: [polyu.edu.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/polyu.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: hkust
+    official_name: The Hong Kong University of Science and Technology
+    aliases: [HKUST, Hong Kong University of Science and Technology]
+    ror_id: https://ror.org/00q4vv597
+    homepage_url: https://hkust.edu.hk
+    official_domains: [hkust.edu.hk, ust.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/hkust.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated
+
+  - institution_id: hku
+    official_name: The University of Hong Kong
+    aliases: [HKU, University of Hong Kong]
+    ror_id: https://ror.org/02zhqgq86
+    homepage_url: https://www.hku.hk
+    official_domains: [hku.hk]
+    discovery_manifest: data/institutions/hong_kong/discovery/hku.discovery.v1.yaml
+    discovery_status: complete
+    adapter_config_status: validated

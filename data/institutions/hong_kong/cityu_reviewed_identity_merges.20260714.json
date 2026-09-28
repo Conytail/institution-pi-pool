@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_identity_merge_manifest",
+  "safe_merge_pairs": [
+    {
+      "display_name": "Fiona KWOK / KWOK Chung Yee",
+      "recommended_keep_person_id": "pi_22994a2f2242fc41",
+      "merge_person_id": "pi_d5ca283133d8b264",
+      "evidence": "The official directory identifies KWOK Chung Yee 郭頌怡 and the exact CityU Scholars profile identifies 郭頌怡 Fiona KWOK; the identical Chinese name, exact person profile, department, and Assistant Professor title establish one person."
+    }
+  ]
+}

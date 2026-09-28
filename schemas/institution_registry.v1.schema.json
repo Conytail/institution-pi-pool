@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pi-pool.local/schemas/institution_registry.v1.schema.json",
+  "title": "Institution Registry v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_version",
+    "registry_id",
+    "created_at",
+    "baseline_tag",
+    "region",
+    "selection",
+    "pool_scope",
+    "institutions"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "registry_version": {"type": "integer", "minimum": 1},
+    "registry_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date"},
+    "baseline_tag": {"type": "string", "minLength": 1},
+    "region": {
+      "type": "object",
+      "required": ["code", "name"],
+      "properties": {
+        "code": {"type": "string", "minLength": 2},
+        "name": {"type": "string", "minLength": 1}
+      }
+    },
+    "selection": {
+      "type": "object",
+      "required": [
+        "policy",
+        "authority_url",
+        "included_count",
+        "sector_complete",
+        "region_complete",
+        "remaining_scope"
+      ],
+      "properties": {
+        "policy": {"type": "string", "minLength": 1},
+        "authority_url": {"type": "string", "format": "uri"},
+        "included_count": {"type": "integer", "minimum": 1},
+        "sector_complete": {"type": "boolean"},
+        "region_complete": {"type": "boolean"},
+        "remaining_scope": {"type": "string", "minLength": 1}
+      }
+    },
+    "pool_scope": {
+      "type": "object",
+      "required": ["type", "population", "membership_policy"],
+      "properties": {
+        "type": {"const": "institution"},
+        "population": {"const": "academic_and_research_personnel"},
+        "membership_policy": {"type": "string", "minLength": 1}
+      }
+    },
+    "institutions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "institution_id",
+          "official_name",
+          "aliases",
+          "ror_id",
+          "homepage_url",
+          "official_domains",
+          "discovery_manifest",
+          "discovery_status",
+          "adapter_config_status"
+        ],
+        "properties": {
+          "institution_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "official_name": {"type": "string", "minLength": 1},
+          "aliases": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "ror_id": {"type": "string", "pattern": "^https://ror\\.org/[0-9a-z]{9}$"},
+          "homepage_url": {"type": "string", "format": "uri"},
+          "official_domains": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "discovery_manifest": {"type": "string", "minLength": 1},
+          "discovery_status": {"const": "complete"},
+          "adapter_config_status": {"enum": ["not_started", "in_progress", "validated"]}
+        }
+      }
+    }
+  }
+}

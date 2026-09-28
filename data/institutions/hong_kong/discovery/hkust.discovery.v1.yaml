@@ -1,0 +1,72 @@
+schema_version: 1
+manifest_version: 1
+institution_id: hkust
+checked_at: "2026-07-13"
+baseline_tag: baseline-v0.1
+
+identity:
+  official_name: The Hong Kong University of Science and Technology
+  ror_id: https://ror.org/00q4vv597
+  homepage_url: https://hkust.edu.hk
+  official_domains: [hkust.edu.hk, ust.hk]
+
+scope:
+  type: institution
+  name: Whole institution
+  population: academic_and_research_personnel
+  inclusion_rule: Academic and research staff listed by official academic or research units, regardless of title; preserve appointment status as metadata.
+  exclusions:
+    - Current students and research postgraduate profiles
+    - Administrative staff without an academic or research appointment
+  membership_policy: Include official academic and research staff without inferring eligibility from title; contact and appointment review remain separate.
+  research_unit_policy: Use the central faculty profile directory as the person backbone; include institute-only academic staff and deduplicate all cross-unit appointments.
+
+sources:
+  - source_id: academic_structure
+    role: organizational_scope
+    url: https://hkust.edu.hk/directory/academic-departments
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official academic departments and research-unit directory.
+  - source_id: faculty_profiles
+    role: people_directory
+    url: https://facultyprofiles.hkust.edu.hk/facultylisting.php
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Institution-wide current faculty directory with unit filters and research interests.
+  - source_id: research_degrees
+    role: research_degree
+    url: https://prog-crs.hkust.edu.hk/pgprog
+    official: true
+    access_state: reachable
+    observed_http_status: 200
+    note: Official postgraduate programme and course catalog.
+
+academic_units:
+  - {unit_id: school_science, name: School of Science, unit_type: school, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: school_engineering, name: School of Engineering, unit_type: school, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: school_business_management, name: School of Business and Management, unit_type: school, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: school_humanities_social_science, name: School of Humanities and Social Science, unit_type: school, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: academy_interdisciplinary_studies, name: Academy of Interdisciplinary Studies, unit_type: academy, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: school_medicine, name: School of Medicine, unit_type: school, scope_status: include, evidence_source_id: faculty_profiles}
+  - {unit_id: jockey_club_institute_advanced_study, name: HKUST Jockey Club Institute for Advanced Study, unit_type: institute, scope_status: include, evidence_source_id: faculty_profiles}
+
+coverage:
+  unit_inventory_granularity: top_level_and_cross_faculty_academic_units
+  top_level_unit_count: 7
+  all_top_level_units_accounted_for: true
+  people_source_present: true
+  research_degree_evidence_present: true
+  discovery_status: complete
+  adapter_readiness: ready
+
+adapter_assessment:
+  coverage_strategy: Reachable central faculty directory as the backbone, with academic-directory and programme validation.
+  template_hypotheses:
+    - {source_id: faculty_profiles, template_family: custom_filterable_faculty_directory, confidence: high}
+  known_constraints:
+    - Adjunct, teaching and emeritus titles are retained; recommendation eligibility is based on explicit research evidence, not title.
+    - HKUST Guangzhou references must not be treated as current Hong Kong campus membership without official HK evidence.
+  next_step: Create an Adapter Config v2 from faculty_profiles and validate unit filters, pagination and profile completeness.

@@ -25,20 +25,14 @@ def score_breakdown(
     elif topic_conf == "medium":
         research_fit_score = min(1.0, research_fit_score + 0.08)
 
-    supervision_conf = verdict.pi_supervisor_confidence if verdict else record.pi_supervisor_confidence
     contact_conf = verdict.contact_confidence if verdict else record.contact_confidence
-    supervisor_validity_score = CONFIDENCE_SCORE.get(supervision_conf, 0.3)
     contact_score = CONFIDENCE_SCORE.get(contact_conf, 0.0)
     institution_fit_score = 1.0 if institution_fit_score >= 1.0 else 0.0
-    total_score = 0.0
-    if institution_fit_score:
-        total_score = research_fit_score * (0.75 + 0.25 * supervisor_validity_score)
+    total_score = research_fit_score if institution_fit_score else 0.0
     return {
         "institution_fit_score": round(institution_fit_score, 4),
         "research_fit_score": round(research_fit_score, 4),
-        "supervisor_validity_score": round(supervisor_validity_score, 4),
         "topic_score": round(research_fit_score, 4),
-        "supervision_score": round(supervisor_validity_score, 4),
         "contact_score": round(contact_score, 4),
         "institution_score": round(institution_fit_score, 4),
         "total_score": round(total_score, 4),

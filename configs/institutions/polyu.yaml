@@ -1,0 +1,142 @@
+schema_version: 2
+config_version: 2
+
+institution:
+  name: The Hong Kong Polytechnic University
+  country: Hong Kong
+  region: Asia
+  ror_id: https://ror.org/0030zas98
+  homepage_url: https://www.polyu.edu.hk
+  official_domains: [polyu.edu.hk]
+  allowed_email_domains: [polyu.edu.hk]
+
+pool_scope:
+  type: multi_unit
+  name: Whole institution
+  population: academic_and_research_personnel
+  units:
+    - name: Faculty of Business
+      seed_urls:
+        - https://www.polyu.edu.hk/lms/people/academic-staff/
+        - https://www.polyu.edu.hk/mm/people/academic-staff/
+        - https://www.polyu.edu.hk/af/people/academic-staff/
+    - name: Faculty of Computer and Mathematical Sciences
+      seed_urls:
+        - https://www.polyu.edu.hk/ama/people/academic-staff/
+        - https://www.polyu.edu.hk/comp/people/academic-staff/
+        - https://www.polyu.edu.hk/dsai/people/academic-staff/
+    - name: Faculty of Construction and Environment
+      seed_urls:
+        - https://www.polyu.edu.hk/arch/people/academic-staff/
+        - https://www.polyu.edu.hk/beee/people/academic-staff/
+        - https://www.polyu.edu.hk/cmi/people/academic-staff/
+        - https://www.polyu.edu.hk/cee/people/academic-staff/
+        - https://www.polyu.edu.hk/lsgs/people/academic-staff/
+    - name: Faculty of Engineering
+      seed_urls:
+        - https://www.polyu.edu.hk/aae/people/academic-staff/
+        - https://www.polyu.edu.hk/bme/people/academic-and-teaching-staff/
+        - https://www.polyu.edu.hk/eee/people/academic-staff-and-teaching-staff/
+        - https://www.polyu.edu.hk/ise/people/academic-staff/
+        - https://www.polyu.edu.hk/me/people/academic-teaching-staff/
+    - name: Faculty of Health and Social Sciences
+      seed_urls:
+        - https://www.polyu.edu.hk/apss/people/academic-staff/
+        - https://www.polyu.edu.hk/hti/people/academic-staff/
+        - https://www.polyu.edu.hk/rs/people/academic-staff/
+        - https://www.polyu.edu.hk/rs/people/research-assistant-professors/
+        - https://www.polyu.edu.hk/sn/people/academic-staff/
+        - https://www.polyu.edu.hk/sn/people/research-assistant-professor/
+        - https://www.polyu.edu.hk/so/people/academic-staff/
+    - name: Faculty of Humanities
+      seed_urls:
+        - https://www.polyu.edu.hk/chc/people/academic-staff/?sc_lang=en
+        - https://www.polyu.edu.hk/engl/people/academic-staff/
+        - https://www.polyu.edu.hk/lst/people/academic-staff/
+    - name: Faculty of Science
+      seed_urls:
+        - https://www.polyu.edu.hk/chem/people/academic-staff/
+        - https://www.polyu.edu.hk/pm/people/academic-staff/
+        - https://www.polyu.edu.hk/fsn/people/academic-staff/
+        - https://www.polyu.edu.hk/ls/people/academic-staff/
+    - name: School of Design
+      seed_urls: [https://www.polyu.edu.hk/sd/people/academic-staff/]
+    - name: School of Fashion and Textiles
+      seed_urls: [https://www.polyu.edu.hk/sft/people/academic-staff/]
+    - name: School of Hotel and Tourism Management
+      seed_urls: [https://www.polyu.edu.hk/shtm/people/academic-staff/]
+
+site:
+  template_family: polyu_sitecore_academic_directory_v1
+
+crawl:
+  seed_urls:
+    - https://www.polyu.edu.hk/lms/people/academic-staff/
+    - https://www.polyu.edu.hk/mm/people/academic-staff/
+    - https://www.polyu.edu.hk/af/people/academic-staff/
+    - https://www.polyu.edu.hk/ama/people/academic-staff/
+    - https://www.polyu.edu.hk/comp/people/academic-staff/
+    - https://www.polyu.edu.hk/dsai/people/academic-staff/
+    - https://www.polyu.edu.hk/arch/people/academic-staff/
+    - https://www.polyu.edu.hk/beee/people/academic-staff/
+    - https://www.polyu.edu.hk/cmi/people/academic-staff/
+    - https://www.polyu.edu.hk/cee/people/academic-staff/
+    - https://www.polyu.edu.hk/lsgs/people/academic-staff/
+    - https://www.polyu.edu.hk/aae/people/academic-staff/
+    - https://www.polyu.edu.hk/bme/people/academic-and-teaching-staff/
+    - https://www.polyu.edu.hk/eee/people/academic-staff-and-teaching-staff/
+    - https://www.polyu.edu.hk/ise/people/academic-staff/
+    - https://www.polyu.edu.hk/me/people/academic-teaching-staff/
+    - https://www.polyu.edu.hk/apss/people/academic-staff/
+    - https://www.polyu.edu.hk/hti/people/academic-staff/
+    - https://www.polyu.edu.hk/rs/people/academic-staff/
+    - https://www.polyu.edu.hk/rs/people/research-assistant-professors/
+    - https://www.polyu.edu.hk/sn/people/academic-staff/
+    - https://www.polyu.edu.hk/sn/people/research-assistant-professor/
+    - https://www.polyu.edu.hk/so/people/academic-staff/
+    - https://www.polyu.edu.hk/chc/people/academic-staff/?sc_lang=en
+    - https://www.polyu.edu.hk/engl/people/academic-staff/
+    - https://www.polyu.edu.hk/lst/people/academic-staff/
+    - https://www.polyu.edu.hk/chem/people/academic-staff/
+    - https://www.polyu.edu.hk/pm/people/academic-staff/
+    - https://www.polyu.edu.hk/fsn/people/academic-staff/
+    - https://www.polyu.edu.hk/ls/people/academic-staff/
+    - https://www.polyu.edu.hk/sd/people/academic-staff/
+    - https://www.polyu.edu.hk/sft/people/academic-staff/
+    - https://www.polyu.edu.hk/shtm/people/academic-staff/
+  max_depth: 1
+  max_pages: 1900
+  profile_link_limit: 1700
+  profile_links_from_parsed_people_only: true
+  crawl_delay_seconds: 0.5
+  use_homepage_discovery: false
+  allow_serp: false
+  respect_robots_txt: true
+  profile_url_patterns: [/people/academic-staff/, /people/academic-and-teaching-staff/, /people/academic-teaching-staff/, /people/research-assistant-professor/]
+  exclude_url_patterns: [supporting-staff, research-students]
+
+parsing:
+  extract_publication_fingerprints: true
+  preferred_adapters: [polyu_academic_directory]
+  profile_adapters: [elsevier_pure_person, generic_html]
+
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 700
+  maximum_duplicate_rate: 0.08
+  minimum_profile_url_coverage: 0.90
+  minimum_seed_url_coverage: 0.98
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 0.95
+  minimum_profile_parse_coverage: 1.0
+  require_profile_follow: true
+  require_pagination_complete: true

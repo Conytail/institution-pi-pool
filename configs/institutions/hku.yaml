@@ -1,0 +1,200 @@
+schema_version: 2
+config_version: 2
+
+institution:
+  name: The University of Hong Kong
+  country: Hong Kong
+  region: Asia
+  ror_id: https://ror.org/02zhqgq86
+  homepage_url: https://www.hku.hk
+  official_domains: [hku.hk]
+  allowed_email_domains: [hku.hk]
+
+pool_scope:
+  type: multi_unit
+  name: Whole institution
+  population: academic_and_research_personnel
+  units:
+    - name: Faculty of Architecture
+      seed_urls:
+        - https://hub.hku.hk/simple-search?location=crisrp&filter_field_1=faculty&filter_type_1=authority&filter_value_1=ou00005
+    - name: Faculty of Arts
+      seed_urls:
+        - https://arts.hku.hk/about-us/find-an-expert/
+        - https://web.chinese.hku.hk/en/people/academic_staff/
+        - https://english.hku.hk/ajax/frontend/data_people.php
+        - https://www.web.smlc.hku.hk/teachingstaff
+        - https://philosophy.hku.hk/faculty-and-staff/
+    - name: HKU Business School
+      seed_urls: [https://www.hkubs.hku.hk/people/]
+    - name: Faculty of Dentistry
+      seed_urls: [https://facdent.hku.hk/people/professoriate-staff/]
+    - name: Faculty of Education
+      seed_urls: [https://web.edu.hku.hk/faculty-academics]
+    - name: Faculty of Engineering
+      seed_urls:
+        - https://www.civil.hku.hk/h2_acstaff.html
+        - https://www.dase.hku.hk/people/academic-staff
+        - http://ece.hku.hk/people/
+        - https://i-school.hku.hk/people/
+        - https://mech.hku.hk/academic-staffs/
+        - https://www.sbme.hku.hk/people
+    - name: Faculty of Law
+      seed_urls: [https://www.law.hku.hk/academic-staff/]
+    - name: Li Ka Shing Faculty of Medicine
+      seed_urls:
+        - https://www.anaesthesia.hku.hk/en/Our-Team/Academic
+        - https://oncology.med.hku.hk/en/Our-Team/Academic-Staff
+        - https://radiology.med.hku.hk/en/Our-Team/Academic-Staff
+        - https://emed.med.hku.hk/en/Our-Team/Academic-Staff
+        - https://fmpc.hku.hk/en/Our-Team/Academic-Academic-related-and-Medical-Staff
+        - https://medic.hku.hk/en/Staff/University-Academic-Staff
+        - https://hkumicro.hku.hk/university-staff/
+        - https://obsgyn.med.hku.hk/en/Our-Team/University-Staff
+        - https://www.ophthalmology.hku.hk/academic-and-clinical-staff
+        - https://www.ortho.hku.hk/about-us/staff/hku-research-staff/
+        - https://www.ortho.hku.hk/about-us/staff/hku-clinical-staff/
+        - https://paed.hku.hk/en1/Staff/University-Academic-Staff/
+        - https://www.patho.hku.hk/en/Our-Team/Academic
+        - https://www.psychiatry.hku.hk/academic-staff
+        - https://www.surgery.hku.hk/en/Our-Team/Academic-Staff
+        - https://hkuccmu.hku.hk/academic-staff
+        - https://mehu.hku.hk/academic-staff/
+        - https://www.sbms.hku.hk/faculty
+        - https://nursing.hku.hk/people/research-faculty
+        - https://sph.hku.hk/en/about-us/academic-staff
+        - https://www.pharma.hku.hk/en/Our-People/Professoriate-Staff
+        - https://scm.hku.hk/Views/People/ProfessoriateStaff.html
+        - https://scm.hku.hk/Views/People/ResearchStaff.html
+    - name: Faculty of Science
+      seed_urls:
+        - https://www.scifac.hku.hk/people/a-z/faculty-of-science
+        - https://www.scifac.hku.hk/people/a-z/school-of-biological-sciences
+        - https://www.scifac.hku.hk/people/a-z/department-of-chemistry
+        - https://www.scifac.hku.hk/people/a-z/department-of-earth-planetary-sciences
+        - https://www.scifac.hku.hk/people/a-z/department-of-mathematics
+        - https://www.scifac.hku.hk/people/a-z/department-of-physics
+    - name: Faculty of Social Sciences
+      seed_urls:
+        - https://web.socsc.hku.hk/people/
+        - https://www.geog.hku.hk/full-time-academic-staff
+        - https://ppa.hku.hk/people/?people_type=faculty-members
+        - https://psychology.hku.hk/faculty-members/
+        - https://sociology.hku.hk/people
+        - https://web.socialwork.hku.hk/faculty-members/
+        - https://www.hkums.hku.hk/staff-page
+        - https://jmsc.hku.hk/people/
+    - name: School of Biomedical Engineering
+      seed_urls: [https://www.sbme.hku.hk/people]
+    - name: School of Computing and Data Science
+      seed_urls: [https://www.cds.hku.hk/about/academic-staff/]
+    - name: School of Future Media
+      seed_urls: [https://www.hkums.hku.hk/staff-page]
+    - name: School of Innovation
+      seed_urls: [https://i-school.hku.hk/people/]
+
+site:
+  template_family: hku_federated_academic_directories_v1
+
+crawl:
+  seed_urls:
+    - https://hub.hku.hk/simple-search?location=crisrp&filter_field_1=faculty&filter_type_1=authority&filter_value_1=ou00005
+    - https://arts.hku.hk/about-us/find-an-expert/
+    - https://web.chinese.hku.hk/en/people/academic_staff/
+    - https://english.hku.hk/ajax/frontend/data_people.php
+    - https://www.web.smlc.hku.hk/teachingstaff
+    - https://philosophy.hku.hk/faculty-and-staff/
+    - https://www.hkubs.hku.hk/people/
+    - https://facdent.hku.hk/people/professoriate-staff/
+    - https://web.edu.hku.hk/faculty-academics
+    - https://www.civil.hku.hk/h2_acstaff.html
+    - https://www.dase.hku.hk/people/academic-staff
+    - https://www.cds.hku.hk/about/academic-staff/
+    - http://ece.hku.hk/people/
+    - https://i-school.hku.hk/people/
+    - https://mech.hku.hk/academic-staffs/
+    - https://www.sbme.hku.hk/people
+    - https://www.law.hku.hk/academic-staff/
+    - https://www.anaesthesia.hku.hk/en/Our-Team/Academic
+    - https://oncology.med.hku.hk/en/Our-Team/Academic-Staff
+    - https://radiology.med.hku.hk/en/Our-Team/Academic-Staff
+    - https://emed.med.hku.hk/en/Our-Team/Academic-Staff
+    - https://fmpc.hku.hk/en/Our-Team/Academic-Academic-related-and-Medical-Staff
+    - https://medic.hku.hk/en/Staff/University-Academic-Staff
+    - https://hkumicro.hku.hk/university-staff/
+    - https://obsgyn.med.hku.hk/en/Our-Team/University-Staff
+    - https://www.ophthalmology.hku.hk/academic-and-clinical-staff
+    - https://www.ortho.hku.hk/about-us/staff/hku-research-staff/
+    - https://www.ortho.hku.hk/about-us/staff/hku-clinical-staff/
+    - https://paed.hku.hk/en1/Staff/University-Academic-Staff/
+    - https://www.patho.hku.hk/en/Our-Team/Academic
+    - https://www.psychiatry.hku.hk/academic-staff
+    - https://www.surgery.hku.hk/en/Our-Team/Academic-Staff
+    - https://hkuccmu.hku.hk/academic-staff
+    - https://mehu.hku.hk/academic-staff/
+    - https://www.sbms.hku.hk/faculty
+    - https://nursing.hku.hk/people/research-faculty
+    - https://sph.hku.hk/en/about-us/academic-staff
+    - https://www.pharma.hku.hk/en/Our-People/Professoriate-Staff
+    - https://scm.hku.hk/Views/People/ProfessoriateStaff.html
+    - https://scm.hku.hk/Views/People/ResearchStaff.html
+    - https://www.scifac.hku.hk/people/a-z/faculty-of-science
+    - https://www.scifac.hku.hk/people/a-z/school-of-biological-sciences
+    - https://www.scifac.hku.hk/people/a-z/department-of-chemistry
+    - https://www.scifac.hku.hk/people/a-z/department-of-earth-planetary-sciences
+    - https://www.scifac.hku.hk/people/a-z/department-of-mathematics
+    - https://www.scifac.hku.hk/people/a-z/department-of-physics
+    - https://web.socsc.hku.hk/people/
+    - https://www.geog.hku.hk/full-time-academic-staff
+    - https://ppa.hku.hk/people/?people_type=faculty-members
+    - https://psychology.hku.hk/faculty-members/
+    - https://sociology.hku.hk/people
+    - https://web.socialwork.hku.hk/faculty-members/
+    - https://www.hkums.hku.hk/staff-page
+    - https://jmsc.hku.hk/people/
+  seed_requests:
+    - url: https://english.hku.hk/ajax/frontend/data_people.php
+      method: POST
+      form_data:
+        request: "1"
+        has_cat: All
+        staff_cat: Faculty
+  max_depth: 1
+  max_pages: 3000
+  profile_link_limit: 2500
+  profile_links_from_parsed_people_only: true
+  crawl_delay_seconds: 0.5
+  use_homepage_discovery: false
+  allow_serp: false
+  respect_robots_txt: true
+  pagination_link_text_patterns: [next, next page]
+  pagination_url_patterns: ["?pg=", "/page"]
+  exclude_url_patterns:
+    # This is one shared honorary-professor collection, not a person profile.
+    - https://www.web.smlc.hku.hk/honorary-professors
+
+parsing:
+  extract_publication_fingerprints: true
+  preferred_adapters: [hku_multi_template_directory]
+  profile_adapters: [hku_federated_profile]
+
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
+
+refresh:
+  directory_interval_days: 30
+  profile_interval_days: 90
+
+quality_gate:
+  minimum_people: 1200
+  maximum_duplicate_rate: 0.12
+  minimum_profile_url_coverage: 0.85
+  minimum_seed_url_coverage: 0.95
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 1.0
+  minimum_profile_parse_coverage: 1.0
+  require_profile_follow: true
+  require_pagination_complete: true

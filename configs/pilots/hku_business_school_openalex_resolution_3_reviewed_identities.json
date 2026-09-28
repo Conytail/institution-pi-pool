@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_openalex_identity_manifest",
+  "reviewed_at": "2026-07-15T10:31:44Z",
+  "reviewed_by": "codex_hkubs_openalex_resolution_review_20260715",
+  "links": [
+    {
+      "person_id": "pi_0c47fd78b5b78c62",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Ye LUO",
+      "reason": "Singleton audit classification official_evidence_only_required: The accepted Author is primarily an Argonne/quantum-materials and exascale-computing profile; the official econometrics Works form only a small subset and some Mathematics/Decision Science records are also unrelated.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2242034775",
+          "expected_title": "The Sorted Effects Method: Discovering Heterogeneous Effects Beyond Their Averages"
+        },
+        {
+          "openalex_work_id": "W2614556625",
+          "expected_title": "Core Determining Class and Inequality Selection"
+        },
+        {
+          "openalex_work_id": "W2782512133",
+          "expected_title": "Estimation and Inference of Treatment Effects with L2-Boosting in High-Dimensional Settings"
+        },
+        {
+          "openalex_work_id": "W2891467507",
+          "expected_title": "An Imputation-regularized Optimization Algorithm for High Dimensional Missing Data Problems and Beyond"
+        },
+        {
+          "openalex_work_id": "W2944396194",
+          "expected_title": "Errors in the Dependent Variable of Quantile Regression Models"
+        },
+        {
+          "openalex_work_id": "W3206877543",
+          "expected_title": "Shape-Enforcing Operators for Generic Point and Interval Estimators of Functions"
+        },
+        {
+          "openalex_work_id": "W2607714261",
+          "expected_title": "L2-Boosting for Economic Applications",
+          "expected_openalex_title": "<i>L</i><sub>2</sub>-Boosting for Economic Applications"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_2a0429f880011014",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Jian ZHANG",
+      "reason": "Split/manual audit reviewed policy official_evidence_only; K=[], KF=[]. Rebuild person-Work links and vectors from K profiles plus approved Works from KF profiles; remove every Work sourced only from X profiles.",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W2980969207",
+          "expected_title": "Air Pollution, Behavioral Bias, and the Disposition Effect in China"
+        },
+        {
+          "openalex_work_id": "W4388108648",
+          "expected_title": "Dirty Air and Green Investments: The Impact of Pollution Information on Portfolio Allocations"
+        },
+        {
+          "openalex_work_id": "W4391957190",
+          "expected_title": "Liberalizing Home-Based Business"
+        },
+        {
+          "openalex_work_id": "W2811017897",
+          "expected_title": "Disguised Corruption: Evidence from Consumer Credit in China"
+        },
+        {
+          "openalex_work_id": "W2793856001",
+          "expected_title": "Gender Difference and Intra-Household Economic Power in Mortgage Signing Order"
+        },
+        {
+          "openalex_work_id": "W3123076947",
+          "expected_title": "Gender Gap in Personal Bankruptcy Risks: Empirical Evidence from Singapore"
+        },
+        {
+          "openalex_work_id": "W3091937209",
+          "expected_title": "Good Days, Bad Days: Stock Market Fluctuation and Taxi Tipping Decisions"
+        },
+        {
+          "openalex_work_id": "W2615932930",
+          "expected_title": "Housing Property Rights, Collateral, and Entrepreneurship: Evidence from China"
+        },
+        {
+          "openalex_work_id": "W3035795437",
+          "expected_title": "Interest Rate Pass-Through and Consumption Response: The Deposit Channel"
+        },
+        {
+          "openalex_work_id": "W3108156014",
+          "expected_title": "Investing in Low-Trust Countries: On the Role of Social Trust in the Global Mutual Fund Industry"
+        },
+        {
+          "openalex_work_id": "W4409727779",
+          "expected_title": "Tax Policy Transmission and Household Expenditures"
+        },
+        {
+          "openalex_work_id": "W4414595748",
+          "expected_title": "Do Households React to Monetary Policy?"
+        }
+      ]
+    },
+    {
+      "person_id": "pi_ab915b2c31380c0e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Yang LIU",
+      "sync_mode": "official_evidence_only",
+      "primary_openalex_author_id": null,
+      "confirmed_openalex_author_ids": [],
+      "official_works": [
+        {
+          "openalex_work_id": "W4399970449",
+          "expected_title": "Dynamic ESG Equilibrium"
+        },
+        {
+          "openalex_work_id": "W4285165024",
+          "expected_title": "Getting to the Core: Inflation Risks Within and Across Asset Classes"
+        },
+        {
+          "openalex_work_id": "W4317933862",
+          "expected_title": "Government Debt and Risk Premia"
+        },
+        {
+          "openalex_work_id": "W3177432426",
+          "expected_title": "Government Policy Approval and Exchange Rate",
+          "expected_openalex_title": "Government policy approval and exchange rates"
+        },
+        {
+          "openalex_work_id": "W4414266988",
+          "expected_title": "Volatility (Dis)Connect in International Markets"
+        },
+        {
+          "openalex_work_id": "W4210399059",
+          "expected_title": "Volatility Risk Pass-Through"
+        },
+        {
+          "openalex_work_id": "W3134119437",
+          "expected_title": "Volatility, Intermediaries, and Exchange Rate",
+          "expected_openalex_title": "Volatility, intermediaries, and exchange rates"
+        },
+        {
+          "openalex_work_id": "W4406073117",
+          "expected_title": "Currency Risk Under Capital Controls"
+        },
+        {
+          "openalex_work_id": "W4210509393",
+          "expected_title": "Political Announcement Return",
+          "expected_openalex_title": "Government Policy Announcement Return"
+        }
+      ],
+      "reason": "Reviewed Business-school Yang LIU decision after splitting the prior same-name biomedical merge; no safe whole OpenAlex Author profile is confirmed, so only nine reviewed official Works are authoritative."
+    }
+  ]
+}

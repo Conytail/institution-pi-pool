@@ -6,7 +6,7 @@ from typing import Any
 import yaml
 
 
-INSTITUTION_CONFIG_SCHEMA_VERSION = 1
+INSTITUTION_CONFIG_SCHEMA_VERSION = 2
 MATCHING_POLICY_SCHEMA_VERSION = 1
 
 
@@ -35,8 +35,8 @@ def validate_institution_config(
     errors: list[str] = []
     if config.get("schema_version") != INSTITUTION_CONFIG_SCHEMA_VERSION:
         errors.append(f"schema_version must be {INSTITUTION_CONFIG_SCHEMA_VERSION}")
-    if not isinstance(config.get("config_version"), int) or config["config_version"] < 1:
-        errors.append("config_version must be a positive integer")
+    if not isinstance(config.get("config_version"), int) or config["config_version"] < 2:
+        errors.append("config_version must be at least 2")
 
     institution = _required_mapping(config, "institution", errors)
     if not isinstance(institution.get("name"), str) or not institution["name"].strip():
@@ -54,6 +54,22 @@ def validate_institution_config(
         errors.append("pool_scope.type is invalid")
     if not isinstance(pool_scope.get("name"), str) or not pool_scope["name"].strip():
         errors.append("pool_scope.name is required")
+    units = pool_scope.get("units")
+    if units is not None:
+        if not isinstance(units, list) or not units:
+            errors.append("pool_scope.units must be a non-empty list when provided")
+        else:
+            for index, unit in enumerate(units):
+                if not isinstance(unit, dict):
+                    errors.append(f"pool_scope.units[{index}] must be a mapping")
+                    continue
+                if not isinstance(unit.get("name"), str) or not unit["name"].strip():
+                    errors.append(f"pool_scope.units[{index}].name is required")
+                if not _nonempty_strings(unit.get("seed_urls")):
+                    errors.append(f"pool_scope.units[{index}].seed_urls must contain at least one URL")
+                for key in ("match_urls",):
+                    if key in unit and not _nonempty_strings(unit.get(key)):
+                        errors.append(f"pool_scope.units[{index}].{key} must contain non-empty strings")
 
     site = _required_mapping(config, "site", errors)
     if not isinstance(site.get("template_family"), str) or not site["template_family"].strip():
@@ -62,31 +78,77 @@ def validate_institution_config(
     crawl = _required_mapping(config, "crawl", errors)
     if not _nonempty_strings(crawl.get("seed_urls")):
         errors.append("crawl.seed_urls must contain at least one official URL")
-    for key in ("max_depth", "max_pages"):
-        if not isinstance(crawl.get(key), int) or crawl[key] < 0:
-            errors.append(f"crawl.{key} must be a non-negative integer")
+    if not isinstance(crawl.get("max_depth"), int) or crawl["max_depth"] < 0:
+        errors.append("crawl.max_depth must be a non-negative integer")
+    if not isinstance(crawl.get("max_pages"), int) or crawl["max_pages"] < 1:
+        errors.append("crawl.max_pages must be a positive integer")
+    elif isinstance(crawl.get("seed_urls"), list) and crawl["max_pages"] < len(crawl["seed_urls"]):
+        errors.append("crawl.max_pages must be at least the number of seed_urls")
+    if "profile_link_limit" in crawl and (
+        not isinstance(crawl.get("profile_link_limit"), int) or crawl["profile_link_limit"] < 1
+    ):
+        errors.append("crawl.profile_link_limit must be a positive integer")
+    if "profile_links_from_parsed_people_only" in crawl and not isinstance(
+        crawl.get("profile_links_from_parsed_people_only"), bool
+    ):
+        errors.append("crawl.profile_links_from_parsed_people_only must be boolean")
+    if isinstance(units, list) and isinstance(crawl.get("seed_urls"), list):
+        crawl_seeds = set(crawl["seed_urls"])
+        for index, unit in enumerate(units):
+            if isinstance(unit, dict):
+                unknown = set(unit.get("seed_urls") or []) - crawl_seeds
+                if unknown:
+                    errors.append(f"pool_scope.units[{index}].seed_urls must be present in crawl.seed_urls")
 
     parsing = _required_mapping(config, "parsing", errors)
     if not _nonempty_strings(parsing.get("preferred_adapters")):
         errors.append("parsing.preferred_adapters must contain at least one adapter")
-
-    detection = _required_mapping(config, "pi_detection", errors)
-    for key in ("positive_title_patterns", "negative_title_patterns"):
-        if not _nonempty_strings(detection.get(key)):
-            errors.append(f"pi_detection.{key} must contain at least one pattern")
+    if "profile_adapters" in parsing and not _nonempty_strings(parsing.get("profile_adapters")):
+        errors.append("parsing.profile_adapters must contain at least one adapter")
+    if "profile_overrides" in parsing and (
+        not isinstance(parsing.get("profile_overrides"), dict)
+        or not all(
+            isinstance(name, str) and name.strip() and isinstance(url, str) and url.strip()
+            for name, url in parsing.get("profile_overrides", {}).items()
+        )
+    ):
+        errors.append("parsing.profile_overrides must map non-empty names to URLs")
+    if parsing.get("extract_publication_fingerprints") is not True:
+        errors.append("parsing.extract_publication_fingerprints must be true")
 
     refresh = _required_mapping(config, "refresh", errors)
     for key in ("directory_interval_days", "profile_interval_days"):
         if not isinstance(refresh.get(key), int) or refresh[key] < 1:
             errors.append(f"refresh.{key} must be a positive integer")
 
+    capture = _required_mapping(config, "capture", errors)
+    if capture.get("archive_enabled") is not True:
+        errors.append("capture.archive_enabled must be true")
+    if capture.get("compression") != "gzip":
+        errors.append("capture.compression must be gzip")
+    if capture.get("conditional_requests") is not True:
+        errors.append("capture.conditional_requests must be true")
+    if not isinstance(capture.get("missing_runs_before_inactive"), int) or capture["missing_runs_before_inactive"] < 1:
+        errors.append("capture.missing_runs_before_inactive must be a positive integer")
+
     quality = _required_mapping(config, "quality_gate", errors)
     if not isinstance(quality.get("minimum_people"), int) or quality["minimum_people"] < 1:
         errors.append("quality_gate.minimum_people must be a positive integer")
-    for key in ("maximum_duplicate_rate", "minimum_profile_url_coverage"):
+    for key in (
+        "maximum_duplicate_rate",
+        "minimum_profile_url_coverage",
+        "minimum_seed_url_coverage",
+        "minimum_unit_coverage",
+        "minimum_profile_fetch_coverage",
+        "minimum_profile_parse_coverage",
+    ):
         value = quality.get(key)
         if not isinstance(value, (int, float)) or not 0 <= float(value) <= 1:
             errors.append(f"quality_gate.{key} must be between 0 and 1")
+    if quality.get("require_pagination_complete") is not True:
+        errors.append("quality_gate.require_pagination_complete must be true")
+    if "require_profile_follow" in quality and not isinstance(quality.get("require_profile_follow"), bool):
+        errors.append("quality_gate.require_profile_follow must be boolean")
 
     if errors:
         raise ConfigValidationError(f"Invalid institution config {source}: " + "; ".join(errors))
@@ -143,7 +205,6 @@ def validate_matching_policy(
     expected_components = [
         "institution_fit_score",
         "research_fit_score",
-        "supervisor_validity_score",
     ]
     if score_output.get("independent_components") != expected_components:
         errors.append("score_output.independent_components must use the Matching v1 score decomposition")

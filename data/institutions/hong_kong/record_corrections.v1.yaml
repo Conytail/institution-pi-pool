@@ -1,0 +1,174 @@
+schema_version: 1
+
+# Exact, evidence-backed corrections only. These are applied after replay and
+# carry-forward, before the repaired shards are merged. They do not alter the
+# archived source database or pretend that a blocked page was fetched.
+corrections:
+  - correction_id: hku_architecture_rp02773_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://hub.hku.hk/cris/rp/rp02773
+    fields:
+      display_name: "Shi, Alex S."
+      given_name: "Alex S."
+      family_name: Shi
+      title: Assistant Professor
+      email: alexshi@hku.hk
+      profile_url: https://www.arch.hku.hk/staff/rec/shi-alex-shuai/
+      profile_urls:
+        - https://www.arch.hku.hk/staff/rec/shi-alex-shuai/
+        - https://hub.hku.hk/cris/rp/rp02773
+    official_evidence_url: https://www.arch.hku.hk/staff/rec/shi-alex-shuai/
+    reason: >-
+      The archived HKU Scholars Hub directory record was truncated to "Alex";
+      the current official Faculty of Architecture profile was manually verified.
+    verified_at: "2026-07-14T12:00:00+08:00"
+
+  - correction_id: hku_science_juha_merila_profile_pollution_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://www.scifac.hku.hk/people/merilae-juha
+    fields:
+      display_name: "Juha Merilä"
+      given_name: Juha
+      family_name: Merilä
+      aliases: []
+      title: "Professor, Chair of Ecology and Biodiversity, School of Biological Sciences, Faculty of Science, HKU"
+      department: Faculty of Science
+      lab_url: null
+      research_areas:
+        - Local adaptation
+        - Evolution in small populations
+        - Determinants of genetic diversity
+        - Relative roles of natural selection, genetic drift and phenotypic plasticity in explaining population differentiation
+        - Evolution in response to climate change
+      external_ids:
+        google_scholar_id: cZJ7ifQAAAAJ
+        google_scholar_url: https://scholar.google.com/citations?hl=en&user=cZJ7ifQAAAAJ&view_op=list_works
+    official_evidence_url: https://www.scifac.hku.hk/people/merilae-juha
+    reason: >-
+      A historical generic parser selected the section heading "Current research"
+      as this person's name and the navigation label "Dean" as the title. The
+      current source-specific parser reads the official profile heading and
+      appointment while preserving its stated research areas and Scholar ID.
+    verified_at: "2026-07-14T15:45:34+08:00"
+
+  - correction_id: hku_sbme_feifei_wang_copied_contact_20260714
+    institution_id: inst_77b83f05042f0881
+    profile_url: https://sbme.hku.hk/people/wangfeifei
+    fields:
+      display_name: Feifei Wang
+      given_name: Feifei
+      family_name: Wang
+      aliases: []
+      title: Assistant Professor
+      emails: []
+      external_ids: {}
+    official_evidence_url: https://sbme.hku.hk/people/wangfeifei
+    reason: >-
+      The official page identifies Feifei Wang in its heading and biography but
+      contains a copied Wei-Ning Lee contact module. The stale module's wnlee
+      email and Google Scholar link are not evidence about Wang and are removed.
+    verified_at: "2026-07-14T15:44:38+08:00"
+
+  - correction_id: hku_law_chen_lin_structured_card_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_2767e4d691148a25
+    fields:
+      display_name: Chen Lin
+      given_name: Chen
+      family_name: Lin
+      title: Professor; Chair of Finance (by courtesy)
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: >-
+      The Law directory stores the name in #given and #family and two current
+      appointments in #profession. The old line-based parser appended the
+      first appointment, Professor, to the name and retained only the second.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_denis_chang_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_4f5e3a939daf7f5f
+    fields:
+      display_name: Denis Chang
+      given_name: Denis
+      family_name: Chang
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card separates this person's name from post-nominals CBE, KC, SC and JP.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_patrick_chan_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_1e6ba91027060053
+    fields:
+      display_name: Patrick Chan
+      given_name: Patrick
+      family_name: Chan
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card identifies Patrick Chan; judicial honorifics and GBM are not name fields.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_henry_litton_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_2f40a0c7c5dd146f
+    fields:
+      display_name: Henry Litton
+      given_name: Henry
+      family_name: Litton
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card identifies Henry Litton; judicial honorifics and post-nominals are not name fields.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_kemal_bokhary_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_3d75f56c75443c83
+    fields:
+      display_name: Kemal Bokhary
+      given_name: Kemal
+      family_name: Bokhary
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card identifies Kemal Bokhary; judicial honorifics and post-nominals are not name fields.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_geoffrey_ma_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_8269f115919b1537
+    fields:
+      display_name: Geoffrey Ma
+      given_name: Geoffrey
+      family_name: Ma
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card identifies Geoffrey Ma; judicial honorifics and post-nominals are not name fields.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_frank_stock_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_fc6c22a6ee2c1330
+    fields:
+      display_name: Frank Stock
+      given_name: Frank
+      family_name: Stock
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card identifies Frank Stock; judicial honorifics and post-nominals are not name fields.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_law_ian_cross_postnominals_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_f0d517f5185043b1
+    fields:
+      display_name: Ian Grenville Cross
+      given_name: Ian Grenville
+      family_name: Cross
+    official_evidence_url: https://www.law.hku.hk/academic-staff/
+    reason: The structured Law card separates Ian Grenville Cross from post-nominals SBS, QC and SC.
+    verified_at: "2026-07-14T16:35:00+08:00"
+
+  - correction_id: hku_sbms_dong_yan_jin_parallel_roles_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_a9e895cf749f538e
+    fields:
+      title: Professor; Associate Director (Grants and Collaborations)
+    official_evidence_url: https://www.sbms.hku.hk/faculty
+    reason: >-
+      The current SBMS directory repeats Dong-Yan Jin in the academic-rank and
+      leadership sections. Both current roles are retained; the former
+      first-card-wins behavior kept only Associate Director.
+    verified_at: "2026-07-14T16:50:00+08:00"

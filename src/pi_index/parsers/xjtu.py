@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup, Tag
 from ..models import ParsedPerson
 from .generic_html import clean_text
 from .mailto import extract_emails_from_html, split_person_and_ambiguous_emails
+from .publications import extract_publication_fingerprints
 
 
 CHINESE_NAME_RE = re.compile(r"^[\u4e00-\u9fff·]{2,6}$")
@@ -158,6 +159,7 @@ def parse_xjtu_teacher_profile(html_text: str, source_url: str, config: dict | N
             emails=emails,
             ambiguous_emails=ambiguous_emails,
             research_areas=research_areas,
+            publication_fingerprints=extract_publication_fingerprints(html_text, source_url),
             source_url=source_url,
             source_type="official_profile",
             extraction_method="xjtu_teacher_profile",

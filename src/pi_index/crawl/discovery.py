@@ -64,6 +64,21 @@ def discover_institution_urls(
     for seed in crawl.get("seed_urls") or []:
         urls.append((seed, "configured_seed"))
 
+    explicit_sitemaps = crawl.get("sitemap_urls") or []
+    if homepage and explicit_sitemaps and len(urls) < max_pages:
+        sitemap_limit = max(0, max_pages - len(urls))
+        sitemap_base_url = crawl.get("sitemap_base_url") or explicit_sitemaps[0]
+        for url in discover_sitemap_urls(
+            sitemap_base_url,
+            fetcher,
+            limit=sitemap_limit,
+            patterns=crawl.get("sitemap_url_patterns") or None,
+            sitemap_urls=explicit_sitemaps,
+            max_sitemaps=int(crawl.get("sitemap_max_files") or len(explicit_sitemaps)),
+            logger=logger,
+        ):
+            urls.append((url, "sitemap_profile"))
+
     if homepage and crawl.get("use_homepage_discovery", True):
         for url in common_official_urls(homepage, crawl_policy.get("common_official_paths") or []):
             urls.append((url, "common_official_path"))
@@ -72,7 +87,9 @@ def discover_institution_urls(
             for url in discover_sitemap_urls(homepage, fetcher, limit=sitemap_limit, logger=logger):
                 urls.append((url, "sitemap"))
 
-    if len(urls) < max_pages and crawl.get("allow_serp", True):
+    offline = bool(getattr(fetcher, "offline", False))
+    allow_serp = bool(crawl.get("allow_serp", True)) and not offline
+    if len(urls) < max_pages and allow_serp:
         keys = available_serp_keys()
         providers = load_search_plugins(logger)
         if keys and providers:
@@ -86,7 +103,8 @@ def discover_institution_urls(
         else:
             logger.info("No SERP API key available; using configured seeds, official paths, and sitemap discovery only.")
     elif len(urls) < max_pages:
-        logger.info("SERP fallback disabled by institution config; using configured official discovery only.")
+        reason = "offline mode" if offline else "institution config"
+        logger.info("SERP fallback disabled by %s; using configured official discovery only.", reason)
 
     deduped: list[tuple[str, str]] = []
     seen: set[str] = set()

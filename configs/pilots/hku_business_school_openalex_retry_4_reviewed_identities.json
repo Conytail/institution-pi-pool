@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "audit_type": "reviewed_openalex_identity_manifest",
+  "reviewed_at": "2026-07-15T10:31:44Z",
+  "reviewed_by": "codex_hkubs_openalex_retry_review_20260715",
+  "links": [
+    {
+      "person_id": "pi_5456a92908d85448",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Ivy Chu DANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 2 of 10 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5025992972",
+      "confirmed_openalex_author_ids": [
+        "A5025992972"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Business, Management and Accounting",
+          "Decision Sciences",
+          "Social Sciences",
+          "Psychology"
+        ],
+        "always_include_work_ids": [
+          "W2937096464",
+          "W4392747679",
+          "W4413313850"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Chu Dang"
+      ]
+    },
+    {
+      "person_id": "pi_c4db6d2580057d6c",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Anson Yile JIANG",
+      "reason": "Singleton audit classification field_allowlist_required: A coherent target corpus is present, but 5 of 20 locally linked Works fall outside the reviewed field set or belong to visible outlier clusters. Apply the field allowlist, canonical-name authorship validation, and official-Work override; field membership alone is not identity proof. The final live safety review restricts this merged profile to an exact, individually reviewed Work allowlist.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5023271756",
+      "confirmed_openalex_author_ids": [
+        "A5023271756"
+      ],
+      "work_policy": {
+        "mode": "exact_work_allowlist",
+        "work_ids": [
+          "W3113253771",
+          "W4389227124",
+          "W4403475006",
+          "W4410192247"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Yile Jiang"
+      ]
+    },
+    {
+      "person_id": "pi_d29e0e699937b31e",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Zhenhui Jack JIANG",
+      "reason": "Singleton audit classification field_allowlist_required: The information-systems corpus is mixed with a large plant/soil/agriculture cluster and unrelated clinical/materials records. Retain only IS-relevant fields, with official Works overriding field labels. The final live safety review restricts this merged profile to an exact, individually reviewed Work allowlist.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5041679286",
+      "confirmed_openalex_author_ids": [
+        "A5041679286"
+      ],
+      "work_policy": {
+        "mode": "exact_work_allowlist",
+        "work_ids": [
+          "W1497112516",
+          "W1605448959",
+          "W2073428267",
+          "W2082877471",
+          "W2114430050",
+          "W2346506637",
+          "W2559970365",
+          "W2611012316",
+          "W2964309803",
+          "W2964744639",
+          "W3124679280",
+          "W4296230421",
+          "W4313367648",
+          "W4362456338",
+          "W4387530451",
+          "W4389195255",
+          "W4404513897",
+          "W4406212158",
+          "W4414437244",
+          "W2199542973",
+          "W2017469186",
+          "W2092845900",
+          "W2166820194",
+          "W2118226919",
+          "W1972785869",
+          "W2422283038",
+          "W2157503882"
+        ]
+      },
+      "authorship_name_aliases": [
+        "Zhenhui Jiang"
+      ]
+    },
+    {
+      "person_id": "pi_d904b94b4ffd6a9a",
+      "institution_id": "inst_77b83f05042f0881",
+      "expected_display_name": "Tak Zhongqiang HUANG",
+      "reason": "Singleton audit classification full_profile_safe: The locally cached Author corpus is topically and institutionally coherent with the HKU profile and official publication evidence; no incompatible target-author slot or unrelated cross-discipline cluster was observed. Continue to require canonical-name authorship validation on every Work. The final live safety review excludes two unrelated Computer Science records from the otherwise coherent profile.",
+      "sync_mode": "full_profile",
+      "primary_openalex_author_id": "A5018991809",
+      "confirmed_openalex_author_ids": [
+        "A5018991809"
+      ],
+      "authorship_name_aliases": [
+        "Zhongqiang Huang"
+      ],
+      "work_policy": {
+        "mode": "field_allowlist",
+        "fields": [
+          "Psychology",
+          "Business, Management and Accounting",
+          "Energy",
+          "Decision Sciences"
+        ],
+        "always_include_work_ids": [
+          "W4385691042",
+          "W4225278817",
+          "W4306756417",
+          "W4210679017",
+          "W2906967410",
+          "W2771264452",
+          "W2746527007",
+          "W2272362060",
+          "W2465356868",
+          "W2022460787"
+        ]
+      }
+    }
+  ]
+}

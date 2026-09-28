@@ -12,8 +12,9 @@ from ..models import utc_now_iso
 from ..storage import PIIndexStorage
 
 
-SNAPSHOT_SCHEMA_VERSION = 1
-PI_RECORD_SCHEMA_VERSION = 1
+SNAPSHOT_SCHEMA_VERSION = 2
+PI_RECORD_SCHEMA_VERSION = 2
+CAPTURE_SCHEMA_VERSION = 1
 
 
 @dataclass(frozen=True)
@@ -65,7 +66,20 @@ def _current_pi_records(storage: PIIndexStorage, institution_id: str) -> list[di
         """
         SELECT record_json
         FROM canonical_pi_records
-        WHERE institution_id=?
+        WHERE institution_id=? AND COALESCE(membership_status, 'active')!='inactive'
+        ORDER BY display_name COLLATE NOCASE, person_id
+        """,
+        (institution_id,),
+    )
+
+
+def _inactive_pi_records(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
+    return _json_records(
+        storage,
+        """
+        SELECT record_json
+        FROM canonical_pi_records
+        WHERE institution_id=? AND membership_status='inactive'
         ORDER BY display_name COLLATE NOCASE, person_id
         """,
         (institution_id,),
@@ -79,51 +93,106 @@ def _current_contact_verdicts(storage: PIIndexStorage, institution_id: str) -> l
         SELECT c.record_json
         FROM contact_verdicts c
         JOIN canonical_pi_records p ON p.person_id=c.person_id
-        WHERE p.institution_id=?
+        WHERE p.institution_id=? AND COALESCE(p.membership_status, 'active')!='inactive'
         ORDER BY c.person_id
         """,
         (institution_id,),
     )
 
 
-def _current_evidence(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
-    return _json_records(
-        storage,
-        """
-        SELECT record_json
-        FROM person_evidence
-        WHERE institution_id=?
-        ORDER BY evidence_id
-        """,
-        (institution_id,),
+def _evidence_for_records(
+    storage: PIIndexStorage,
+    institution_id: str,
+    records: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    evidence_ids = sorted(
+        {
+            evidence_id
+            for record in records
+            for evidence_id in (record.get("source_evidence_ids") or [])
+        }
     )
+    if not evidence_ids:
+        return []
+    output: list[dict[str, Any]] = []
+    for offset in range(0, len(evidence_ids), 500):
+        batch = evidence_ids[offset : offset + 500]
+        placeholders = ",".join("?" for _ in batch)
+        output.extend(
+            _json_records(
+                storage,
+                f"""
+                SELECT record_json
+                FROM person_evidence
+                WHERE institution_id=? AND evidence_id IN ({placeholders})
+                ORDER BY evidence_id
+                """,
+                (institution_id, *batch),
+            )
+        )
+    return sorted(output, key=lambda record: record["evidence_id"])
 
 
-def _latest_raw_sources(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
+def _run_raw_sources(storage: PIIndexStorage, institution_id: str, run_id: str) -> list[dict[str, Any]]:
     return _json_records(
         storage,
         """
         SELECT r.record_json
         FROM raw_sources r
-        WHERE r.institution_id=?
-          AND r.fetched_at=(
-              SELECT MAX(r2.fetched_at)
-              FROM raw_sources r2
-              WHERE r2.institution_id=r.institution_id AND r2.source_url=r.source_url
-          )
-        ORDER BY r.source_url
+        WHERE r.institution_id=? AND r.run_id=?
+        ORDER BY r.source_url, r.fetched_at
+        """,
+        (institution_id, run_id),
+    )
+
+
+def _failures(storage: PIIndexStorage, institution_id: str, run_id: str) -> list[dict[str, Any]]:
+    rows = storage.conn.execute(
+        """
+        SELECT id, institution_id, source_url, stage, reason, created_at
+        FROM crawl_errors
+        WHERE institution_id=? AND run_id=?
+        ORDER BY id
+        """,
+        (institution_id, run_id),
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def _run_observations(storage: PIIndexStorage, institution_id: str, run_id: str) -> list[dict[str, Any]]:
+    return _json_records(
+        storage,
+        """
+        SELECT record_json FROM pi_observations
+        WHERE institution_id=? AND run_id=?
+        ORDER BY person_id, source_url, observation_id
+        """,
+        (institution_id, run_id),
+    )
+
+
+def _publication_fingerprints(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
+    return _json_records(
+        storage,
+        """
+        SELECT f.record_json
+        FROM official_publication_fingerprints f
+        JOIN canonical_pi_records p ON p.person_id=f.person_id
+        WHERE f.institution_id=? AND COALESCE(p.membership_status, 'active')!='inactive'
+        ORDER BY f.person_id, f.publication_year DESC, f.title
         """,
         (institution_id,),
     )
 
 
-def _failures(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
+def _identity_aliases(storage: PIIndexStorage, institution_id: str) -> list[dict[str, Any]]:
     rows = storage.conn.execute(
         """
-        SELECT id, institution_id, source_url, stage, reason, created_at
-        FROM crawl_errors
+        SELECT alias_person_id, canonical_person_id, institution_id, reason,
+               first_seen_at, last_seen_at, last_seen_run_id
+        FROM pi_identity_aliases
         WHERE institution_id=?
-        ORDER BY id
+        ORDER BY canonical_person_id, alias_person_id
         """,
         (institution_id,),
     ).fetchall()
@@ -133,6 +202,8 @@ def _failures(storage: PIIndexStorage, institution_id: str) -> list[dict[str, An
 def _factual_record(record: dict[str, Any]) -> dict[str, Any]:
     result = dict(record)
     result.pop("last_checked_at", None)
+    result.pop("last_seen_at", None)
+    result.pop("last_seen_run_id", None)
     result.pop("source_evidence_ids", None)
     return result
 
@@ -187,27 +258,49 @@ def _quality_report(
     records: list[dict[str, Any]],
     failures: list[dict[str, Any]],
     quality_gate: dict[str, Any],
+    run_id: str,
+    run_metrics: dict[str, Any],
 ) -> dict[str, Any]:
-    duplicate_count = int(
+    identity_merge_count = int(
         storage.conn.execute(
-            "SELECT COUNT(DISTINCT duplicate_person_id) FROM duplicates WHERE institution_id=?",
-            (institution_id,),
+            "SELECT COUNT(DISTINCT duplicate_person_id) FROM duplicates WHERE institution_id=? AND run_id=?",
+            (institution_id, run_id),
         ).fetchone()[0]
         or 0
     )
-    population = len(records) + duplicate_count
-    duplicate_rate = duplicate_count / population if population else 0.0
+    unresolved_duplicate_groups = storage.find_unresolved_duplicate_groups(
+        institution_id,
+        (str(record.get("person_id")) for record in records if record.get("person_id")),
+    )
+    duplicate_count = sum(len(group) - 1 for group in unresolved_duplicate_groups)
+    duplicate_rate = duplicate_count / len(records) if records else 0.0
+    identity_merge_population = len(records) + identity_merge_count
+    identity_merge_rate = (
+        identity_merge_count / identity_merge_population
+        if identity_merge_population
+        else 0.0
+    )
+    publication_evidence = storage.publication_text_by_person(
+        (record.get("person_id") for record in records),
+        limit=1,
+    )
     metrics = {
         "people": len(records),
+        "identity_merge_count": identity_merge_count,
+        "identity_merge_rate": identity_merge_rate,
         "duplicate_count": duplicate_count,
+        "duplicate_group_count": len(unresolved_duplicate_groups),
         "duplicate_rate": duplicate_rate,
         "profile_url_coverage": _coverage(records, "profile_url"),
         "email_coverage": _coverage(records, "emails"),
         "title_coverage": _coverage(records, "title"),
-        "supervisor_candidate_count": sum(
-            record.get("likely_supervisor_candidate") == "true" for record in records
+        "research_evidence_ready_count": sum(
+            bool(record.get("research_areas"))
+            or bool(publication_evidence.get(record.get("person_id")))
+            for record in records
         ),
         "failure_count": len(failures),
+        **run_metrics,
     }
     checks = {
         "minimum_people": metrics["people"] >= int(quality_gate.get("minimum_people", 1)),
@@ -215,6 +308,21 @@ def _quality_report(
         <= float(quality_gate.get("maximum_duplicate_rate", 0.0)),
         "minimum_profile_url_coverage": metrics["profile_url_coverage"]
         >= float(quality_gate.get("minimum_profile_url_coverage", 0.0)),
+        "minimum_seed_url_coverage": float(metrics.get("seed_url_coverage", 0.0))
+        >= float(quality_gate.get("minimum_seed_url_coverage", 1.0)),
+        "minimum_unit_coverage": float(metrics.get("unit_coverage", 0.0))
+        >= float(quality_gate.get("minimum_unit_coverage", 1.0)),
+        "minimum_profile_fetch_coverage": float(metrics.get("profile_fetch_coverage", 0.0))
+        >= float(quality_gate.get("minimum_profile_fetch_coverage", 0.9)),
+        "minimum_profile_parse_coverage": float(metrics.get("profile_parse_coverage", 0.0))
+        >= float(quality_gate.get("minimum_profile_parse_coverage", 0.0)),
+        "profile_follow_exercised": int(metrics.get("profile_pages_attempted", 0)) > 0
+        if quality_gate.get("require_profile_follow", False)
+        else True,
+        "pagination_complete": bool(metrics.get("pagination_complete"))
+        if quality_gate.get("require_pagination_complete", True)
+        else True,
+        "crawl_complete": bool(metrics.get("crawl_complete")),
     }
     return {
         "schema_version": SNAPSHOT_SCHEMA_VERSION,
@@ -243,6 +351,7 @@ def create_institution_snapshot(
     config: dict[str, Any],
     config_path: str | Path | None = None,
     run_id: str | None = None,
+    archive_root: str | Path | None = None,
 ) -> SnapshotResult:
     institution_row = storage.conn.execute(
         "SELECT record_json FROM institutions WHERE institution_id=?",
@@ -262,10 +371,16 @@ def create_institution_snapshot(
 
     previous_run_id, previous_records = _load_previous_records(institution_root)
     records = _current_pi_records(storage, institution_id)
+    inactive_records = _inactive_pi_records(storage, institution_id)
     verdicts = _current_contact_verdicts(storage, institution_id)
-    evidence = _current_evidence(storage, institution_id)
-    raw_sources = _latest_raw_sources(storage, institution_id)
-    failures = _failures(storage, institution_id)
+    evidence = _evidence_for_records(storage, institution_id, records)
+    raw_sources = _run_raw_sources(storage, institution_id, run_id)
+    failures = _failures(storage, institution_id, run_id)
+    observations = _run_observations(storage, institution_id, run_id)
+    publication_fingerprints = _publication_fingerprints(storage, institution_id)
+    identity_aliases = _identity_aliases(storage, institution_id)
+    run_record = storage.get_ingestion_run(run_id) or {}
+    run_metrics = run_record.get("metrics") or {}
     changes = _changes(previous_records, records)
     quality = _quality_report(
         storage,
@@ -273,26 +388,41 @@ def create_institution_snapshot(
         records,
         failures,
         config.get("quality_gate") or {},
+        run_id,
+        run_metrics,
     )
 
     row_counts = {
         "pi_records.jsonl": _write_jsonl(snapshot_dir / "pi_records.jsonl", records),
+        "inactive_pi_records.jsonl": _write_jsonl(snapshot_dir / "inactive_pi_records.jsonl", inactive_records),
         "contact_verdicts.jsonl": _write_jsonl(snapshot_dir / "contact_verdicts.jsonl", verdicts),
         "evidence.jsonl": _write_jsonl(snapshot_dir / "evidence.jsonl", evidence),
         "raw_sources.jsonl": _write_jsonl(snapshot_dir / "raw_sources.jsonl", raw_sources),
+        "pi_observations.jsonl": _write_jsonl(snapshot_dir / "pi_observations.jsonl", observations),
+        "publication_fingerprints.jsonl": _write_jsonl(
+            snapshot_dir / "publication_fingerprints.jsonl",
+            publication_fingerprints,
+        ),
+        "pi_identity_aliases.jsonl": _write_jsonl(
+            snapshot_dir / "pi_identity_aliases.jsonl",
+            identity_aliases,
+        ),
         "failures.jsonl": _write_jsonl(snapshot_dir / "failures.jsonl", failures),
         "changes.jsonl": _write_jsonl(snapshot_dir / "changes.jsonl", changes),
     }
     _write_json(snapshot_dir / "quality_report.json", quality)
+    _write_json(snapshot_dir / "run_metrics.json", run_metrics)
 
     files = {
         name: _file_metadata(snapshot_dir / name, rows)
         for name, rows in row_counts.items()
     }
     files["quality_report.json"] = _file_metadata(snapshot_dir / "quality_report.json")
+    files["run_metrics.json"] = _file_metadata(snapshot_dir / "run_metrics.json")
     manifest = {
         "snapshot_schema_version": SNAPSHOT_SCHEMA_VERSION,
         "pi_record_schema_version": PI_RECORD_SCHEMA_VERSION,
+        "capture_schema_version": CAPTURE_SCHEMA_VERSION,
         "institution_config_schema_version": INSTITUTION_CONFIG_SCHEMA_VERSION,
         "run_id": run_id,
         "created_at": utc_now_iso(),
@@ -303,6 +433,7 @@ def create_institution_snapshot(
         "template_family": (config.get("site") or {}).get("template_family"),
         "config_path": str(config_path) if config_path is not None else None,
         "config_sha256": _sha256_json(config),
+        "archive_root": str(Path(archive_root).resolve()) if archive_root is not None else None,
         "previous_run_id": previous_run_id,
         "quality_status": quality["status"],
         "counts": {name.removesuffix(".jsonl"): count for name, count in row_counts.items()},

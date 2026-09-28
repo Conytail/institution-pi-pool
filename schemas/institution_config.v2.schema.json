@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pi-pool.local/schemas/institution_config.v2.schema.json",
+  "title": "Institution Adapter Config v2",
+  "type": "object",
+  "required": [
+    "schema_version", "config_version", "institution", "pool_scope", "site",
+    "crawl", "parsing", "refresh", "capture", "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "config_version": {"type": "integer", "minimum": 2},
+    "institution": {
+      "type": "object",
+      "required": ["name", "official_domains"],
+      "anyOf": [
+        {"required": ["ror_id"], "properties": {"ror_id": {"type": "string", "minLength": 1}}},
+        {"required": ["homepage_url"], "properties": {"homepage_url": {"type": "string", "minLength": 1}}}
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "ror_id": {"type": ["string", "null"]},
+        "homepage_url": {"type": ["string", "null"]},
+        "official_domains": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "pool_scope": {
+      "type": "object",
+      "required": ["type", "name"],
+      "properties": {
+        "type": {"enum": ["institution", "faculty", "school", "department", "multi_unit"]},
+        "name": {"type": "string", "minLength": 1},
+        "units": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "seed_urls"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "seed_urls": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "match_urls": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": ["template_family"],
+      "properties": {"template_family": {"type": "string", "minLength": 1}}
+    },
+    "crawl": {
+      "type": "object",
+      "required": ["seed_urls", "max_depth", "max_pages"],
+      "properties": {
+        "seed_urls": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "seed_requests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "method"],
+            "properties": {
+              "url": {"type": "string"},
+              "method": {"enum": ["GET", "POST"]},
+              "form_data": {"type": "object", "additionalProperties": {"type": "string"}}
+            }
+          }
+        },
+        "max_depth": {"type": "integer", "minimum": 0},
+        "max_pages": {"type": "integer", "minimum": 1},
+        "profile_link_limit": {"type": "integer", "minimum": 1},
+        "profile_links_from_parsed_people_only": {"type": "boolean"},
+        "sitemap_urls": {"type": "array", "items": {"type": "string"}},
+        "sitemap_url_patterns": {"type": "array", "items": {"type": "string"}},
+        "sitemap_base_url": {"type": "string"},
+        "sitemap_max_files": {"type": "integer", "minimum": 1}
+      }
+    },
+    "parsing": {
+      "type": "object",
+      "required": ["preferred_adapters", "extract_publication_fingerprints"],
+      "properties": {
+        "preferred_adapters": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "profile_adapters": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "profile_overrides": {
+          "type": "object",
+          "additionalProperties": {"type": "string", "format": "uri"}
+        },
+        "extract_publication_fingerprints": {"const": true}
+      }
+    },
+    "refresh": {
+      "type": "object",
+      "required": ["directory_interval_days", "profile_interval_days"]
+    },
+    "capture": {
+      "type": "object",
+      "required": ["archive_enabled", "compression", "conditional_requests", "missing_runs_before_inactive"],
+      "properties": {
+        "archive_enabled": {"const": true},
+        "compression": {"const": "gzip"},
+        "conditional_requests": {"const": true},
+        "missing_runs_before_inactive": {"type": "integer", "minimum": 1}
+      }
+    },
+    "quality_gate": {
+      "type": "object",
+      "required": [
+        "minimum_people", "maximum_duplicate_rate", "minimum_profile_url_coverage",
+        "minimum_seed_url_coverage", "minimum_unit_coverage", "minimum_profile_fetch_coverage",
+        "minimum_profile_parse_coverage", "require_pagination_complete"
+      ],
+      "properties": {
+        "minimum_people": {"type": "integer", "minimum": 1},
+        "maximum_duplicate_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_profile_url_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_seed_url_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_unit_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_profile_fetch_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "minimum_profile_parse_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "require_profile_follow": {"type": "boolean"},
+        "require_pagination_complete": {"const": true}
+      }
+    }
+  }
+}

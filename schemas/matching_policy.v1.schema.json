@@ -5,7 +5,7 @@
   "type": "object",
   "required": [
     "schema_version", "policy_id", "policy_version", "implementation_status",
-    "institution_fit", "supervisor_validity", "query", "research_fit",
+    "institution_fit", "query", "research_fit",
     "coarse_recall", "full_match", "score_output", "identifiers"
   ],
   "properties": {
@@ -42,7 +42,6 @@
         "zero_only_when_semantic_and_profile_are_zero": {"const": true}
       }
     },
-    "supervisor_validity": {"type": "object"},
     "coarse_recall": {"type": "object"},
     "full_match": {
       "type": "object",
@@ -64,7 +63,7 @@
       "properties": {
         "independent_components": {
           "const": [
-            "institution_fit_score", "research_fit_score", "supervisor_validity_score"
+            "institution_fit_score", "research_fit_score"
           ]
         }
       }

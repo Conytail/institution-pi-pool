@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "suite": "hong_kong_template_families_v1",
+  "regression_test": "tests/test_hong_kong_template_families.py",
+  "template_families": [
+    "cityu_federated_academic_directories_v1",
+    "elsevier_pure_person_sitemap_v1",
+    "hku_federated_academic_directories_v1",
+    "hkust_central_faculty_directory_v1",
+    "polyu_sitecore_academic_directory_v1"
+  ]
+}

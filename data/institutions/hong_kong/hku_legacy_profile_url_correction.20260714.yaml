@@ -1,0 +1,14 @@
+schema_version: 1
+
+corrections:
+  - correction_id: hku_emmanuel_cheung_drop_aggregate_profile_url_20260714
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_55c23c0241996bd9
+    fields:
+      profile_urls:
+        - https://mehu.hku.hk/academic-staff#EmmanuelCheung
+    official_evidence_url: https://mehu.hku.hk/academic-staff/
+    reason: >-
+      Keep the person-specific fragment URL and remove the redundant aggregate
+      directory URL from the canonical list.
+    verified_at: "2026-07-14T23:50:00+08:00"

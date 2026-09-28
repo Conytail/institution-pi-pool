@@ -1,0 +1,38 @@
+schema_version: 1
+corrections:
+  - correction_id: hkubs_matthias_fahn_name_20260715
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_0a23ce24d1a13751
+    fields:
+      display_name: Matthias FAHN
+      given_name: Matthias
+      family_name: FAHN
+      aliases: []
+    official_evidence_url: https://www.hkubs.hku.hk/people/matthias-fahn/
+    reason: The official HKU Business School profile identifies this person as Matthias FAHN; the prior value ended at a middle name and omitted the family name.
+    verified_at: 2026-07-15T18:05:00+08:00
+
+  - correction_id: hkubs_mingzhu_tai_name_20260715
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_3603b5d4dee6f69d
+    fields:
+      display_name: Mingzhu TAI
+      given_name: Mingzhu
+      family_name: TAI
+      aliases: []
+    official_evidence_url: https://www.hkubs.hku.hk/people/mingzhu-tai/
+    reason: The official HKU Business School profile identifies this person as Mingzhu TAI; the prior display name was contaminated by adjacent publication text.
+    verified_at: 2026-07-15T18:05:00+08:00
+
+  - correction_id: hkubs_uta_schoenberg_name_20260715
+    institution_id: inst_77b83f05042f0881
+    person_id: pi_7dee3ab7d976e048
+    fields:
+      display_name: Uta SCHÖNBERG
+      given_name: Uta
+      family_name: SCHÖNBERG
+      aliases:
+        - "Uta SCH\u04e6NBERG"
+    official_evidence_url: https://www.hkubs.hku.hk/people/uta-sch%D3%A7nberg/
+    reason: The official HKU Business School profile renders the surname as SCHÖNBERG; the prior canonical value contained a visually confusable Cyrillic character.
+    verified_at: 2026-07-15T18:05:00+08:00

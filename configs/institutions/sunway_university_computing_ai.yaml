@@ -1,5 +1,5 @@
-schema_version: 1
-config_version: 1
+schema_version: 2
+config_version: 2
 
 institution:
   name: Sunway University
@@ -17,7 +17,16 @@ institution:
 pool_scope:
   type: multi_unit
   name: Computing, Artificial Intelligence, Engineering and Technology
-  population: faculty_and_supervisor_candidates
+  population: academic_and_research_personnel
+  units:
+    - name: School of Computing and Artificial Intelligence
+      seed_urls:
+        - https://sunwayuniversity.edu.my/staff-profiles
+        - https://sunwayuniversity.edu.my/staff-profiles/school/School%20of%20Computing%20and%20Artificial%20Intelligence
+        - https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/staff-profiles
+    - name: Faculty of Engineering and Technology
+      seed_urls:
+        - https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/staff-profiles
 
 site:
   template_family: sunway_drupal_staff_v1
@@ -45,40 +54,18 @@ crawl:
     - "?"
 
 parsing:
+  extract_publication_fingerprints: true
   preferred_adapters:
     - jsonld_person
     - faculty_directory
     - mailto_profile
     - generic_html
 
-pi_detection:
-  positive_title_patterns:
-    - Programme Leader of Doctor of Philosophy
-    - Programme Leader of PhD
-    - Principal Investigator
-    - Group Leader
-    - Lab Director
-    - Distinguished Research Professor
-    - Distinguished Professor
-    - Associate Professor
-    - Assistant Professor
-    - Professor
-    - Dean
-    - Deputy Dean
-  negative_title_patterns:
-    - Student
-    - Alumni
-    - Admin
-    - Coordinator
-    - Officer
-    - Assistant Manager
-    - Admissions
-    - Marketing
-    - English Language
-    - Emeritus
-    - Retired
-    - Former
-    - Post-Doctoral
+capture:
+  archive_enabled: true
+  compression: gzip
+  conditional_requests: true
+  missing_runs_before_inactive: 2
 
 refresh:
   directory_interval_days: 30
@@ -88,3 +75,8 @@ quality_gate:
   minimum_people: 5
   maximum_duplicate_rate: 0.10
   minimum_profile_url_coverage: 0.70
+  minimum_seed_url_coverage: 1.0
+  minimum_unit_coverage: 1.0
+  minimum_profile_fetch_coverage: 0.90
+  minimum_profile_parse_coverage: 0.70
+  require_pagination_complete: true
